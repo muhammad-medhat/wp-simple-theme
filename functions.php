@@ -74,13 +74,6 @@ function restaurant_menu_assets() {
         array( 'bootstrap' ),
         wp_get_theme()->get( 'Version' )
     );
-    wp_enqueue_style(
-        'restaurant-menu-lang',
-        RESTAURANT_MENU_DIR_URI . '/assets/css/lang.css',
-        array( 'bootstrap' ),
-        wp_get_theme()->get( 'Version' )
-    );
-
     /*
      * Bootstrap JavaScript
      */

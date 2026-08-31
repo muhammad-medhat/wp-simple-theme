@@ -1,44 +1,76 @@
-<?php get_header(); 
-    $design = get_theme_mod(
-        'rm_menu_design',
-        'modern'
-    );
+<?php
+
+get_header();
+
+
+$design = get_theme_mod(
+    'rm_menu_design',
+    'modern'
+);
+
+
+/*
+ * Only allow registered designs.
+ */
+$allowed_designs = array(
+    'modern',
+    'elegant',
+    'dark',
+);
+
+
+if ( ! in_array( $design, $allowed_designs, true ) ) {
+    $design = 'modern';
+}
+
 ?>
 
 <div class="menu-design menu-design--<?php echo esc_attr( $design ); ?>"
-    data-menu-design="<?php echo esc_attr( $design ); ?>"></div>
-<?php
+    data-menu-design="<?php echo esc_attr( $design ); ?>">
 
-/*
-* Category navigation
-*/
-get_template_part(
-    'template-parts/menu/category-nav'
-    );
-
-
-/*
- * Get categories
- */
-$categories = get_terms(
-    array(
-        'taxonomy'   => RM_MENU_CATEGORY_TAX,
-        'hide_empty' => true,
-        'orderby'    => 'term_order',
-        'order'      => 'ASC',
-    )
-    );
-    
-    ?>
-
-<main class="menu-design__content">
-
-
-    <?php if ( ! is_wp_error( $categories ) && $categories ) : ?>
-
-    <?php foreach ( $categories as $category ) : ?>
 
     <?php
+    /*
+     * Restaurant Header
+     */
+    get_template_part(
+        'template-parts/menu/header'
+    );
+    ?>
+
+
+    <?php
+    /*
+     * Category Navigation
+     */
+    get_template_part(
+        'template-parts/menu/category-nav'
+    );
+    ?>
+
+
+    <?php
+
+    $categories = get_terms(
+        array(
+            'taxonomy'   => RM_MENU_CATEGORY_TAX,
+            'hide_empty' => true,
+            'orderby'    => 'term_order',
+            'order'      => 'ASC',
+        )
+    );
+
+    ?>
+
+
+    <main class="menu-design__content">
+
+        <?php if ( ! is_wp_error( $categories ) && $categories ) : ?>
+
+        <?php foreach ( $categories as $category ) : ?>
+
+        <?php
+
                 get_template_part(
                     'template-parts/menu/category',
                     null,
@@ -46,27 +78,28 @@ $categories = get_terms(
                         'category' => $category,
                     )
                 );
+
                 ?>
 
-    <?php endforeach; ?>
+        <?php endforeach; ?>
 
-    <?php else : ?>
+        <?php else : ?>
 
-    <div class="menu-empty">
+        <div class="menu-empty">
 
-        <p>
-            <?php esc_html_e(
+            <p>
+                <?php esc_html_e(
                         'No menu categories available.',
                         'restaurant-menu'
-                        ); ?>
-        </p>
+                    ); ?>
+            </p>
 
-    </div>
+        </div>
 
-    <?php endif; ?>
+        <?php endif; ?>
 
+    </main>
 
-</main>
 </div>
 
 <?php get_footer(); ?>

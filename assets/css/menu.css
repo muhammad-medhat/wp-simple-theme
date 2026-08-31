@@ -1,0 +1,26 @@
+/* Shared menu functionality */
+
+.category-name-ar,
+.category-name-en,
+.menu-name-ar,
+.menu-name-en,
+.menu-description-ar,
+.menu-description-en {
+  display: none;
+}
+
+/* Arabic */
+
+body[data-menu-language="ar"] .category-name-ar,
+body[data-menu-language="ar"] .menu-name-ar,
+body[data-menu-language="ar"] .menu-description-ar {
+  display: inline;
+}
+
+/* English */
+
+body[data-menu-language="en"] .category-name-en,
+body[data-menu-language="en"] .menu-name-en,
+body[data-menu-language="en"] .menu-description-en {
+  display: inline;
+}

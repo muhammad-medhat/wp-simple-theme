@@ -14,9 +14,3 @@
 <body <?php body_class(); ?>>
 
     <?php wp_body_open(); ?>
-
-    <main id="site-content">
-
-        <?php
-    get_template_part( 'template-parts/header/restaurant-header' );
-    ?>
