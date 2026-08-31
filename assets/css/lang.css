@@ -1,0 +1,93 @@
+/* --------------------------------------------------
+Language Switcher
+-------------------------------------------------- */
+.restaurant-header__language {
+  flex: 0 0 auto;
+}
+.language-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 76px;
+  height: 34px;
+  padding: 3px;
+  border: 1px solid #e3e3e3;
+  border-radius: 999px;
+  background: #f7f7f7;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+.language-switcher__option {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #777;
+  transition: color 0.25s ease;
+}
+.language-switcher__indicator {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease;
+}
+/*
+ * English active
+ */
+html[dir="ltr"] .language-switcher__indicator {
+  transform: translateX(0);
+}
+
+html[dir="ltr"] .language-switcher__option[data-language="en"] {
+  color: #222;
+}
+/*
+ * Arabic active
+ */
+html[dir="rtl"] .language-switcher__indicator {
+  transform: translateX(100%);
+}
+
+html[dir="rtl"] .language-switcher__option[data-language="ar"] {
+  color: #222;
+}
+/* --------------------------------------------------
+   Language Visibility
+-------------------------------------------------- */
+
+.category-name-ar,
+.category-name-en,
+.menu-name-ar,
+.menu-name-en,
+.menu-description-ar,
+.menu-description-en {
+  display: none;
+}
+
+/*
+ * Arabic
+ */
+body[data-menu-language="ar"] .category-name-ar,
+body[data-menu-language="ar"] .menu-name-ar,
+body[data-menu-language="ar"] .menu-description-ar {
+  display: inline;
+}
+
+/*
+ * English
+ */
+body[data-menu-language="en"] .category-name-en,
+body[data-menu-language="en"] .menu-name-en,
+body[data-menu-language="en"] .menu-description-en {
+  display: inline;
+}
