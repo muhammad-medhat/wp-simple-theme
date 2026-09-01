@@ -35,9 +35,9 @@ function rm_menu_customize_register( $wp_customize ) {
         'description' => __( 'Choose the visual design of your restaurant menu.', 'restaurant-menu' ),
 
         'choices' => array(
-        'modern' => __( 'Modern', 'restaurant-menu' ),
-        'elegant' => __( 'Elegant', 'restaurant-menu' ),
-        'dark' => __( 'Dark', 'restaurant-menu' ),
+            'modern' => __( 'Modern', 'restaurant-menu' ),
+            'elegant' => __( 'Elegant', 'restaurant-menu' ),
+            'dark' => __( 'Dark', 'restaurant-menu' ),
         ),
     ));
 }
@@ -89,20 +89,15 @@ function rm_menu_load_design_assets() {
         $design = 'modern';
     }
 
+    // css for the selected style
+
 
     wp_enqueue_style(
-        'rm-menu-design-' . $design,
-        RESTAURANT_MENU_DIR_URI
-            . '/designs/'
-            . $design
-            . '/style.css',
+        "rm-menu-design-$design",
+        RESTAURANT_MENU_DIR_URI ."/designs/$design/style.css",
         array( 'restaurant-menu-custom' ),
         wp_get_theme()->get( 'Version' )
     );
 }
 
-add_action(
-    'wp_enqueue_scripts',
-    'rm_menu_load_design_assets',
-    20
-);
+add_action('wp_enqueue_scripts', 'rm_menu_load_design_assets', 20);

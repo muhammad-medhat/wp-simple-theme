@@ -66,7 +66,7 @@ function restaurant_menu_assets() {
     );
 
     /*
-     * Custom menu CSS
+     * common menu CSS
      */
     wp_enqueue_style(
         'restaurant-menu-custom',
