@@ -1,139 +1,93 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const languageSwitcher = document.getElementById("language-switcher");
-
-  if (!languageSwitcher) {
-    return;
-  }
-
-  /*
-   * Get saved language.
-   *
-   * Default:
-   * Arabic if the WordPress site is RTL.
-   * English otherwise.
-   */
-  const savedLanguage = localStorage.getItem("restaurant_menu_language");
-
-  const defaultLanguage =
-    savedLanguage || (document.documentElement.dir === "rtl" ? "ar" : "en");
-
-  /**
-   * Set active language
-   */
-  function setLanguage(language, save = true) {
-    const html = document.documentElement;
-
-    const isArabic = language === "ar";
-
-    /*
-     * Update document direction
-     */
-    html.setAttribute("dir", isArabic ? "rtl" : "ltr");
-
-    /*
-     * Update document language
-     */
-    html.setAttribute("lang", isArabic ? "ar" : "en");
-
-    /*
-     * Store user's preference
-     */
-    if (save) {
-      localStorage.setItem("restaurant_menu_language", language);
-    }
-
-    /*
-     * Tell the rest of the frontend
-     * which language is currently active.
-     */
-    document.body.setAttribute("data-menu-language", language);
-
-    /*
-     * Update switcher accessibility
-     */
-    languageSwitcher.setAttribute(
-      "aria-label",
-      isArabic ? "Switch to English" : "التبديل إلى العربية",
-    );
-  }
-
-  /*
-   * Clicking the switch toggles
-   * between Arabic and English.
-   */
-  languageSwitcher.addEventListener("click", () => {
-    const currentLanguage = document.documentElement.lang;
-
-    const newLanguage = currentLanguage === "ar" ? "en" : "ar";
-
-    setLanguage(newLanguage);
-  });
-
-  /*
-   * Initialize language.
-   */
-  setLanguage(defaultLanguage, false);
-
-  /*
-   * --------------------------------------------------
-   * Category Navigation
-   * --------------------------------------------------
-   */
+  const body = document.body;
+  const languageSwitcher = document.querySelector("#language-switcher");
 
   const categoryLinks = document.querySelectorAll(".category-link");
 
-  const categories = document.querySelectorAll(".menu-category");
+  /*
+   * -----------------------------------------------
+   * Language
+   * -----------------------------------------------
+   */
+
+  const savedLanguage = localStorage.getItem("rm_menu_language") || "ar";
+
+  function setLanguage(language) {
+    if (language !== "ar" && language !== "en") {
+      language = "ar";
+    }
+
+    body.dataset.menuLanguage = language;
+
+    document.documentElement.lang = language;
+
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+
+    localStorage.setItem("rm_menu_language", language);
+
+    /*
+     * Mark selected language
+     */
+
+    document
+      .querySelectorAll(".language-switcher__option")
+      .forEach((option) => {
+        option.classList.toggle("active", option.dataset.language === language);
+      });
+  }
+
+  setLanguage(savedLanguage);
+
+  if (languageSwitcher) {
+    languageSwitcher.addEventListener("click", () => {
+      const currentLanguage = body.dataset.menuLanguage || "ar";
+
+      const newLanguage = currentLanguage === "ar" ? "en" : "ar";
+
+      setLanguage(newLanguage);
+    });
+  }
 
   /*
-   * Click category
+   * -----------------------------------------------
+   * Category navigation
+   * -----------------------------------------------
    */
+
   categoryLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
 
-      const categoryId = link.getAttribute("href");
+      const targetId = link.dataset.categoryTarget;
 
-      const category = document.querySelector(categoryId);
+      const target = document.getElementById(targetId);
 
-      if (!category) {
+      if (!target) {
         return;
       }
 
-      /*
-       * Update active category
-       */
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
       categoryLinks.forEach((item) => {
         item.classList.remove("active");
       });
 
       link.classList.add("active");
-
-      /*
-       * Scroll to category.
-       *
-       * CSS scroll-margin-top handles
-       * the sticky header + navigation.
-       */
-      category.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
-      /*
-       * Keep clicked tab visible
-       */
-      link.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
     });
   });
 
   /*
-   * Update active category while scrolling.
+   * -----------------------------------------------
+   * Active category while scrolling
+   * -----------------------------------------------
    */
-  if ("IntersectionObserver" in window) {
+
+  const categories = document.querySelectorAll(".menu-category");
+
+  if (categories.length && categoryLinks.length) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -144,26 +98,22 @@ document.addEventListener("DOMContentLoaded", () => {
           const categoryId = entry.target.id;
 
           categoryLinks.forEach((link) => {
-            const isActive = link.getAttribute("href") === `#${categoryId}`;
-
-            link.classList.toggle("active", isActive);
-
-            /*
-             * Automatically move the
-             * active tab into view.
-             */
-            if (isActive) {
-              link.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "center",
-              });
-            }
+            link.classList.toggle(
+              "active",
+              link.dataset.categoryTarget === categoryId,
+            );
           });
         });
       },
       {
-        rootMargin: "-140px 0px -55% 0px",
+        root: null,
+
+        /*
+         * Account for the sticky
+         * header + category bar.
+         */
+        rootMargin: "-140px 0px -60% 0px",
+
         threshold: 0,
       },
     );
