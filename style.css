@@ -18,7 +18,7 @@ Text Domain: restaurant-menu
   max-width: 768px;
   margin-inline: auto;
 }
-#site-content * {
+body * {
   text-transform: capitalize;
 }
 

@@ -172,4 +172,15 @@ document.addEventListener("DOMContentLoaded", () => {
       observer.observe(category);
     });
   }
+  //logo visible on scroll
+  window.addEventListener("scroll", function () {
+    const element = document.querySelector(
+      ".elegant-category-navigation__logo",
+    );
+    if (window.scrollY > 300) {
+      element.classList.add("is-visible");
+    } else {
+      element.classList.remove("is-visible");
+    }
+  });
 });
