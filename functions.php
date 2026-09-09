@@ -101,4 +101,5 @@ add_action( 'wp_enqueue_scripts', 'restaurant_menu_assets' );
 
 
 require_once RESTAURANT_MENU_DIR . '/inc/fn-md.php';
+require_once RESTAURANT_MENU_DIR . '/inc/fn-customizer.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn.php';

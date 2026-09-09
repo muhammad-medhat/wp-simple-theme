@@ -10,8 +10,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 /*
  * Restaurant information.
  */
-$restaurant_name        = get_bloginfo( 'name' );
-$restaurant_description = get_bloginfo( 'description' );
+// $restaurant_name        = get_bloginfo( 'name' );
+// $restaurant_description = get_bloginfo( 'description' );
+
+/****************************************************** */
+$restaurant_name_ar = get_theme_mod('rm_restaurant_name_ar', get_bloginfo( 'name' ));
+$restaurant_name_en = get_theme_mod('rm_restaurant_name_en', get_bloginfo( 'name' ));
+$restaurant_description_ar = get_theme_mod('rm_restaurant_description_ar', get_bloginfo( 'description' ));
+$restaurant_description_en = get_theme_mod('rm_restaurant_description_en', get_bloginfo( 'description' ));
+/****************************************************** */
 /*
  * Restaurant logo.
  */
@@ -40,21 +47,33 @@ $categories = get_terms(
             </div>
             <?php else : ?>
             <div class="elegant-header__logo-placeholder">
-                <span>✦</span>
+                <span>✦✦✦</span>
             </div>
             <?php endif; ?>
             <div class="elegant-header__ornament">
-                <span>✦</span>
+                <span>✦✦✦</span>
             </div>
-            <?php if ( $restaurant_name ) : ?>
+            <?php if ( $restaurant_name_ar||$restaurant_name_en ) : ?>
             <h1 class="elegant-header__name">
-                <?php echo esc_html( $restaurant_name ); ?>
+                <span class="restaurant-name-ar">
+                    <?php echo esc_html( $restaurant_name_ar ); ?>
+                </span>
+
+                <span class="restaurant-name-en">
+                    <?php echo esc_html( $restaurant_name_en ); ?>
+                </span>
             </h1>
             <?php endif; ?>
-            <?php if ( $restaurant_description ) : ?>
-            <p class="elegant-header__description">
-                <?php echo esc_html( $restaurant_description ); ?>
-            </p>
+            <?php if ( $restaurant_description_ar||$restaurant_description_en ) : ?>
+            <div class="elegant-header__description">
+                <p class="restaurant-description-ar">
+                    <?php echo esc_html( $restaurant_description_ar ); ?>
+                </p>
+
+                <p class="restaurant-description-en">
+                    <?php echo esc_html( $restaurant_description_en ); ?>
+                </p>
+            </div>
             <?php endif; ?>
             <!-- Language Switcher -->
             <div class="elegant-language-switcher" id="language-switcher" role="group"
@@ -171,26 +190,19 @@ $categories = get_terms(
                 <div class="elegant-category__description">
                     <?php if ( $category_desc_ar ) : ?>
                     <p class="category-description-ar">
-                        <?php
-                                        echo esc_html(
-                                            $category_desc_ar
-                                        );
-                                        ?>
+                        <?php echo esc_html($category_desc_ar );?>
                     </p>
                     <?php endif; ?>
                     <?php if ( $category_desc_en ) : ?>
                     <p class="category-description-en">
-                        <?php
-                                        echo esc_html(
-                                            $category_desc_en
-                                        );
-                                        ?>
+                        <?php echo esc_html($category_desc_en );?>
                     </p>
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>
                 <div class="elegant-category__ornament">
-                    <span>✦</span>
+                    <span>──── ୨୧ ────</span>
+                    <!-- <span>✦✦✦</span> -->
                 </div>
             </header>
             <!-- =================================

@@ -16,12 +16,19 @@
   min-height: 100vh;
   color: var(--rm-elegant-text);
   background-color: var(--rm-elegant-bg);
-
+  /*
+     * Subtle paper texture.
+     */
+  /* background-image:
+    radial-gradient(rgba(80, 60, 40, 0.045) 0.7px, transparent 0.7px),
+    radial-gradient(rgba(80, 60, 40, 0.03) 0.7px, transparent 0.7px); */
+  /********************************************/
   background-image: repeating-linear-gradient(
     #e4d8ca 10px,
     #f5ebdf 8px,
     #e6daca 16px
   );
+  /********************************************/
 
   background-size:
     7px 7px,
@@ -35,59 +42,52 @@
 .menu-design--elegant *::before,
 .menu-design--elegant *::after {
   box-sizing: border-box;
-  /* =========================================================
-  HEADER
-  ========================================================= */
-  .elegant-header {
-    padding: 28px 20px 22px;
-    text-align: center;
-    .elegant-header__inner {
-      max-width: 900px;
-      margin: 0 auto;
-      .elegant-header__logo {
-        margin-bottom: 14px;
-        img {
-          display: block;
-          width: auto;
-          max-width: 110px;
-          max-height: 90px;
-          margin: 0 auto;
-        }
-        .custom-logo-link {
-          display: inline-block;
-        }
-        .custom-logo {
-          height: auto;
-        }
-      }
-    }
-    .elegant-header__name {
-      margin: 0;
-      color: var(--rm-elegant-text);
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: 0.02em;
-      font-size: clamp(1.3rem, 5vw + 1rem, 1.75rem);
-      .restaurant-name-ar {
-        font-family: var(--font-ar);
-      }
-      .restaurant-name-en {
-        font-family: var(--font-en);
-      }
-    }
-    /*prettier-ignore*/
-    .elegant-header__description {
-      max-width: 600px;
-      margin: 9px auto 0;
-      color: var(--rm-elegant-muted);
-      font-size: 14px;
-      line-height: 1.7;
-      font-size: clamp(1.1rem, 5vw + 1rem, 1.5rem);
-      .restaurant-description-ar{font-family: var(--font-ar);}
-      .restaurant-description-en{font-family: var(--font-en);}
-    }
-  }
+}
+/* =========================================================
+   BACKGROUND VIGNETTE
+   ========================================================= */
+.menu-design--elegant::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    transparent 45%,
+    rgba(70, 50, 30, 0.055) 100%
+  );
+}
+.menu-design--elegant > * {
+  position: relative;
+  z-index: 1;
+}
+/* =========================================================
+   HEADER
+   ========================================================= */
+.menu-design--elegant .elegant-header {
+  padding: 28px 20px 22px;
+  text-align: center;
+}
+.menu-design--elegant .elegant-header__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.menu-design--elegant .elegant-header__logo {
+  margin-bottom: 14px;
+}
+.menu-design--elegant .elegant-header__logo img {
+  display: block;
+  width: auto;
+  max-width: 110px;
+  max-height: 90px;
+  margin: 0 auto;
+}
+.menu-design--elegant .elegant-header__logo .custom-logo-link {
+  display: inline-block;
+}
+.menu-design--elegant .elegant-header__logo .custom-logo {
+  height: auto;
 }
 .menu-design--elegant .elegant-header__logo-placeholder {
   width: 70px;
@@ -109,15 +109,41 @@
   gap: 10px;
   margin: 8px auto 12px;
   color: var(--rm-elegant-accent);
-  &::before,
-  &::after {
-    content: "";
-    width: 45px;
-    height: 1px;
-    background: var(--rm-elegant-border);
+}
+.menu-design--elegant .elegant-header__ornament::before,
+.menu-design--elegant .elegant-header__ornament::after {
+  content: "";
+  width: 45px;
+  height: 1px;
+  background: var(--rm-elegant-border);
+}
+.menu-design--elegant .elegant-header__name {
+  /* border: solid red; */
+  margin: 0;
+  color: var(--rm-elegant-text);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.3rem, 5vw + 1rem, 1.75rem);
+  .restaurant-name-ar {
+    font-family: var(--font-ar);
+  }
+  .restaurant-name-en {
+    font-family: var(--font-en);
   }
 }
-
+/*prettier-ignore*/
+.menu-design--elegant .elegant-header__description {
+  max-width: 600px;
+  margin: 9px auto 0;
+  color: var(--rm-elegant-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  font-size: clamp(1.1rem, 5vw + 1rem, 1.5rem);
+  .restaurant-description-ar{font-family: var(--font-ar);}
+  .restaurant-description-en{font-family: var(--font-en);}
+}
 /* =========================================================
    LANGUAGE SWITCHER
    ========================================================= */
@@ -132,36 +158,40 @@
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.45);
   box-shadow: 0 2px 8px rgba(60, 45, 30, 0.04);
-  .language-switcher__option {
-    position: relative;
-    min-width: 58px;
-    padding: 7px 14px;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--rm-elegant-muted);
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
-    transition:
-      color 0.25s ease,
-      background-color 0.25s ease,
-      box-shadow 0.25s ease;
-    &:hover {
-      color: var(--rm-elegant-text);
-    }
-    &.active {
-      color: var(--rm-elegant-text);
-      background: var(--rm-elegant-surface);
-      box-shadow: 0 2px 6px rgba(60, 45, 30, 0.08);
-    }
-  }
-  .language-switcher__separator {
-    display: none;
-  }
+}
+.menu-design--elegant .elegant-language-switcher .language-switcher__option {
+  position: relative;
+  min-width: 58px;
+  padding: 7px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--rm-elegant-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.menu-design--elegant
+  .elegant-language-switcher
+  .language-switcher__option:hover {
+  color: var(--rm-elegant-text);
+}
+.menu-design--elegant
+  .elegant-language-switcher
+  .language-switcher__option.active {
+  color: var(--rm-elegant-text);
+  background: var(--rm-elegant-surface);
+  box-shadow: 0 2px 6px rgba(60, 45, 30, 0.08);
+}
+.menu-design--elegant .elegant-language-switcher .language-switcher__separator {
+  display: none;
 }
 /* =========================================================
    CATEGORY NAVIGATION
@@ -176,51 +206,50 @@
   background: rgba(247, 243, 235, 0.94);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
-  /* =========================================================
+}
+/* =========================================================
    STICKY NAVIGATION LOGO
    ========================================================= */
-  .elegant-category-navigation__inner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 15px;
-    gap: 15px;
-    /* ---------------------------------------------------------
+.menu-design--elegant .elegant-category-navigation__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+  gap: 15px;
+  /* ---------------------------------------------------------
   Small Logo
   --------------------------------------------------------- */
-    .elegant-category-navigation__logo {
-      flex: 0 0 auto;
+  .elegant-category-navigation__logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* .my-element { */
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+    transition: opacity 0.3s ease;
+    /* } */
+
+    &.is-visible {
+      display: inline;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .custom-logo-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      /* .my-element { */
-      opacity: 0;
-      visibility: hidden;
-      display: none;
-      transition: opacity 0.3s ease;
-      /* } */
-
-      &.is-visible {
-        display: inline;
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .custom-logo-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .custom-logo {
-        display: block;
-        width: auto;
-        height: 34px;
-        max-width: 70px;
-        object-fit: contain;
-      }
+    }
+    .custom-logo {
+      display: block;
+      width: auto;
+      height: 34px;
+      max-width: 70px;
+      object-fit: contain;
     }
   }
 }
@@ -290,98 +319,108 @@
    MAIN CONTENT
    ========================================================= */
 .menu-design--elegant .elegant-menu__content {
+  border: solid red;
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 34px 20px 60px;
+  /* max-width: 900px; */
+  /* margin: 0 auto;
+  padding: 34px 20px 60px; */
 }
 /* =========================================================
-CATEGORY
-========================================================= */
+   CATEGORY
+   ========================================================= */
 .menu-design--elegant .elegant-category {
   margin-bottom: 52px;
   scroll-margin-top: 75px;
 }
-/* .menu-design--elegant .elegant-category:last-child {
+.menu-design--elegant .elegant-category:last-child {
   margin-bottom: 0;
-  } */
+}
 .menu-design--elegant .elegant-category__header {
   margin-bottom: 25px;
   text-align: center;
-  /*prettier-ignore*/
-  .elegant-category__title {
-    margin: 0;
-    color: var(--rm-elegant-text);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    font-weight: 500;
-    line-height: 1.3;
-    .category-name-ar{font-family: var(--font-ar);}
-    .category-name-en{font-family: var(--font-en);}
-  }
-
-  /* =========================================================
-      CATEGORY DESCRIPTION
-  ========================================================= */
-  .elegant-category__description {
-    max-width: 620px;
-    margin: 10px auto 0;
-    .category-description-ar {
-      font-family: var(--font-ar);
-    }
-    .category-description-en {
-      font-family: var(--font-en);
-    }
-    p {
-      margin: 0;
-      color: var(--rm-elegant-muted);
-      font-size: 13px;
-      line-height: 1.7;
-      text-align: center;
-    }
-  } /* .menu-design--elegant .elegant-category__description  */
-  /* =========================================================
-  CATEGORY ORNAMENT
-  ========================================================= */
-  .elegant-category__ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin: 12px auto 0;
-    color: var(--rm-elegant-accent);
-    &::before,
-    &::after {
-      content: "";
-      width: 50px;
-      height: 1px;
-      background: var(--rm-elegant-border);
-    }
-    span {
-      font-size: 11px;
-    }
-  } /* .elegant-category__ornament*/
-} /* .menu-design--elegant .elegant-category__header */
-
+}
+/*prettier-ignore*/
+.menu-design--elegant .elegant-category__title {
+  margin: 0;
+  color: var(--rm-elegant-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.3;
+  .category-name-ar{font-family: var(--font-ar);}
+  .category-name-en{font-family: var(--font-en);}
+}
+/* =========================================================
+   CATEGORY DESCRIPTION
+   ========================================================= */
+.menu-design--elegant .elegant-category__description {
+  max-width: 620px;
+  margin: 10px auto 0;
+}
+.menu-design--elegant .elegant-category__description p {
+  margin: 0;
+  color: var(--rm-elegant-muted);
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+/* =========================================================
+   CATEGORY ORNAMENT
+   ========================================================= */
+.menu-design--elegant .elegant-category__ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 12px auto 0;
+  color: var(--rm-elegant-accent);
+}
+.menu-design--elegant .elegant-category__ornament::before,
+.menu-design--elegant .elegant-category__ornament::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: var(--rm-elegant-border);
+}
+.menu-design--elegant .elegant-category__ornament span {
+  font-size: 11px;
+}
 .menu-design--elegant .elegant-category__items {
   display: flex;
   flex-direction: column;
-  /* =========================================================
-  MENU ITEM
-  ========================================================= */
-  .elegant-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--rm-elegant-border);
-    border-bottom: 1px dotted var(--rm-elegant-accent-dark);
-    &:first-child {
-      border-top: 1px solid var(--rm-elegant-border);
-    }
-  } /* .elegant-item*/
-} /*.menu-design--elegant .elegant-category__items*/
+}
+/* =========================================================
+   MENU ITEM
+   ========================================================= */
+.menu-design--elegant .elegant-item {
+  /* border: solid; */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--rm-elegant-border);
+  /* border-bottom: 1px dotted var(--rm-elegant-accent-dark); */
+}
+.menu-design--elegant .elegant-item:first-child {
+  border-top: 1px solid var(--rm-elegant-border);
+}
+/****************************************/
+/* .elegant-item {
+  position: relative;
+  border-bottom: 0;
+} */
 
+/* .elegant-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+
+  background: linear-gradient(to right, transparent, #ded6ca, transparent);
+} */
+/****************************************/
 /* =========================================================
    PRODUCT IMAGE
    ========================================================= */
@@ -407,13 +446,13 @@ CATEGORY
    ========================================================= */
 .menu-design--elegant .elegant-item__content {
   min-width: 0;
-  .elegant-item__heading {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 7px;
-  }
-} /*.menu-design--elegant .elegant-item__content  */
+}
+.menu-design--elegant .elegant-item__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 7px;
+}
 .menu-design--elegant .elegant-item__name {
   flex: 1;
   margin: 0;
@@ -441,8 +480,8 @@ CATEGORY
   white-space: nowrap;
 }
 /* =========================================================
-PRODUCT DESCRIPTION
-========================================================= */
+   PRODUCT DESCRIPTION
+   ========================================================= */
 .menu-design--elegant .elegant-item__description {
   margin: 0;
 }
@@ -567,3 +606,21 @@ html[dir="ltr"] .menu-design--elegant .elegant-category-navigation__scroll {
     aspect-ratio: 4 / 3;
   }
 }
+
+/*******************************/
+
+/* 
+html[lang="en"] .restaurant-name-ar,
+html[lang="en"] .restaurant-description-ar {
+    display: none;
+}
+
+html[lang="en"] .restaurant-name-en,
+html[lang="en"] .restaurant-description-en {
+    display: inline;
+}
+
+html[lang="en"] .restaurant-description-en {
+    display: block; 
+}*/
+/*******************************/

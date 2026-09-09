@@ -183,4 +183,15 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.remove("is-visible");
     }
   });
+  //display number in arabic
+  const arTitle = document.querySelector(".restaurant-name-ar");
+
+  const textWithStandardNumbers = arTitle.innerText;
+  const textWithArabicNumbers = textWithStandardNumbers.replace(
+    /\d/g,
+    (digit) => {
+      return Number(digit).toLocaleString("ar-EG");
+    },
+  );
+  arTitle.innerText = textWithArabicNumbers; // Will display as "Club ٢١"  // debugger;
 });

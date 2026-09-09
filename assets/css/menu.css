@@ -24,3 +24,23 @@ body[data-menu-language="en"] .menu-name-en,
 body[data-menu-language="en"] .menu-description-en {
   display: inline;
 }
+/*******************************/
+.restaurant-name-en,
+.restaurant-description-en {
+  display: none;
+}
+
+html[lang="en"] .restaurant-name-ar,
+html[lang="en"] .restaurant-description-ar {
+  display: none;
+}
+
+html[lang="en"] .restaurant-name-en,
+html[lang="en"] .restaurant-description-en {
+  display: inline;
+}
+
+html[lang="en"] .restaurant-description-en {
+  display: block;
+}
+/*******************************/
