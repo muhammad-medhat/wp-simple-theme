@@ -8,7 +8,10 @@ $design = get_theme_mod(
     'modern'
 );
 
-
+    // echo'<pre>';
+    // var_dump($design);
+    // echo'</pre>';
+    // die;
 /*
  * Only allow registered designs.
  */

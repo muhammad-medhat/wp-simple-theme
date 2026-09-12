@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 /* =========================================================
    ELEGANT RESTAURANT MENU
    ========================================================= */
+
 .menu-design--elegant {
   --rm-elegant-bg: #f7f3eb;
   --rm-elegant-surface: #fbf9f5;
@@ -9,8 +12,13 @@
   --rm-elegant-border: #ded6ca;
   --rm-elegant-accent: #8a6a42;
   --rm-elegant-accent-dark: #6d502f;
-  --font-ar: "Aref Ruqaa", "Rubik", "Cairo" sans-serif;
-  --font-en: "Caveat", cursive;
+  --font-ar: "Aref Ruqaa", Cairo, Rubik, sans-serif;
+  --font-ar-secondary: Cairo, Rubik, "Aref Ruqaa", sans-serif;
+  --font-en: Caveat, cursive;
+  --font-en-secondary: "Bad Script", cursive;
+  --fs-lg: clamp(1.1rem, 10vw + 1rem, 2.5rem);
+  --fs-md: clamp(1rem, 6vw + 1rem, 1.5rem);
+  --fs-sm: clamp(0.9rem, 3vw + 1rem, 1.1rem);
 
   position: relative;
   min-height: 100vh;
@@ -30,6 +38,15 @@
     0 0,
     3px 4px;
   box-sizing: border-box;
+}
+
+.move-top {
+  font-size: var(--fs-lg);
+  margin-top: 1rem;
+  color: var(--rm-elegant-accent-dark);
+  display: flex;
+  justify-content: end;
+  text-decoration: none;
 }
 .menu-design--elegant *,
 .menu-design--elegant *::before,
@@ -61,29 +78,25 @@
         }
       }
     }
+    /*prettier-ignore*/
     .elegant-header__name {
       margin: 0;
       color: var(--rm-elegant-text);
-      font-size: 30px;
-      font-weight: 700;
       line-height: 1.2;
       letter-spacing: 0.02em;
-      font-size: clamp(1.3rem, 5vw + 1rem, 1.75rem);
-      .restaurant-name-ar {
-        font-family: var(--font-ar);
-      }
-      .restaurant-name-en {
-        font-family: var(--font-en);
-      }
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      .restaurant-name-ar { font-family: var(--font-ar); }
+      .restaurant-name-en { font-family: var(--font-en); }
     }
     /*prettier-ignore*/
     .elegant-header__description {
       max-width: 600px;
       margin: 9px auto 0;
       color: var(--rm-elegant-muted);
-      font-size: 14px;
       line-height: 1.7;
-      font-size: clamp(1.1rem, 5vw + 1rem, 1.5rem);
+      font-size: var(--fs-md);
+      font-weight: 400;
       .restaurant-description-ar{font-family: var(--font-ar);}
       .restaurant-description-en{font-family: var(--font-en);}
     }
@@ -424,13 +437,13 @@ CATEGORY
 
   .menu-name-ar {
     font-family: var(--font-ar);
-    font-weight: 500;
-    font-size: clamp(1.1rem, 5vw + 1rem, 1.5rem);
+    font-weight: 400;
+    font-size: var(--fs-md);
   }
   .menu-name-en {
     font-family: var(--font-en);
-    font-weight: 500;
-    font-size: clamp(1.1rem, 5vw + 1rem, 1.5rem);
+    font-weight: 400;
+    font-size: var(--fs-md);
   }
 }
 .menu-design--elegant .elegant-item__price {
@@ -445,12 +458,18 @@ PRODUCT DESCRIPTION
 ========================================================= */
 .menu-design--elegant .elegant-item__description {
   margin: 0;
-}
-.menu-design--elegant .elegant-item__description p {
-  margin: 0;
-  color: var(--rm-elegant-muted);
-  font-size: 13px;
-  line-height: 1.7;
+  p {
+    margin: 0;
+    color: var(--rm-elegant-muted);
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+  }
+  .menu-description-ar {
+    font-family: var(--font-ar-secondary);
+  }
+  .menu-description-en {
+    font-family: var(--font-en-secondary);
+  }
 }
 /* =========================================================
    EMPTY STATE
@@ -461,6 +480,82 @@ PRODUCT DESCRIPTION
   font-size: 14px;
   text-align: center;
 }
+/* =========================================================
+   SIZE-BASED ITEMS / PIZZA SIZES
+   ========================================================= */
+
+.menu-design--elegant .elegant-item--sizes .elegant-item__heading {
+  margin-bottom: 10px;
+}
+
+/* Size list */
+.menu-design--elegant .elegant-item__sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+/* Individual size row */
+.menu-design--elegant .elegant-item__size {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--rm-elegant-border);
+}
+
+/* Remove border from last size */
+.menu-design--elegant .elegant-item__size:last-child {
+  border-bottom: 0;
+}
+
+/* Size name */
+.menu-design--elegant .elegant-item__size-name {
+  flex: 1;
+  color: var(--rm-elegant-muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Arabic size name */
+.menu-design--elegant .elegant-item__size-name .size-name-ar {
+  font-family: var(--font-ar);
+  font-size: 1.05rem;
+}
+
+/* English size name */
+.menu-design--elegant .elegant-item__size-name .size-name-en {
+  font-family: var(--font-en);
+  font-size: 1.05rem;
+}
+
+/* Size price */
+.menu-design--elegant .elegant-item__size-price {
+  flex: 0 0 auto;
+  color: var(--rm-elegant-accent-dark);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   SIZE LANGUAGE VISIBILITY
+   ========================================================= */
+
+.menu-design--elegant .size-name-en {
+  display: none;
+}
+
+html[lang="en"] .menu-design--elegant .size-name-ar {
+  display: none;
+}
+
+html[lang="en"] .menu-design--elegant .size-name-en {
+  display: inline;
+}
+
 /* =========================================================
    LANGUAGE VISIBILITY
    ========================================================= */
@@ -484,8 +579,9 @@ html[lang="en"] .menu-design--elegant .category-description-en,
 html[lang="en"] .menu-design--elegant .menu-description-en {
   display: block;
 }
+
 /* =========================================================
-   RTL
+   RTL/LTR
    ========================================================= */
 html[dir="rtl"] .menu-design--elegant {
   direction: rtl;
@@ -496,9 +592,14 @@ html[dir="rtl"] .menu-design--elegant .elegant-item__heading {
 html[dir="rtl"] .menu-design--elegant .elegant-category-navigation__scroll {
   direction: rtl;
 }
-/* =========================================================
-   LTR
-   ========================================================= */
+html[dir="rtl"] .menu-design--elegant .elegant-item__size {
+  text-align: right;
+}
+
+html[dir="ltr"] .menu-design--elegant .elegant-item__size {
+  text-align: left;
+}
+
 html[dir="ltr"] .menu-design--elegant {
   direction: ltr;
 }
@@ -536,6 +637,18 @@ html[dir="ltr"] .menu-design--elegant .elegant-category-navigation__scroll {
   .menu-design--elegant .elegant-item__name {
     font-size: 20px;
   }
+  .menu-design--elegant .elegant-item--sizes .elegant-item__sizes {
+    max-width: 320px;
+  }
+
+  .menu-design--elegant .elegant-item__size {
+    padding: 8px 0;
+  }
+
+  .menu-design--elegant .elegant-item__size-name,
+  .menu-design--elegant .elegant-item__size-price {
+    font-size: 15px;
+  }
 }
 /* =========================================================
    DESKTOP
@@ -567,3 +680,20 @@ html[dir="ltr"] .menu-design--elegant .elegant-category-navigation__scroll {
     aspect-ratio: 4 / 3;
   }
 }
+
+/****************************************/
+/* .font-ar {
+  font-family:
+    "Aref Ruqaa",
+    "Rubik",
+    "Cairo" sans-serif;
+}
+fw-700 {
+  font-weight: 700;
+}
+fw-400 {
+  font-weight: 400;
+}
+.font-en {
+  font-family: "Caveat", cursive;
+} */

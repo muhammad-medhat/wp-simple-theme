@@ -5,7 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 define('RESTAURANT_MENU_DIR', get_template_directory());
 define('RESTAURANT_MENU_DIR_URI', get_template_directory_uri());
-
+/**
+ * plugin constants
+ ** RM_MENU_ITEM_CPT
+ ** RM_MENU_CATEGORY_TAX
+ */
 /**
  * Theme setup
  */
@@ -54,6 +58,13 @@ function restaurant_menu_assets() {
         array(),
         '5.3.8'
     );
+    //fontawesome
+    wp_enqueue_style(
+        'fontawesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
+        array(),
+        '6.4.2'
+    );
 
     /*
      * Theme stylesheet
@@ -100,6 +111,7 @@ add_action( 'wp_enqueue_scripts', 'restaurant_menu_assets' );
 
 
 
-require_once RESTAURANT_MENU_DIR . '/inc/fn-md.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn-customizer.php';
+require_once RESTAURANT_MENU_DIR . '/inc/fn-md.php';
+require_once RESTAURANT_MENU_DIR . '/inc/fn-res.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn.php';

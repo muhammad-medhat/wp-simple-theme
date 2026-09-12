@@ -1,6 +1,4 @@
 <?php
-
-
 /**
 * Sanitize menu design
 */
@@ -52,6 +50,15 @@ function rm_menu_load_design_assets() {
         array( 'restaurant-menu-custom' ),
         wp_get_theme()->get( 'Version' )
     );
+    /*
+    * Design-specific fonts
+    */
+//    wp_enqueue_style(
+//        'rm-menu-fonts-' . $design,
+//        RESTAURANT_MENU_DIR_URI . "/designs/$design/fonts.css",
+//        array( 'rm-menu-design-' . $design ),
+//        wp_get_theme()->get( 'Version' )
+//    );
 }
 
 add_action(

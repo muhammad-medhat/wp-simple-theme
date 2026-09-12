@@ -5,13 +5,13 @@
  * Restaurant Menu Customizer
 */
 define('WP_TITLE_SECTION', 'title_tagline');
-// define('RM_DESIGN_SECTION', 'rm_menu_design');
+define('RM_DESIGN_SECTION', 'rm_menu_design');
 define('RM_SETTINGS_SECTION', 'rm_menu_settings');
 
 function rm_menu_customize_register( $wp_customize ) {
 
     /*
-    * Section
+    * rm_menu_settings Section
     */
     $wp_customize->add_section( RM_SETTINGS_SECTION, array(
         'title' => __( 'Restaurant Menu', 'restaurant-menu' ),
@@ -22,11 +22,14 @@ function rm_menu_customize_register( $wp_customize ) {
 
 
     /*
-    * Design setting
+    * rm_menu_design Design  setting
+    * - Modern
+    * - Elegant
+    * - Dark
     */
-    $wp_customize->add_setting(RM_SETTINGS_SECTION, array(      
-        'default' => 'modern',
-        'sanitize_callback' => 'rm_menu_sanitize_design',
+    $wp_customize->add_setting(RM_DESIGN_SECTION, array(      
+            'default' => 'modern',
+            'sanitize_callback' => 'rm_menu_sanitize_design',
         )
     );
 
@@ -34,19 +37,18 @@ function rm_menu_customize_register( $wp_customize ) {
     /*
     * Design selector
     */
-    $wp_customize->add_control(RM_SETTINGS_SECTION, array(
+    $wp_customize->add_control(RM_DESIGN_SECTION, array(
         'type' => 'select',
         'section' => RM_SETTINGS_SECTION,
         'label' => __( 'Menu Design', 'restaurant-menu' ),
         'description' => __( 'Choose the visual design of your restaurant menu.', 'restaurant-menu' ),
-
         'choices' => array(
-        'modern' => __( 'Modern', 'restaurant-menu' ),
-        'elegant' => __( 'Elegant', 'restaurant-menu' ),
-        'dark' => __( 'Dark', 'restaurant-menu' ),
+            'modern' => __( 'Modern', 'restaurant-menu' ),
+            'elegant' => __( 'Elegant', 'restaurant-menu' ),
+            'dark' => __( 'Dark', 'restaurant-menu' ),
         ),
     ));
-
+//Settings to add on the title_tagline section - (Site Identity) Section
 
     /* ================================
     * Restaurant Name - Arabic
@@ -64,7 +66,6 @@ function rm_menu_customize_register( $wp_customize ) {
         'rm_restaurant_name_ar',
         array(
             'label'   => __( 'Restaurant Name (Arabic)', 'restaurant-menu' ),
-            // 'section' => 'rm_menu_settings',
             'section' => WP_TITLE_SECTION,
             'type'    => 'text',
         )
