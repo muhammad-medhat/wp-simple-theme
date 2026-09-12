@@ -682,18 +682,7 @@ html[dir="ltr"] .menu-design--elegant .elegant-category-navigation__scroll {
 }
 
 /****************************************/
-/* .font-ar {
-  font-family:
-    "Aref Ruqaa",
-    "Rubik",
-    "Cairo" sans-serif;
+
+html *.show {
+  display: inline !important;
 }
-fw-700 {
-  font-weight: 700;
-}
-fw-400 {
-  font-weight: 400;
-}
-.font-en {
-  font-family: "Caveat", cursive;
-} */

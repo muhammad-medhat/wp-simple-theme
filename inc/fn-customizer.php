@@ -155,7 +155,8 @@ function rm_menu_customize_register( $wp_customize ) {
             'section' => RM_SETTINGS_SECTION,
             'type'    => 'select',
             'choices' => array(
-                'bilingual' => __( 'Arabic & English', 'restaurant-menu' ),
+                // 'bilingual' => __( 'Arabic & English', 'restaurant-menu' ),
+                'bi' => __( 'Arabic & English', 'restaurant-menu' ),
                 'ar'        => __( 'Arabic Only', 'restaurant-menu' ),
                 'en'        => __( 'English Only', 'restaurant-menu' ),
             ),
