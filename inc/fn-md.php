@@ -51,8 +51,13 @@ function md_populate_price_column( $column, $post_id ) {
         // If the field isn't empty, display it. Otherwise, show a dash.
         if ( ! empty( $price_value ) ) {
             echo esc_html( $price_value );
-        } else {
-            echo '—';
+            } else {
+                // echo '—';
+                $price_md = get_post_meta( $post_id, 'price_md', true );
+                $price_lg = get_post_meta( $post_id, 'price_lg', true );
+                echo '-'.esc_html( $price_md );
+                echo '<br>';
+                echo '-'.esc_html( $price_lg );
         }
     }
 }

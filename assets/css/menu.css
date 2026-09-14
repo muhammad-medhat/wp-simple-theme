@@ -5,7 +5,9 @@
 .menu-name-ar,
 .menu-name-en,
 .menu-description-ar,
-.menu-description-en {
+.menu-description-en,
+.variation-desc-ar,
+.variation-desc-en {
   display: none;
 }
 
@@ -13,7 +15,8 @@
 
 body[data-menu-language="ar"] .category-name-ar,
 body[data-menu-language="ar"] .menu-name-ar,
-body[data-menu-language="ar"] .menu-description-ar {
+body[data-menu-language="ar"] .menu-description-ar,
+body[data-menu-language="ar"] .variation-desc-ar {
   display: inline;
 }
 
@@ -21,7 +24,8 @@ body[data-menu-language="ar"] .menu-description-ar {
 
 body[data-menu-language="en"] .category-name-en,
 body[data-menu-language="en"] .menu-name-en,
-body[data-menu-language="en"] .menu-description-en {
+body[data-menu-language="en"] .menu-description-en,
+body[data-menu-language="en"] .variation-desc-en {
   display: inline;
 }
 /*******************************/
@@ -44,3 +48,18 @@ html[lang="en"] .restaurant-description-en {
   display: block;
 }
 /*******************************/
+/* =========================================
+   RTL
+   ========================================= */
+
+[dir="rtl"] .menu-item-variation {
+  flex-direction: row;
+}
+
+[dir="rtl"] .variation-description {
+  text-align: right;
+}
+
+[dir="ltr"] .variation-description {
+  text-align: left;
+}

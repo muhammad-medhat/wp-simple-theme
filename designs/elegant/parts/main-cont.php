@@ -7,11 +7,15 @@
  * =========================================================
  */
 
-$md_ar = get_field( 'md_ar', 'option' );
-$md_en = get_field( 'md_en', 'option' );
+$sm_ar = get_theme_mod( 'rm_size_sm_ar', 'صغير' );
+$sm_en = get_theme_mod( 'rm_size_sm_en', 'Small' );
 
-$lg_ar = get_field( 'lg_ar', 'option' );
-$lg_en = get_field( 'lg_en', 'option' );
+$md_ar = get_theme_mod( 'rm_size_md_ar', 'وسط' );
+$md_en = get_theme_mod( 'rm_size_md_en', 'Medium' );
+
+$lg_ar = get_theme_mod( 'rm_size_lg_ar', 'كبير' );
+$lg_en = get_theme_mod( 'rm_size_lg_en', 'Large' );
+
 /*
  * Get menu categories.
  */
@@ -22,7 +26,8 @@ $categories = get_terms(
         'orderby'    => 'term_order',
         'order'      => 'ASC',
     )
-);;?>
+);
+?>
 
 <main class="elegant-menu__content">
     <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
@@ -66,18 +71,10 @@ $categories = get_terms(
         <header class="elegant-category__header">
             <h2 class="elegant-category__title">
                 <span class="category-name-ar font-ar fw-700">
-                    <?php
-                                echo esc_html(
-                                    $category_name_ar ?: $category->name
-                                );
-                                ?>
+                    <?php echo esc_html($category_name_ar ?: $category->name);?>
                 </span>
                 <span class="category-name-en font-en fw-700">
-                    <?php
-                                echo esc_html(
-                                    $category_name_en ?: $category->name
-                                );
-                                ?>
+                    <?php echo esc_html($category_name_en ?: $category->name);?>
                 </span>
             </h2>
             <?php
@@ -143,6 +140,28 @@ $categories = get_terms(
 
                         //Product image.
                         $image = get_the_post_thumbnail_url($item_id,'medium');
+                        $has_variation=get_field('has_variation', $item_id);
+                        //non pizza variations
+                        $var1_desc_ar = get_field( 'var1_desc_ar', $item_id );
+                        $var1_desc_en = get_field( 'var1_desc_en', $item_id );
+                        $var1_price   = get_field( 'var1_price', $item_id );
+
+                        $var2_desc_ar = get_field( 'var2_desc_ar', $item_id );
+                        $var2_desc_en = get_field( 'var2_desc_en', $item_id );
+                        $var2_price   = get_field( 'var2_price', $item_id );
+                        if($has_variation){
+                            $variations = array(
+                                array(
+                                    'desc_ar' => $var1_desc_ar,
+                                    'desc_en' => $var1_desc_en,
+                                    'price'   => $var1_price,
+                                    ),
+                                    array(
+                                        'desc_ar' => $var2_desc_ar,
+                                        'desc_en' => $var2_desc_en,
+                                        'price'   => $var2_price,
+                                        ));
+                            }
                         ?>
             <!-- =================================
                 PRODUCT
@@ -161,17 +180,17 @@ $categories = get_terms(
                     <div class="elegant-item__heading">
                         <h3 class="elegant-item__name">
                             <span class="menu-name-ar">
-                                <?php echo esc_html( $name_ar ?: get_the_title() );?>
+                                <?php echo wp_kses_post( rm_replace_c21_icon($name_ar) ?: get_the_title() );?>
                             </span>
                             <span class="menu-name-en">
-                                <?php echo esc_html($name_en ?: get_the_title() ); ?>
+                                <?php echo wp_kses_post(rm_replace_c21_icon($name_en )?: get_the_title() ); ?>
                             </span>
                         </h3>
                         <!-- =================================
                             NORMAL PRODUCT PRICE
                             ================================= -->
 
-                        <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null ) : ?>
+                        <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null&&!$has_variation ) : ?>
                         <span class="elegant-item__price">
                             <?php echo esc_html( $price ); ?>
                         </span>
@@ -180,8 +199,7 @@ $categories = get_terms(
                     <!-- =================================
                         PRODUCT DESCRIPTION
                         ================================= -->
-                    <?php
-                            if ($description_ar || $description_en) : ?>
+                    <?php if ($description_ar || $description_en) : ?>
                     <div class="elegant-item__description">
                         <?php if ( $description_ar ) : ?>
                         <p class="menu-description-ar">
@@ -194,6 +212,70 @@ $categories = get_terms(
                         </p>
                         <?php endif; ?>
                     </div>
+                    <?php endif; ?>
+                    <!-- =================================
+                        variations
+                        ================================= -->
+                    <?php if ( $has_variation ) : ?>
+
+                    <div class="elegant-item__variations">
+
+                        <?php foreach ( $variations as $variation ) : ?>
+
+                        <?php
+                            // Skip only if this variation has absolutely no data.
+                            $has_variation_data =
+                                ! empty( $variation['desc_ar'] ) ||
+                                ! empty( $variation['desc_en'] ) ||
+                                (
+                                    isset( $variation['price'] ) &&
+                                    $variation['price'] !== ''
+                                );
+
+                            if ( ! $has_variation_data ) {
+                                continue;
+                            }
+                            ?>
+
+                        <div class="menu-item-variation">
+
+                            <span class="variation-description">
+
+                                <?php if ( ! empty( $variation['desc_ar'] ) ) : ?>
+                                <span class="variation-desc-ar">
+                                    <?php echo esc_html( $variation['desc_ar'] ); ?>
+                                </span>
+                                <?php endif; ?>
+
+                                <?php if ( ! empty( $variation['desc_en'] ) ) : ?>
+                                <span class="variation-desc-en">
+                                    <?php echo esc_html( $variation['desc_en'] ); ?>
+                                </span>
+                                <?php endif; ?>
+
+                            </span>
+
+                            <?php if (
+                isset( $variation['price'] ) &&
+                $variation['price'] !== ''
+            ) : ?>
+
+                            <span class="variation-price">
+                                <?php echo esc_html( $variation['price'] ); ?>
+                            </span>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+
+
+                    <!-- End Variation Logic-->
+
                     <?php endif; ?>
                     <!-- =================================
                         PIZZA SIZE PRICES
@@ -239,7 +321,7 @@ $categories = get_terms(
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>
-                </div>
+
             </article>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>

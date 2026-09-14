@@ -7,6 +7,7 @@
 define('WP_TITLE_SECTION', 'title_tagline');
 define('RM_DESIGN_SECTION', 'rm_menu_design');
 define('RM_SETTINGS_SECTION', 'rm_menu_settings');
+define('RM_SIZE_SECTION', 'rm_menu_sizes');
 
 function rm_menu_customize_register( $wp_customize ) {
 
@@ -162,5 +163,44 @@ function rm_menu_customize_register( $wp_customize ) {
             ),
         )
     );
+    /**
+ * Pizza size labels
+ */
+$wp_customize->add_section(
+    RM_SIZE_SECTION,
+    array(
+        'title'    => __( 'Multiple Size Labels', 'restaurant-menu' ),
+        'priority' => 35,
+    )
+);
+
+$size_fields = array(
+    'sm_ar' => 'Small – Arabic',
+    'sm_en' => 'Small – English',
+    'md_ar' => 'Medium – Arabic',
+    'md_en' => 'Medium – English',
+    'lg_ar' => 'Large – Arabic',
+    'lg_en' => 'Large – English',
+);
+
+foreach ( $size_fields as $field => $label ) {
+
+    $wp_customize->add_setting(
+        'rm_size_' . $field,
+        array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        )
+    );
+
+    $wp_customize->add_control(
+        'rm_size_' . $field,
+        array(
+            'label'   => __( $label, 'restaurant-menu' ),
+            'section' => RM_SIZE_SECTION,
+            'type'    => 'text',
+        )
+    );
+}
 }
     add_action( 'customize_register', 'rm_menu_customize_register');
