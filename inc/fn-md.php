@@ -28,7 +28,13 @@ function md_show_featured_image_column($column_name, $post_id)
         if ($post_thumbnail) {
             echo $post_thumbnail;
         } else {
-            echo '—'; // Placeholder if no image
+            $item_image_url = get_field('item_image', $post_id);
+            // $item_image_url = wp_get_attachment_image_url($item_image_id, 'thumbnail'); 
+            if ($item_image_url) {
+                echo '<img src="' . esc_url($item_image_url)  . '" style="width: 50px; height: 50px;">';
+            } else {
+                echo '—'; // Placeholder if no image
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@400..700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 /* =========================================================
    ELEGANT RESTAURANT MENU
@@ -15,10 +15,32 @@
   --font-ar: "Aref Ruqaa", Cairo, Rubik, sans-serif;
   --font-ar-secondary: Cairo, Rubik, "Aref Ruqaa", sans-serif;
   --font-en: Caveat, cursive;
-  --font-en-secondary: "Bad Script", cursive;
+  --font-en-secondary: "Arimo", sans-serif;
+  /* --font-en-secondary: "Bad Script", cursive; */
   --fs-lg: clamp(1.1rem, 10vw + 1rem, 2.5rem);
   --fs-md: clamp(1rem, 6vw + 1rem, 1.5rem);
   --fs-sm: clamp(0.9rem, 3vw + 1rem, 1.1rem);
+  /***********************************/
+  /* Restaurant identity */
+  --rm-font-size-title: clamp(1.8rem, 4vw, 2.8rem);
+  --rm-font-size-description: clamp(0.9rem, 1.8vw, 1.15rem);
+
+  /* Categories */
+  --rm-font-size-category-title: clamp(1.35rem, 3vw, 2rem);
+  --rm-font-size-category-description: clamp(0.85rem, 1.6vw, 1.05rem);
+
+  /* Menu items */
+  --rm-font-size-item-name: clamp(1rem, 2.2vw, 1.35rem);
+  --rm-font-size-item-description: clamp(0.82rem, 1.5vw, 1rem);
+  --rm-font-size-item-price: clamp(0.95rem, 1.8vw, 1.2rem);
+
+  /* Pizza / variation sizes */
+  --rm-font-size-variation: clamp(0.8rem, 1.5vw, 1rem);
+  --rm-font-size-variation-price: clamp(0.85rem, 1.6vw, 1.05rem);
+  /***********************************/
+  --spacing-sm: 0.25rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 1rem;
 
   position: relative;
   min-height: 100vh;
@@ -81,9 +103,11 @@
     /*prettier-ignore*/
     .elegant-header__name {
       margin: 0;
+      /* border: solid red; */
       color: var(--rm-elegant-text);
       line-height: 1.2;
       letter-spacing: 0.02em;
+      /* font-size: var(--rm-font-size-title); */
       font-size: var(--fs-lg);
       font-weight: 700;
       .restaurant-name-ar { font-family: var(--font-ar); }
@@ -95,6 +119,7 @@
       margin: 9px auto 0;
       color: var(--rm-elegant-muted);
       line-height: 1.7;
+      /* font-size: var(--rm-font-size-description); */
       font-size: var(--fs-md);
       font-weight: 400;
       .restaurant-description-ar{font-family: var(--font-ar);}
@@ -209,12 +234,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* .my-element { */
+      /*----------------*/
       opacity: 0;
       visibility: hidden;
       display: none;
       transition: opacity 0.3s ease;
-      /* } */
 
       &.is-visible {
         display: inline;
@@ -312,12 +336,14 @@
 CATEGORY
 ========================================================= */
 .menu-design--elegant .elegant-category {
-  margin-bottom: 52px;
+  /* margin-bottom: 52px; */
+  margin-bottom: 2rem;
   scroll-margin-top: 75px;
+  margin-top: 0.7rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
-/* .menu-design--elegant .elegant-category:last-child {
-  margin-bottom: 0;
-  } */
 .menu-design--elegant .elegant-category__header {
   margin-bottom: 25px;
   text-align: center;
@@ -334,21 +360,19 @@ CATEGORY
   }
 
   /* =========================================================
-      CATEGORY DESCRIPTION
+  CATEGORY DESCRIPTION
   ========================================================= */
+  /*prettier-ignore*/
   .elegant-category__description {
     max-width: 620px;
     margin: 10px auto 0;
-    .category-description-ar {
-      font-family: var(--font-ar);
-    }
-    .category-description-en {
-      font-family: var(--font-en);
-    }
+    .category-description-ar { font-family: var(--font-ar-secondary);}
+    .category-description-en { font-family: var(--font-en-secondary); }
     p {
+      /* border: solid red; */
       margin: 0;
       color: var(--rm-elegant-muted);
-      font-size: 13px;
+      font-size: var(--fs-sm);
       line-height: 1.7;
       text-align: center;
     }
@@ -391,6 +415,9 @@ CATEGORY
     border-bottom: 1px dotted var(--rm-elegant-accent-dark);
     &:first-child {
       border-top: 1px solid var(--rm-elegant-border);
+    }
+    &:last-child {
+      border-bottom: 0;
     }
   } /* .elegant-item*/
 } /*.menu-design--elegant .elegant-category__items*/
@@ -435,10 +462,11 @@ CATEGORY
   font-weight: 500;
   line-height: 1.4;
   font-weight: 400;
+  /* color: red; */
   font-size: var(--fs-md);
-
+  /* font-size: var(--rm-font-size-item-name); */
   .menu-name-ar {
-    font-family: var(--font-ar);
+    font-family: var(--font-ar-secondary);
   }
   .menu-name-en {
     font-family: var(--font-en);
@@ -447,7 +475,8 @@ CATEGORY
 .menu-design--elegant .elegant-item__price {
   flex: 0 0 auto;
   color: var(--rm-elegant-accent-dark);
-  font-size: 15px;
+  font-size: var(--rd-font-size-item-price);
+  /* font-size: var(--fs-md); */
   font-weight: 600;
   white-space: nowrap;
 }
@@ -456,13 +485,17 @@ PRODUCT DESCRIPTION
 ========================================================= */
 .menu-design--elegant .elegant-item__description {
   margin: 0;
+  line-height: 1.2;
+  font-style: italic;
   p {
     margin: 0;
     color: var(--rm-elegant-muted);
     font-size: var(--fs-sm);
-    line-height: 1.7;
+    /* font-size: var(--rm-font-size-item-description); */
+    /* line-height: 1.7; */
   }
   .menu-description-ar {
+    /* border: solid red; */
     font-family: var(--font-ar-secondary);
   }
   .menu-description-en {
@@ -489,8 +522,8 @@ PRODUCT DESCRIPTION
 /* Size list */
 .menu-design--elegant .elegant-item__sizes {
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 8px;
 }
 
@@ -519,8 +552,9 @@ PRODUCT DESCRIPTION
 
 /* Arabic size name */
 .menu-design--elegant .elegant-item__size-name .size-name-ar {
-  font-family: var(--font-ar);
-  font-size: 1.05rem;
+  font-family: var(--font-ar-secondary);
+  /* font-size: 1.05rem; */
+  font-size: var(--fs-sm);
 }
 
 /* English size name */
@@ -636,7 +670,7 @@ html[dir="ltr"] .menu-design--elegant .elegant-category-navigation__scroll {
     font-size: 20px;
   }
   .menu-design--elegant .elegant-item--sizes .elegant-item__sizes {
-    max-width: 320px;
+    /* max-width: 320px; */
   }
 
   .menu-design--elegant .elegant-item__size {
@@ -745,7 +779,8 @@ html *.show {
  */
 
 /* Variation price */
-.variation-price {
+.variation-price,
+.elegant-item__price {
   flex-shrink: 0;
 
   font-size: 0.95rem;
@@ -785,3 +820,142 @@ html *.show {
     padding: 0.18rem 0.55rem;
   }
 }
+
+/***********************************/
+/* .elegant-category--compact {
+  .elegant-category__items {
+    border: solid blue;
+    flex-direction: row;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    .elegant-item__description {
+      display: none;
+    }
+    .elegant-item {
+      padding: 8px 0;
+      border: 0;
+      .elegant-item__heading {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .elegant-item__image {
+      display: none;
+    }
+
+    .elegant-item__description {
+      margin-top: 2px;
+    }
+  }
+}
+
+.elegant-category--compact .elegant-item__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+} */
+.elegant-category--compact {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+
+  .elegant-category__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 8px;
+    padding: 10px 4px;
+  }
+
+  .elegant-item {
+    /* border: solid red; */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4px 2px;
+    /* border: 0; */
+  }
+
+  .elegant-item__image,
+  .elegant-item__description {
+    display: none;
+  }
+
+  .elegant-item__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    text-align: center;
+  }
+
+  .elegant-item__name {
+    margin: 0;
+
+    font-size: clamp(0.9rem, 4vw, 1.05rem);
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .elegant-item__price {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 42px;
+    min-height: 30px;
+    padding: 4px 11px;
+
+    border-radius: 999px;
+
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+}
+@media (min-width: 576px) {
+  .elegant-category--compact {
+    .elegant-category__items {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px 12px;
+    }
+
+    .elegant-item__name {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+    }
+
+    .elegant-item__price {
+      min-width: 44px;
+      min-height: 32px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .elegant-category--compact {
+    border: solid green;
+
+    .elegant-category__items {
+      grid-template-columns: repeat(5, minmax(90px, 1fr));
+      max-width: 800px;
+      margin: 0 auto;
+      gap: 22px 15px;
+    }
+  }
+}
+/***************************/
+/* .elegant-category--compact .elegant-category__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 12px;
+}
+
+.elegant-category--compact .elegant-item {
+  flex: 0 0 90px;
+  text-align: center;
+} */
