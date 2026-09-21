@@ -59,7 +59,7 @@ $categories = get_terms(
         $compact_class = $is_compact ? 'elegant-category--compact' : '';
         ?>
     <section id="<?php echo esc_attr( 'menu-category-' . $category->term_id ); ?>"
-        class="elegant-category <?php echo esc_attr( $compact_class ); ?>">
+        class="menu-category elegant-category <?php echo esc_attr( $compact_class ); ?>">
         <!-- =================================
             CATEGORY HEADER
             ================================= -->

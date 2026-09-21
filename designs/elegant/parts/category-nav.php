@@ -28,7 +28,8 @@ $categories = get_terms(
                     ?>
             <a href="#<?php echo esc_attr( $category_id ); ?>"
                 class="category-link <?php echo 0 === $index ? 'active' : ''; ?>"
-                data-category-target="<?php echo esc_attr( $category_id ); ?>">
+                data-category-id="<?php echo esc_attr( $category->term_id );?>"
+                data-category-target=" <?php echo esc_attr( $category_id ); ?>">
                 <span class="category-name-ar">
                     <?php echo esc_html($category_name_ar ?: $category->name);?>
                 </span>
