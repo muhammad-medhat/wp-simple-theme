@@ -58,12 +58,12 @@
         <div class="elegant-item__description">
             <?php if ( $description_ar ) : ?>
             <p class="menu-description-ar">
-                <?php echo esc_html($description_ar);?>
+                <?php echo wp_kses_post( rm_replace_c21_icon($description_ar));?>
             </p>
             <?php endif; ?>
             <?php if ( $description_en ) : ?>
             <p class="menu-description-en">
-                <?php echo esc_html($description_en);?>
+                <?php echo wp_kses_post( rm_replace_c21_icon($description_en));?>
             </p>
             <?php endif; ?>
         </div>
@@ -98,13 +98,13 @@
 
                     <?php if ( ! empty( $variation['desc_ar'] ) ) : ?>
                     <span class="variation-desc-ar">
-                        <?php echo esc_html( $variation['desc_ar'] ); ?>
+                        <?php echo wp_kses_post( rm_replace_c21_icon( $variation['desc_ar']) ); ?>
                     </span>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $variation['desc_en'] ) ) : ?>
                     <span class="variation-desc-en">
-                        <?php echo esc_html( $variation['desc_en'] ); ?>
+                        <?php echo wp_kses_post( rm_replace_c21_icon( $variation['desc_en']) ); ?>
                     </span>
                     <?php endif; ?>
 
