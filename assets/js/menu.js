@@ -247,9 +247,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   //logo visible on scroll
   window.addEventListener("scroll", function () {
-    const element = document.querySelector(
-      ".elegant-category-navigation__logo",
-    );
+    // const element = document.querySelector(
+    //   ".elegant-category-navigation__logo",
+    // );
+    const element = document.getElementById("nav-logo");
+
     if (window.scrollY > 300) {
       element.classList.add("is-visible");
     } else {

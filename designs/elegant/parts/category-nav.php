@@ -15,7 +15,7 @@ $categories = get_terms(
     <div class="elegant-category-navigation__inner">
 
         <?php if ( has_custom_logo() ) : ?>
-        <div class="elegant-category-navigation__logo">
+        <div id="nav-logo" class="elegant-category-navigation__logo">
             <?php the_custom_logo();?>
         </div>
         <?php endif; ?>
