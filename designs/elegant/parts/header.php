@@ -55,20 +55,12 @@ $has_logo = has_custom_logo();?>
         <?php if ( $restaurant_description_ar||$restaurant_description_en ) : ?>
         <div class="elegant-header__description">
             <?php if ( $lang_mode === 'bi' ) :  //show both descriptions?>
-            <p class="restaurant-description-ar">
-                <?php echo esc_html( $restaurant_description_ar ); ?>
-            </p>
-            <p class="restaurant-description-en">
-                <?php echo esc_html( $restaurant_description_en ); ?>
-            </p>
+            <p class="restaurant-description-ar"><?php echo esc_html( $restaurant_description_ar ); ?></p>
+            <p class="restaurant-description-en"><?php echo esc_html( $restaurant_description_en ); ?></p>
             <?php elseif ( $lang_mode === 'en' ) : ?>
-            <p class="restaurant-description-en show">
-                <?php echo esc_html( $restaurant_description_en ); ?>
-            </p>
+            <p class="restaurant-description-en show"><?php echo esc_html( $restaurant_description_en ); ?></p>
             <?php elseif ( $lang_mode === 'ar' ) : ?>
-            <p class="restaurant-description-ar show">
-                <?php echo esc_html( $restaurant_description_ar ); ?>
-            </p>
+            <p class="restaurant-description-ar show"><?php echo esc_html( $restaurant_description_ar ); ?></p>
             <?php endif?>
         </div>
         <?php endif; ?>

@@ -6,7 +6,11 @@ Description: A lightweight Bootstrap-based restaurant QR menu theme.
 Version: 1.0.0
 Text Domain: restaurant-menu
 */
-
+:root {
+  --font-hand: "Handlee", cursive;
+  --font-hand: "Patrick Hand", cursive;
+  --font-hand: "Playpen Sans", cursive;
+}
 /*
  * Bootstrap handles the main responsive framework.
  * Custom restaurant styles are loaded from:
@@ -21,26 +25,6 @@ Text Domain: restaurant-menu
 body * {
   text-transform: capitalize;
 }
-
-/* not working yet */
-c21 {
-  display: inline-block; /* Allows width and height styling */
-  width: 50px; /* Set your image width */
-  height: 50px; /* Set your image height */
-  position: relative;
-  overflow: hidden; /* Hides any content that slips inside */
-}
-
-c21::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("./assets/img/logo-sm.png");
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px; /* Example styling: rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Example styling: shadow */
+div#nan-logo {
+  margin: 0 0.2rem;
 }

@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          console.log(entry);
+          // console.log(entry);
           if (!entry.isIntersecting) {
             return;
           }
@@ -247,9 +247,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   //logo visible on scroll
   window.addEventListener("scroll", function () {
-    // const element = document.querySelector(
-    //   ".elegant-category-navigation__logo",
-    // );
     const element = document.getElementById("nav-logo");
 
     if (window.scrollY > 300) {
@@ -258,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
       element.classList.remove("is-visible");
     }
   });
-  //display number in arabic
+  //display the title number in arabic
   const arTitle = document.querySelector(".restaurant-name-ar");
 
   const textWithStandardNumbers = arTitle.innerText;
@@ -268,5 +265,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return Number(digit).toLocaleString("ar-EG");
     },
   );
-  arTitle.innerText = textWithArabicNumbers; // Will display as "Club ٢١"  // debugger;
+  arTitle.innerText = textWithArabicNumbers;
+  //first letter uppercase
+  //doesn't work
+  const descElement = document.querySelector(".restaurant-description-en");
+  // debugger;
+  const text = descElement.textContent.trim();
+
+  // Lowercase everything, then uppercase just index 0
+  descElement.textContent =
+    text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 });

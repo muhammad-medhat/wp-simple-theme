@@ -104,7 +104,13 @@ $categories = get_terms(
 
                         //Product image.
                         $image = get_the_post_thumbnail_url($item_id,'medium');
-                        !isset($image) ? $image = get_field('item_image', $item_id) : $image = $image;
+                        if ( ! $image ) {
+                            $image = get_field(
+                                'item_image',
+                                $item_id
+                            );
+                        }
+                        // !isset($image) ? $image = get_field('item_image', $item_id) : $image = $image;
                         $has_variation=get_field('has_variation', $item_id);
                         //non pizza variations
                         $var1_desc_ar = get_field( 'var1_desc_ar', $item_id );
