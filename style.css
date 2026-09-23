@@ -25,6 +25,6 @@ Text Domain: restaurant-menu
 body * {
   text-transform: capitalize;
 }
-div#nan-logo {
+div#nav-logo {
   margin: 0 0.2rem;
 }

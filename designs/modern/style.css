@@ -1,383 +1,1118 @@
 /*
- * ================================================
+ * =========================================================
  * MODERN MENU DESIGN
- * ================================================
+ * =========================================================
  */
-/* ------------------------------------------------
-   Design Canvas
------------------------------------------------- */
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 .menu-design--modern {
-  /* border: solid red; */
+  --modern-bg: #ffffff;
+  --modern-surface: #f8f9fa;
+  --modern-surface-2: #f1f3f5;
+
+  --modern-text: #202124;
+  --modern-text-soft: #4b5563;
+  --modern-muted: #6b7280;
+
+  --modern-primary: #2563eb;
+  --modern-primary-dark: #1d4ed8;
+
+  --modern-border: #e5e7eb;
+  --modern-border-soft: rgba(0, 0, 0, 0.06);
+
+  --modern-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  --modern-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  --modern-radius-sm: 8px;
+  --modern-radius: 12px;
+  --modern-radius-lg: 16px;
+  --modern-radius-pill: 999px;
+
+  --modern-header-height: 72px;
+  --modern-nav-height: 58px;
+
   width: 100%;
   max-width: 768px;
   min-height: 100vh;
+
   margin-inline: auto;
-  background: #ffffff;
-  /* ------------------------------------------------
-   Header
------------------------------------------------- */
-  .restaurant-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid #eeeeee;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  .restaurant-header__inner {
-    min-height: 72px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  /* Logo */
-  .restaurant-header__logo {
-    flex: 0 0 auto;
-  }
-  .restaurant-header__logo .custom-logo {
-    display: block;
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-  }
-  .restaurant-header__logo-placeholder {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #222222;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 700;
-  }
-  /* Restaurant name */
-  .restaurant-header__info {
-    .restaurant-header__identity {
-      flex: 1;
-      min-width: 0;
-      text-align: start;
-    }
-    flex: 1;
-    min-width: 0;
-    /* border: solid blue; */
-    .restaurant-header__name {
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-      /* font-size: 19px;
-      font-weight: 750; */
-    }
-    .restaurant-header__description {
-      /* border: solid red; */
-      margin-top: 5px;
-      max-width: 500px;
-      p {
-        margin: 0;
-        color: #777777;
-        font-size: 11px;
-        line-height: 1.5;
-      }
-    }
-  }
-  .restaurant-name-ar,
-  .restaurant-name-en {
-    display: none;
-  }
+
+  background: var(--modern-bg);
+  color: var(--modern-text);
 }
-body[data-menu-language="ar"] .menu-design--modern .restaurant-name-ar {
-  display: inline;
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.menu-design--modern *,
+.menu-design--modern *::before,
+.menu-design--modern *::after {
+  box-sizing: border-box;
 }
-body[data-menu-language="en"] .menu-design--modern .restaurant-name-en {
-  display: inline;
+
+.menu-design--modern img {
+  max-width: 100%;
 }
+
+.menu-design--modern p {
+  margin-top: 0;
+}
+
+.menu-design--modern a {
+  color: inherit;
+}
+
+.menu-design--modern button {
+  font-family: inherit;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.menu-design--modern .restaurant-header {
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-bottom: 1px solid var(--modern-border);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.menu-design--modern .restaurant-header__inner {
+  min-height: var(--modern-header-height);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 16px;
+}
+
+/* Logo */
+
+.menu-design--modern .restaurant-header__logo {
+  flex: 0 0 auto;
+}
+
+.menu-design--modern .restaurant-header__logo .custom-logo {
+  display: block;
+
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+}
+
+.menu-design--modern .restaurant-header__logo-placeholder {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 48px;
+
+  border-radius: 50%;
+
+  background: var(--modern-text);
+  color: #fff;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Restaurant information */
+
+.menu-design--modern .restaurant-header__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-design--modern .restaurant-header__identity {
+  min-width: 0;
+
+  text-align: start;
+}
+
+.menu-design--modern .restaurant-header__name {
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.2;
+}
+
+.menu-design--modern .restaurant-header__description {
+  margin-top: 5px;
+
+  max-width: 500px;
+}
+
+.menu-design--modern .restaurant-header__description p {
+  margin: 0;
+
+  color: var(--modern-muted);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Restaurant name */
+
+.menu-design--modern .restaurant-name-ar,
+.menu-design--modern .restaurant-name-en {
+  display: none;
+}
+
 .menu-design--modern .restaurant-name-ar {
   font-size: 17px;
   font-weight: 700;
 }
+
 .menu-design--modern .restaurant-name-en {
   font-size: 12px;
-  color: #777777;
+  color: var(--modern-muted);
 }
-/* ------------------------------------------------
-   Language Switcher
------------------------------------------------- */
+
+/* =========================================================
+   LANGUAGE SWITCHER
+========================================================= */
+
 .menu-design--modern .restaurant-header__language {
   flex: 0 0 auto;
 }
+
 .menu-design--modern .language-switcher {
   position: relative;
+
   display: flex;
   align-items: center;
+
   width: 78px;
   height: 34px;
+
   padding: 3px;
-  border: 1px solid #e4e4e4;
-  border-radius: 999px;
-  background: #f6f6f6;
+
+  border: 1px solid var(--modern-border);
+  border-radius: var(--modern-radius-pill);
+
+  background: var(--modern-surface);
+
   cursor: pointer;
-  font-family: inherit;
 }
+
 .menu-design--modern .language-switcher__option {
   position: relative;
   z-index: 2;
+
   width: 50%;
-  text-align: center;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--modern-muted);
+
   font-size: 11px;
   font-weight: 600;
-  color: #777777;
+
+  cursor: pointer;
 }
+
 .menu-design--modern .language-switcher__indicator {
   position: absolute;
+
   top: 3px;
   bottom: 3px;
   left: 3px;
+
   width: calc(50% - 3px);
-  border-radius: 999px;
-  background: #ffffff;
+
+  border-radius: var(--modern-radius-pill);
+
+  background: #fff;
+
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+
   transition: transform 0.25s ease;
 }
-html[dir="rtl"] .menu-design--modern .language-switcher__indicator {
-  transform: translateX(100%);
-}
+
 html[dir="ltr"] .menu-design--modern .language-switcher__indicator {
   transform: translateX(0);
 }
-/* ------------------------------------------------
-   Category Navigation
------------------------------------------------- */
+
+html[dir="rtl"] .menu-design--modern .language-switcher__indicator {
+  transform: translateX(100%);
+}
+
+/* =========================================================
+   CATEGORY NAVIGATION
+========================================================= */
+
 .menu-design--modern .category-navigation {
   position: sticky;
-  top: 72px;
+
+  top: var(--modern-header-height);
+
   z-index: 900;
+
   background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid #eeeeee;
+
+  border-bottom: 1px solid var(--modern-border);
+
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
+.menu-design--modern .category-navigation__inner {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+
+  padding-inline: 12px;
+}
+
+.menu-design--modern .category-navigation__logo {
+  flex: 0 0 auto;
+
+  padding-inline-end: 8px;
+}
+
+.menu-design--modern .category-navigation__logo .custom-logo {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  object-fit: contain;
+}
+
 .menu-design--modern .category-navigation__scroll {
   display: flex;
   align-items: center;
+
   gap: 8px;
+
+  min-width: 0;
+
   overflow-x: auto;
-  padding: 10px 0;
+
+  padding: 10px 4px;
+
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   scroll-behavior: smooth;
 }
+
 .menu-design--modern .category-navigation__scroll::-webkit-scrollbar {
   display: none;
 }
-/* Category buttons */
+
+/* Category links */
+
 .menu-design--modern .category-link {
   flex: 0 0 auto;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 36px;
+
   padding: 7px 16px;
-  border-radius: 999px;
-  background: #f4f4f4;
-  color: #666666;
+
+  border-radius: var(--modern-radius-pill);
+
+  background: var(--modern-surface-2);
+
+  color: var(--modern-muted);
+
   text-decoration: none;
+
   font-size: 13px;
   font-weight: 600;
+
   white-space: nowrap;
+
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
     transform 0.15s ease;
 }
+
 .menu-design--modern .category-link.active {
-  background: #222222;
-  color: #ffffff;
+  background: var(--modern-text);
+  color: #fff;
 }
+
 .menu-design--modern .category-link:active {
   transform: scale(0.96);
 }
-/* ------------------------------------------------
-   Content
------------------------------------------------- */
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
 .menu-design--modern .menu-design__content {
   padding-inline: 16px;
 }
-/* ------------------------------------------------
-   Category
------------------------------------------------- */
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
 .menu-design--modern .menu-category {
-  scroll-margin-top: 125px;
+  position: relative;
+
+  scroll-margin-top: calc(
+    var(--modern-header-height) + var(--modern-nav-height) + 15px
+  );
+
   padding-top: 28px;
   padding-bottom: 30px;
 }
+
 .menu-design--modern .menu-category + .menu-category {
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid var(--modern-border);
 }
-/* Category title */
+
+/* =========================================================
+   CATEGORY HEADER
+========================================================= */
+
 .menu-design--modern .menu-category__header {
   margin-bottom: 18px;
 }
+
 .menu-design--modern .menu-category__title {
   position: relative;
+
   margin: 0;
+
   padding-inline-start: 14px;
+
   font-size: 23px;
   font-weight: 700;
+
   line-height: 1.3;
 }
+
 .menu-design--modern .menu-category__title::before {
   content: "";
+
   position: absolute;
+
   top: 4px;
   bottom: 4px;
+
   inset-inline-start: 0;
+
   width: 4px;
-  border-radius: 999px;
-  background: #222222;
+
+  border-radius: var(--modern-radius-pill);
+
+  background: var(--modern-text);
 }
-/* ------------------------------------------------
-   Items
------------------------------------------------- */
+
+/* Category language */
+
+.menu-design--modern .category-name-ar,
+.menu-design--modern .category-name-en {
+  display: none;
+}
+
+/* Category description */
+
+.menu-design--modern .menu-category__description {
+  margin-top: 7px;
+
+  padding-inline-start: 14px;
+
+  color: var(--modern-muted);
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.menu-design--modern .menu-category__description p {
+  margin: 0;
+}
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
 .menu-design--modern .menu-category__items {
   display: flex;
   flex-direction: column;
+
   gap: 12px;
 }
-/* Item */
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
 .menu-design--modern .menu-item-card {
   display: flex;
+
   gap: 14px;
+
   padding: 12px;
-  background: #ffffff;
-  border: 1px solid #eeeeee;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+  background: var(--modern-bg);
+
+  border: 1px solid var(--modern-border);
+
+  border-radius: var(--modern-radius);
+
+  box-shadow: var(--modern-shadow-sm);
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
-/* Image */
+
+.menu-design--modern .menu-item-card:hover {
+  box-shadow: var(--modern-shadow);
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
 .menu-design--modern .menu-item-card__image {
   flex: 0 0 88px;
+
   width: 88px;
   height: 88px;
+
   overflow: hidden;
-  border-radius: 10px;
-  background: #f4f4f4;
+
+  border-radius: var(--modern-radius-sm);
+
+  background: var(--modern-surface-2);
 }
+
 .menu-design--modern .menu-item-card__image img {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   transition: transform 0.35s ease;
 }
+
 .menu-design--modern .menu-item-card:hover .menu-item-card__image img {
   transform: scale(1.05);
 }
-/* Content */
+
+/* =========================================================
+   PRODUCT CONTENT
+========================================================= */
+
 .menu-design--modern .menu-item-card__content {
   flex: 1;
   min-width: 0;
+
   display: flex;
   flex-direction: column;
+
   justify-content: center;
 }
-/* Name + price */
+
+/* =========================================================
+   NAME + PRICE
+========================================================= */
+
 .menu-design--modern .menu-item-card__top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
   gap: 10px;
 }
+
 .menu-design--modern .menu-item-card__name {
   flex: 1;
+
+  min-width: 0;
+
   margin: 0;
+
   font-size: 16px;
   font-weight: 700;
+
   line-height: 1.4;
 }
+
 .menu-design--modern .menu-item-card__price {
   flex: 0 0 auto;
+
+  color: var(--modern-text);
+
   font-size: 15px;
   font-weight: 700;
+
   white-space: nowrap;
 }
-/* Description */
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
 .menu-design--modern .menu-item-card__description {
   margin-top: 6px;
-  color: #777777;
+
+  color: var(--modern-muted);
+
   font-size: 12px;
   line-height: 1.55;
 }
-/* ------------------------------------------------
-   Empty state
------------------------------------------------- */
+
+.menu-design--modern .menu-item-card__description p {
+  margin: 0;
+}
+
+/* =========================================================
+   VARIATIONS
+========================================================= */
+
+.menu-design--modern .menu-item-card__variations {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-top: 8px;
+}
+
+.menu-design--modern .menu-item-variation {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding: 7px 9px;
+
+  border-radius: var(--modern-radius-sm);
+
+  background: var(--modern-surface);
+
+  border: 1px solid var(--modern-border-soft);
+}
+
+.menu-design--modern .variation-description {
+  flex: 1;
+  min-width: 0;
+
+  color: var(--modern-text-soft);
+
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.menu-design--modern .variation-price {
+  flex: 0 0 auto;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   PIZZA SIZES
+========================================================= */
+
+.menu-design--modern .menu-item-card__sizes {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: 9px;
+}
+
+.menu-design--modern .menu-size {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 5px 9px;
+
+  border-radius: var(--modern-radius-pill);
+
+  background: var(--modern-surface);
+
+  border: 1px solid var(--modern-border);
+
+  font-size: 11px;
+}
+
+.menu-design--modern .menu-size__name {
+  color: var(--modern-muted);
+
+  font-weight: 600;
+}
+
+.menu-design--modern .menu-size__price {
+  color: var(--modern-text);
+
+  font-weight: 700;
+}
+
+/* Pizza size language */
+
+.menu-design--modern .menu-size__name-ar,
+.menu-design--modern .menu-size__name-en {
+  display: none;
+}
+
+/* =========================================================
+   INLINE C21 LOGO
+========================================================= */
+
+.menu-design--modern .rm-menu-inline-logo {
+  display: inline-block;
+
+  width: 42px;
+  height: auto;
+
+  max-height: 24px;
+
+  object-fit: contain;
+
+  vertical-align: middle;
+
+  margin: 0 3px;
+}
+
+/* =========================================================
+   LANGUAGE VISIBILITY
+========================================================= */
+
+/* Restaurant */
+
+body[data-menu-language="ar"] .menu-design--modern .restaurant-name-ar,
+body[data-menu-language="en"] .menu-design--modern .restaurant-name-en {
+  display: inline;
+}
+
+/* Categories */
+
+body[data-menu-language="ar"] .menu-design--modern .category-name-ar,
+body[data-menu-language="en"] .menu-design--modern .category-name-en {
+  display: inline;
+}
+
+/* Category descriptions */
+
+body[data-menu-language="ar"] .menu-design--modern .category-description-ar,
+body[data-menu-language="en"] .menu-design--modern .category-description-en {
+  display: block;
+}
+
+/* Item names */
+
+body[data-menu-language="ar"] .menu-design--modern .menu-name-ar,
+body[data-menu-language="en"] .menu-design--modern .menu-name-en {
+  display: inline;
+}
+
+/* Item descriptions */
+
+body[data-menu-language="ar"] .menu-design--modern .menu-description-ar,
+body[data-menu-language="en"] .menu-design--modern .menu-description-en {
+  display: inline;
+}
+
+/* Pizza sizes */
+
+body[data-menu-language="ar"] .menu-design--modern .menu-size__name-ar,
+body[data-menu-language="en"] .menu-design--modern .menu-size__name-en {
+  display: inline;
+}
+
+/* =========================================================
+   DEFAULT HIDDEN LANGUAGE ELEMENTS
+========================================================= */
+
+.menu-design--modern .category-description-ar,
+.menu-design--modern .category-description-en,
+.menu-design--modern .menu-name-ar,
+.menu-design--modern .menu-name-en,
+.menu-design--modern .menu-description-ar,
+.menu-design--modern .menu-description-en {
+  display: none;
+}
+
+/* =========================================================
+   RTL
+========================================================= */
+
+html[dir="rtl"] .menu-design--modern {
+  direction: rtl;
+}
+
+html[dir="ltr"] .menu-design--modern {
+  direction: ltr;
+}
+
+html[dir="rtl"] .menu-design--modern .restaurant-header__identity {
+  text-align: right;
+}
+
+html[dir="ltr"] .menu-design--modern .restaurant-header__identity {
+  text-align: left;
+}
+
+html[dir="rtl"] .menu-design--modern .menu-item-card__top {
+  flex-direction: row;
+}
+
+/* =========================================================
+   COMPACT CATEGORY
+========================================================= */
+
+.menu-design--modern .menu-category--compact {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.menu-design--modern .menu-category--compact .menu-category__header {
+  margin-bottom: 12px;
+}
+
+.menu-design--modern .menu-category--compact .menu-category__items {
+  gap: 7px;
+}
+
+.menu-design--modern .menu-category--compact .menu-item-card {
+  padding: 8px 10px;
+
+  border-radius: var(--modern-radius-sm);
+
+  box-shadow: none;
+}
+
+.menu-design--modern .menu-category--compact .menu-item-card__image {
+  flex-basis: 62px;
+
+  width: 62px;
+  height: 62px;
+}
+
+/* =========================================================
+   MOVE TO TOP
+========================================================= */
+
+.menu-design--modern .move-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  margin: 12px auto 0;
+
+  border-radius: 50%;
+
+  background: var(--modern-surface-2);
+
+  color: var(--modern-muted);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.menu-design--modern .move-top:hover {
+  background: var(--modern-text);
+  color: #fff;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
 .menu-design--modern .menu-empty {
   padding: 60px 20px;
+
   text-align: center;
-  color: #888888;
+
+  color: var(--modern-muted);
+
+  font-size: 14px;
 }
-/* ------------------------------------------------
-   Desktop
------------------------------------------------- */
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
 @media (min-width: 768px) {
-  .menu-design--modern .restaurant-header__inner {
-    min-height: 86px;
+  .menu-design--modern {
+    --modern-header-height: 86px;
+    --modern-nav-height: 60px;
   }
+
+  .menu-design--modern .restaurant-header__inner {
+    min-height: var(--modern-header-height);
+
+    padding-inline: 24px;
+  }
+
   .menu-design--modern .restaurant-header__logo .custom-logo,
   .menu-design--modern .restaurant-header__logo-placeholder {
     width: 58px;
     height: 58px;
   }
+
   .menu-design--modern .restaurant-name-ar {
     font-size: 20px;
   }
+
   .menu-design--modern .restaurant-name-en {
     font-size: 12px;
   }
-  .menu-design--modern .category-navigation {
-    top: 86px;
+
+  .menu-design--modern .category-navigation__inner {
+    padding-inline: 20px;
   }
+
   .menu-design--modern .category-navigation__scroll {
     justify-content: center;
+
     overflow-x: visible;
-    padding: 12px 0;
+
+    padding: 10px 0;
   }
+
   .menu-design--modern .category-link {
     min-height: 40px;
+
     padding-inline: 20px;
+
     font-size: 14px;
   }
+
   .menu-design--modern .menu-design__content {
     padding-inline: 24px;
   }
+
   .menu-design--modern .menu-category {
-    scroll-margin-top: 145px;
     padding-top: 34px;
     padding-bottom: 44px;
   }
+
   .menu-design--modern .menu-category__title {
     font-size: 27px;
   }
+
+  .menu-design--modern .menu-category__description {
+    font-size: 13px;
+  }
+
   .menu-design--modern .menu-category__items {
     display: grid;
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 16px;
   }
+
   .menu-design--modern .menu-item-card {
     padding: 14px;
   }
+
   .menu-design--modern .menu-item-card__image {
     flex-basis: 100px;
+
     width: 100px;
     height: 100px;
   }
+
   .menu-design--modern .menu-item-card__name {
     font-size: 17px;
   }
+
   .menu-design--modern .menu-item-card__description {
     font-size: 13px;
+  }
+
+  .menu-design--modern .menu-item-card__variations {
+    gap: 7px;
+  }
+
+  .menu-design--modern .variation-description {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+  .menu-design--modern {
+    max-width: 900px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+  .menu-design--modern .restaurant-header__inner {
+    padding-inline: 12px;
+  }
+
+  .menu-design--modern .restaurant-header__logo .custom-logo,
+  .menu-design--modern .restaurant-header__logo-placeholder {
+    width: 44px;
+    height: 44px;
+  }
+
+  .menu-design--modern .restaurant-header__logo-placeholder {
+    flex-basis: 44px;
+  }
+
+  .menu-design--modern .restaurant-header__description {
+    max-width: 230px;
+  }
+
+  .menu-design--modern .restaurant-header__description p {
+    font-size: 10px;
+  }
+
+  .menu-design--modern .restaurant-name-ar {
+    font-size: 16px;
+  }
+
+  .menu-design--modern .restaurant-name-en {
+    font-size: 11px;
+  }
+
+  .menu-design--modern .language-switcher {
+    width: 70px;
+    height: 32px;
+  }
+
+  .menu-design--modern .language-switcher__option {
+    font-size: 10px;
+  }
+
+  .menu-design--modern .menu-design__content {
+    padding-inline: 12px;
+  }
+
+  .menu-design--modern .menu-category {
+    padding-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .menu-design--modern .menu-category__title {
+    font-size: 21px;
+  }
+
+  .menu-design--modern .menu-category__items {
+    gap: 9px;
+  }
+
+  .menu-design--modern .menu-item-card {
+    gap: 10px;
+
+    padding: 10px;
+  }
+
+  .menu-design--modern .menu-item-card__image {
+    flex-basis: 76px;
+
+    width: 76px;
+    height: 76px;
+  }
+
+  .menu-design--modern .menu-item-card__name {
+    font-size: 15px;
+  }
+
+  .menu-design--modern .menu-item-card__price {
+    font-size: 14px;
+  }
+
+  .menu-design--modern .menu-item-card__description {
+    font-size: 11px;
+  }
+
+  .menu-design--modern .menu-item-variation {
+    padding: 6px 7px;
+  }
+
+  .menu-design--modern .variation-description,
+  .menu-design--modern .variation-price {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 380px) {
+  .menu-design--modern .restaurant-header__inner {
+    gap: 8px;
+  }
+
+  .menu-design--modern .restaurant-header__description {
+    display: none;
+  }
+
+  .menu-design--modern .menu-item-card__image {
+    flex-basis: 68px;
+
+    width: 68px;
+    height: 68px;
+  }
+
+  .menu-design--modern .menu-item-card__top {
+    gap: 6px;
+  }
+
+  .menu-design--modern .menu-item-card__name {
+    font-size: 14px;
   }
 }
