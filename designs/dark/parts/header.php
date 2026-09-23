@@ -28,7 +28,7 @@ $lang_mode = get_theme_mod(
 $has_logo = has_custom_logo();
 ?>
 
-<header class="dark-header" id="top">
+<header class="dark-header">
 
     <div class="dark-header__inner">
 

@@ -4,36 +4,21 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$restaurant_name_ar = get_theme_mod(
-    'rm_restaurant_name_ar',
-    get_bloginfo( 'name' )
-);
+ $restaurant_name_ar = get_theme_mod('rm_restaurant_name_ar',get_bloginfo( 'name' ));
 
-$restaurant_name_en = get_theme_mod(
-    'rm_restaurant_name_en',
-    get_bloginfo( 'name' )
-);
+ $restaurant_name_en = get_theme_mod('rm_restaurant_name_en',get_bloginfo( 'name' ));
 
-$restaurant_description_ar = get_theme_mod(
-    'rm_restaurant_description_ar',
-    get_bloginfo( 'description' )
-);
+ $restaurant_description_ar = get_theme_mod('rm_restaurant_description_ar',get_bloginfo( 'description' ));
 
-$restaurant_description_en = get_theme_mod(
-    'rm_restaurant_description_en',
-    get_bloginfo( 'description' )
-);
+ $restaurant_description_en = get_theme_mod('rm_restaurant_description_en',get_bloginfo( 'description' ));
 
-$lang_mode = get_theme_mod(
-    'rm_menu_language_mode',
-    'bi'
-);
+ $lang_mode = get_theme_mod('rm_menu_language_mode','bi');
 
 $has_logo = has_custom_logo();
 
 ?>
 
-<header class="restaurant-header" id="top">
+<header class="restaurant-header">
 
     <div class="restaurant-header__inner">
 

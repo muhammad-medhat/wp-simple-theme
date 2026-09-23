@@ -115,3 +115,4 @@ require_once RESTAURANT_MENU_DIR . '/inc/fn-customizer.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn-md.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn-res.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn.php';
+require_once RESTAURANT_MENU_DIR . '/inc/menu-data.php'; //shared data between designs

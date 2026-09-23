@@ -22,6 +22,9 @@ Text Domain: restaurant-menu
   max-width: 768px;
   margin-inline: auto;
 }
+html {
+  scroll-behavior: smooth;
+}
 body * {
   text-transform: capitalize;
 }

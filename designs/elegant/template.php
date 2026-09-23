@@ -12,7 +12,7 @@ define('RM_DESIGN', 'elegant');
 /****************************************************** */
 
 ?>
-<div class="menu-design--elegant elegant-menu">
+<div class="menu-design--elegant elegant-menu" id="top">
     <!-- =========================================
          RESTAURANT HEADER
          ========================================= -->
