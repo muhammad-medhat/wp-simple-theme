@@ -5,24 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-/*
- * =========================================================
- * PIZZA SIZE SETTINGS
- * =========================================================
- */
-
- $sm_ar = get_theme_mod('rm_size_sm_ar','صغير');
-
- $sm_en = get_theme_mod('rm_size_sm_en','Small');
-
- $md_ar = get_theme_mod('rm_size_md_ar','وسط');
-
- $md_en = get_theme_mod('rm_size_md_en','Medium');
-
- $lg_ar = get_theme_mod('rm_size_lg_ar','كبير');
-
- $lg_en = get_theme_mod('rm_size_lg_en','Large');
-
 
 /*
  * =========================================================
@@ -178,19 +160,7 @@ $categories = get_terms(
                                         $item_data['variations'] ?? array(),
 
 
-                                    /*
-                                     * Pizza size labels remain design-independent
-                                     * and continue to be passed exactly as before.
-                                     */
-
-                                    'sm_ar' => $sm_ar,
-                                    'sm_en' => $sm_en,
-
-                                    'md_ar' => $md_ar,
-                                    'md_en' => $md_en,
-
-                                    'lg_ar' => $lg_ar,
-                                    'lg_en' => $lg_en,
+               
                                 )
                             );
 

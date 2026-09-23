@@ -36,30 +36,11 @@ function rm_get_menu_item_data( $post = null ) {
      * =========================================================
      */
 
-    $name_ar = get_field(
-        'name_ar',
-        $item_id
-    );
-
-    $name_en = get_field(
-        'name_en',
-        $item_id
-    );
-
-    $description_ar = get_field(
-        'desc_ar',
-        $item_id
-    );
-
-    $description_en = get_field(
-        'desc_en',
-        $item_id
-    );
-
-    $price = get_field(
-        'price',
-        $item_id
-    );
+     $name_ar = get_field('name_ar',$item_id);
+     $name_en = get_field('name_en',$item_id);
+     $description_ar = get_field('desc_ar',$item_id);
+     $description_en = get_field('desc_en',$item_id);
+     $price = get_field('price',$item_id);
 
 
     /*
@@ -68,15 +49,9 @@ function rm_get_menu_item_data( $post = null ) {
      * =========================================================
      */
 
-    $price_md = get_field(
-        'price_md',
-        $item_id
-    );
+     $price_md = get_field('price_md',$item_id);
 
-    $price_lg = get_field(
-        'price_lg',
-        $item_id
-    );
+     $price_lg = get_field('price_lg',$item_id);
 
 
     $has_pizza_prices =
@@ -112,10 +87,7 @@ function rm_get_menu_item_data( $post = null ) {
 
     if ( ! $image ) {
 
-        $image = get_field(
-            'item_image',
-            $item_id
-        );
+         $image = get_field('item_image',$item_id);
     }
 
 
@@ -125,10 +97,7 @@ function rm_get_menu_item_data( $post = null ) {
      * =========================================================
      */
 
-    $has_variation = get_field(
-        'has_variation',
-        $item_id
-    );
+     $has_variation = get_field('has_variation',$item_id);
 
     $variations = array();
 
@@ -138,40 +107,22 @@ function rm_get_menu_item_data( $post = null ) {
          * Variation 1
          */
 
-        $var1_desc_ar = get_field(
-            'var1_desc_ar',
-            $item_id
-        );
+         $var1_desc_ar = get_field('var1_desc_ar',$item_id);
 
-        $var1_desc_en = get_field(
-            'var1_desc_en',
-            $item_id
-        );
+         $var1_desc_en = get_field('var1_desc_en',$item_id);
 
-        $var1_price = get_field(
-            'var1_price',
-            $item_id
-        );
+         $var1_price = get_field('var1_price',$item_id);
 
 
         /*
          * Variation 2
          */
 
-        $var2_desc_ar = get_field(
-            'var2_desc_ar',
-            $item_id
-        );
+         $var2_desc_ar = get_field('var2_desc_ar',$item_id);
 
-        $var2_desc_en = get_field(
-            'var2_desc_en',
-            $item_id
-        );
+         $var2_desc_en = get_field('var2_desc_en',$item_id);
 
-        $var2_price = get_field(
-            'var2_price',
-            $item_id
-        );
+         $var2_price = get_field('var2_price',$item_id);
 
 
         /*

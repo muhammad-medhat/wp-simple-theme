@@ -31,3 +31,8 @@ body * {
 div#nav-logo {
   margin: 0 0.2rem;
 }
+
+.move-top {
+  /* justify at end  */
+  border: solid red;
+}

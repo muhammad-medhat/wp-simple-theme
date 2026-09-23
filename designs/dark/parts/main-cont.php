@@ -1,13 +1,5 @@
 <?php
 
-$sm_ar = get_theme_mod( 'rm_size_sm_ar', 'صغير' );
-$sm_en = get_theme_mod( 'rm_size_sm_en', 'Small' );
-
-$md_ar = get_theme_mod( 'rm_size_md_ar', 'وسط' );
-$md_en = get_theme_mod( 'rm_size_md_en', 'Medium' );
-
-$lg_ar = get_theme_mod( 'rm_size_lg_ar', 'كبير' );
-$lg_en = get_theme_mod( 'rm_size_lg_en', 'Large' );
 
 
 $categories = get_terms(
@@ -77,6 +69,7 @@ $categories = get_terms(
 
         <div class="dark-category__items">
 
+
             <?php if ( $items->have_posts() ) : ?>
 
             <?php while ( $items->have_posts() ) : ?>
@@ -88,177 +81,47 @@ $categories = get_terms(
                             $item_id = get_the_ID();
 
 
-                            $name_ar = get_field(
-                                'name_ar',
-                                $item_id
-                            );
+                            /*
+                             * =================================================
+                             * SHARED MENU DATA
+                             * =================================================
+                             *
+                             * All ACF item data is now retrieved here.
+                             */
 
-                            $name_en = get_field(
-                                'name_en',
-                                $item_id
-                            );
-
-
-                            $description_ar = get_field(
-                                'desc_ar',
-                                $item_id
-                            );
-
-                            $description_en = get_field(
-                                'desc_en',
-                                $item_id
-                            );
-
-
-                            $price = get_field(
-                                'price',
-                                $item_id
-                            );
-
-
-                            $price_md = get_field(
-                                'price_md',
-                                $item_id
-                            );
-
-                            $price_lg = get_field(
-                                'price_lg',
-                                $item_id
-                            );
-
-
-                            $has_pizza_prices =
-                                (
-                                    $price_md !== '' &&
-                                    $price_md !== null
-                                )
-                                ||
-                                (
-                                    $price_lg !== '' &&
-                                    $price_lg !== null
-                                );
-
-
-                            $image = get_the_post_thumbnail_url(
-                                $item_id,
-                                'medium'
-                            );
-
-                            if ( ! $image ) {
-                                $image = get_field(
-                                    'item_image',
-                                    $item_id
-                                );
-                            }
-
-
-                            $has_variation = get_field(
-                                'has_variation',
+                            $item_data = rm_get_menu_item_data(
                                 $item_id
                             );
 
 
                             /*
-                             * Always reset variations.
-                             *
-                             * This prevents variations from a previous
-                             * product leaking into the next product.
+                             * Keep the exact arguments expected by
+                             * the existing product.php.
                              */
-                            $variations = array();
 
-
-                            if ( $has_variation ) {
-
-                                $var1_desc_ar = get_field(
-                                    'var1_desc_ar',
-                                    $item_id
-                                );
-
-                                $var1_desc_en = get_field(
-                                    'var1_desc_en',
-                                    $item_id
-                                );
-
-                                $var1_price = get_field(
-                                    'var1_price',
-                                    $item_id
-                                );
-
-
-                                $var2_desc_ar = get_field(
-                                    'var2_desc_ar',
-                                    $item_id
-                                );
-
-                                $var2_desc_en = get_field(
-                                    'var2_desc_en',
-                                    $item_id
-                                );
-
-                                $var2_price = get_field(
-                                    'var2_price',
-                                    $item_id
-                                );
-
-
-                                $variations = array(
-
-                                    array(
-                                        'desc_ar' => $var1_desc_ar,
-                                        'desc_en' => $var1_desc_en,
-                                        'price'   => $var1_price,
-                                    ),
-
-                                    array(
-                                        'desc_ar' => $var2_desc_ar,
-                                        'desc_en' => $var2_desc_en,
-                                        'price'   => $var2_price,
-                                    ),
-
-                                );
-                            }
-
-                            ?>
-
-
-            <?php
                             get_template_part(
                                 'designs/' . RM_DESIGN . '/parts/product',
                                 '',
                                 array(
 
-                                    'item_id' => $item_id,
+                                    'item_id' => $item_data['item_id'] ?? $item_id,
 
-                                    'name_ar' => $name_ar,
-                                    'name_en' => $name_en,
+                                    'name_ar' => $item_data['name_ar'] ?? '',
+                                    'name_en' => $item_data['name_en'] ?? '',
 
-                                    'description_ar' => $description_ar,
-                                    'description_en' => $description_en,
+                                    'description_ar' =>$item_data['description_ar'] ?? '',
+                                    'description_en' =>$item_data['description_en'] ?? '',
 
-                                    'price' => $price,
-
-                                    'price_md' => $price_md,
-                                    'price_lg' => $price_lg,
-
-                                    'has_pizza_prices' => $has_pizza_prices,
-
-                                    'image' => $image,
-
-                                    'has_variation' => $has_variation,
-
-                                    'variations' => $variations,
-
-                                    'sm_ar' => $sm_ar,
-                                    'sm_en' => $sm_en,
-
-                                    'md_ar' => $md_ar,
-                                    'md_en' => $md_en,
-
-                                    'lg_ar' => $lg_ar,
-                                    'lg_en' => $lg_en,
-
+                                    'price' =>            $item_data['price'] ?? '',
+                                    'price_md' =>         $item_data['price_md'] ?? '',
+                                    'price_lg' =>         $item_data['price_lg'] ?? '',
+                                    'has_pizza_prices' => $item_data['has_pizza_prices'] ?? false,
+                                    'image' =>            $item_data['image'] ?? '',
+                                    'has_variation' =>    $item_data['has_variation'] ?? false,
+                                    'variations' =>       $item_data['variations'] ?? array(),
                                 )
                             );
+
                             ?>
 
             <?php endwhile; ?>
@@ -268,12 +131,14 @@ $categories = get_terms(
             <?php else : ?>
 
             <div class="menu-empty">
+
                 <?php
                             esc_html_e(
                                 'No items available in this category.',
                                 'restaurant-menu'
                             );
                             ?>
+
             </div>
 
             <?php endif; ?>
@@ -281,7 +146,7 @@ $categories = get_terms(
         </div>
 
 
-        <a href="#top" class="dark-move-top">
+        <a href="#top" class="dark-move-top move-top">
             <i class="fa-regular fa-circle-up"></i>
         </a>
 

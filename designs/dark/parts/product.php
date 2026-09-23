@@ -21,14 +21,7 @@ $has_variation    = $args['has_variation'];
 
 $variations       = $args['variations'];
 
-$sm_ar            = $args['sm_ar'];
-$sm_en            = $args['sm_en'];
 
-$md_ar            = $args['md_ar'];
-$md_en            = $args['md_en'];
-
-$lg_ar            = $args['lg_ar'];
-$lg_en            = $args['lg_en'];
 
 ?>
 

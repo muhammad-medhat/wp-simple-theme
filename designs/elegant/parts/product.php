@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 
         $item_id = $args['item_id' ];
         $name_ar = $args['name_ar' ];
@@ -13,12 +17,7 @@
         $has_pizza_prices = $args['has_pizza_prices' ];
         $has_variation = $args['has_variation'];
         $variations = $args['variations'];
-        $sm_ar = $args['sm_ar'];
-        $sm_en = $args['sm_en'];
-        $md_ar = $args['md_ar'];
-        $md_en = $args['md_en'];
-        $lg_ar = $args['lg_ar'];
-        $lg_en = $args['lg_en'];
+ 
 
 ?>
 

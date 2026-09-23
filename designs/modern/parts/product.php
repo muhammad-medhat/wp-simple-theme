@@ -31,14 +31,6 @@ $has_variation = ! empty(
 $variations = $args['variations'] ?? array();
 
 
-$sm_ar = $args['sm_ar'] ?? 'صغير';
-$sm_en = $args['sm_en'] ?? 'Small';
-
-$md_ar = $args['md_ar'] ?? 'وسط';
-$md_en = $args['md_en'] ?? 'Medium';
-
-$lg_ar = $args['lg_ar'] ?? 'كبير';
-$lg_en = $args['lg_en'] ?? 'Large';
 
 ?>
 
