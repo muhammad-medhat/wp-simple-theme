@@ -146,7 +146,7 @@ $categories = get_terms(
         </div>
 
 
-        <a href="#top" class="dark-move-top move-top">
+        <a href="#top" class="move-top p-2 m-2">
             <i class="fa-regular fa-circle-up"></i>
         </a>
 

@@ -10,6 +10,8 @@ Text Domain: restaurant-menu
   --font-hand: "Handlee", cursive;
   --font-hand: "Patrick Hand", cursive;
   --font-hand: "Playpen Sans", cursive;
+  --font-lg: clamp(1rem, 1rem + 1.5vw, 2.5rem);
+  --font-md: clamp(0.75rem, 0.75rem + 1.5vw, 2rem);
 }
 /*
  * Bootstrap handles the main responsive framework.
@@ -32,7 +34,12 @@ div#nav-logo {
   margin: 0 0.2rem;
 }
 
-.move-top {
-  /* justify at end  */
-  border: solid red;
+section.menu-category {
+  display: flex;
+  flex-direction: column;
+  a.move-top {
+    align-self: end;
+    font-size: var(--font-lg);
+    /* border: solid red; */
+  }
 }

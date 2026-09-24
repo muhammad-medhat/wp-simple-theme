@@ -188,7 +188,9 @@ $categories = get_terms(
         </div>
 
 
-        <a href="#top" class="move-top" aria-label="<?php esc_attr_e( 'Back to top', 'restaurant-menu' ); ?>">↑</a>
+        <a href="#top" class="move-top p-2 m-2" aria-label="<?php esc_attr_e( 'Back to top', 'restaurant-menu' ); ?>">
+            <i class="fa-regular fa-circle-up"></i></a>
+        <!-- ↑</a> -->
         <!-- <a href="#top" class="move-top"><i class="fa-regular fa-circle-up"></i></a> -->
 
 

@@ -154,7 +154,7 @@ $categories = get_terms(
 
             <?php endif; ?>
         </div>
-        <a href="#top" class="move-top"><i class="fa-regular fa-circle-up"></i></a>
+        <a href="#top" class="move-top p-2 m-2"><i class="fa-regular fa-circle-up"></i></a>
         <!-- <span class="text-center d-block">──────── ୨୧ ୨୧ ────────</span> -->
 
     </section>
