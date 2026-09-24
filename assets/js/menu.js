@@ -1,25 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /*
+   * =========================================================
+   * LANGUAGE
+   * =========================================================
+   */
+
   const languageSwitcher = document.getElementById("language-switcher");
 
-  if (!languageSwitcher) {
-    return;
-  }
+  const LANGUAGE_STORAGE_KEY = "restaurant_menu_language";
 
   /*
-   * Get saved language.
-   *
-   * Default:
-   * Arabic if the WordPress site is RTL.
-   * English otherwise.
-   */
-  const savedLanguage = localStorage.getItem("restaurant_menu_language");
-
-  const defaultLanguage =
-    savedLanguage || (document.documentElement.dir === "rtl" ? "ar" : "en");
-
-  /**
+   * ---------------------------------------------------------
    * Set active language
+   * ---------------------------------------------------------
    */
+
   function setLanguage(language, save = true) {
     const html = document.documentElement;
 
@@ -28,50 +23,112 @@ document.addEventListener("DOMContentLoaded", () => {
     /*
      * Update document direction
      */
+
     html.setAttribute("dir", isArabic ? "rtl" : "ltr");
 
     /*
      * Update document language
      */
+
     html.setAttribute("lang", isArabic ? "ar" : "en");
 
     /*
-     * Store user's preference
+     * Tell the frontend which language
+     * is currently active.
      */
-    if (save) {
-      localStorage.setItem("restaurant_menu_language", language);
-    }
 
-    /*
-     * Tell the rest of the frontend
-     * which language is currently active.
-     */
     document.body.setAttribute("data-menu-language", language);
 
     /*
-     * Update switcher accessibility
+     * Save user's language preference
      */
-    languageSwitcher.setAttribute(
-      "aria-label",
-      isArabic ? "Switch to English" : "التبديل إلى العربية",
-    );
+
+    if (save) {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    }
+
+    /*
+     * Update language buttons
+     *
+     * This works for Modern, Elegant and Dark
+     * as long as they use:
+     *
+     * .language-switcher__option
+     * data-language="ar"
+     * data-language="en"
+     */
+
+    if (languageSwitcher) {
+      const languageButtons = languageSwitcher.querySelectorAll(
+        ".language-switcher__option",
+      );
+
+      languageButtons.forEach((button) => {
+        const buttonLanguage = button.getAttribute("data-language");
+
+        const isActive = buttonLanguage === language;
+
+        button.classList.toggle("active", isActive);
+
+        /*
+         * Accessibility
+         */
+
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      /*
+       * Update switcher accessibility label
+       */
+
+      languageSwitcher.setAttribute(
+        "aria-label",
+        isArabic ? "Switch to English" : "التبديل إلى العربية",
+      );
+    }
   }
 
   /*
-   * Clicking the switch toggles
-   * between Arabic and English.
+   * ---------------------------------------------------------
+   * Language button clicks
+   * ---------------------------------------------------------
    */
-  languageSwitcher.addEventListener("click", () => {
-    const currentLanguage = document.documentElement.lang;
 
-    const newLanguage = currentLanguage === "ar" ? "en" : "ar";
+  if (languageSwitcher) {
+    const languageButtons = languageSwitcher.querySelectorAll(
+      ".language-switcher__option",
+    );
 
-    setLanguage(newLanguage);
-  });
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const language = button.getAttribute("data-language");
+
+        if (language !== "ar" && language !== "en") {
+          return;
+        }
+        // debugger;
+
+        setLanguage(language);
+      });
+    });
+  }
 
   /*
-   * Initialize language.
+   * ---------------------------------------------------------
+   * Initialize language
+   * ---------------------------------------------------------
+   *
+   * Arabic is the default language for the menu.
+   *
+   * If the user previously selected a language,
+   * restore that language.
    */
+
+  const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+
+  const defaultLanguage =
+    savedLanguage === "en" || savedLanguage === "ar" ? savedLanguage : "ar";
+
   setLanguage(defaultLanguage, false);
   /////////////////////////////////////////////////////////
   /*

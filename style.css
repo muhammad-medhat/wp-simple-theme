@@ -43,3 +43,11 @@ section.menu-category {
     /* border: solid red; */
   }
 }
+#language-switcher {
+  direction: rtl;
+  unicode-bidi: isolate;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}

@@ -32,20 +32,12 @@ $has_logo = has_custom_logo();?>
         <?php if ( $restaurant_name_ar||$restaurant_name_en ) : ?>
         <h1 class="elegant-header__name">
             <?php if ( $lang_mode === 'bi' ) :  //show both names?>
-            <span class="restaurant-name-ar ">
-                <?php echo esc_html( $restaurant_name_ar ); ?>
-            </span>
-            <span class="restaurant-name-en">
-                <?php echo esc_html( $restaurant_name_en ); ?>
-            </span>
+            <span class="restaurant-name-ar "> <?php echo esc_html( $restaurant_name_ar ); ?> </span>
+            <span class="restaurant-name-en"> <?php echo esc_html( $restaurant_name_en ); ?> </span>
             <?php elseif ( $lang_mode === 'en' ) : ?>
-            <span class="restaurant-name-en show">
-                <?php echo esc_html( $restaurant_name_en ); ?>
-            </span>
+            <span class="restaurant-name-en show"> <?php echo esc_html( $restaurant_name_en ); ?> </span>
             <?php elseif ( $lang_mode === 'ar' ) : ?>
-            <span class="restaurant-name-ar show">
-                <?php echo esc_html( $restaurant_name_ar ); ?>
-            </span>
+            <span class="restaurant-name-ar show"> <?php echo esc_html( $restaurant_name_ar ); ?> </span>
             <?php endif; ?>
         </h1>
         <?php endif; ?>
