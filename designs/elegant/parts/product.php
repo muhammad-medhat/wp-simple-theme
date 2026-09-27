@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <?php if(isset($badges)&&!empty($badges)): ?>
     <!-- Product  BADGE -->
-    <?php get_template_part('designs/'.RM_DESIGN.'/parts/product_badges', null, ['badges'=> $badges]) ?>
+    <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
     <?php endif; ?>
     <!-- Product Image -->
     <?php if ( $image ) : ?>
