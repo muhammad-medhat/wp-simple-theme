@@ -118,3 +118,5 @@ require_once RESTAURANT_MENU_DIR . '/inc/fn.php';
 require_once RESTAURANT_MENU_DIR . '/inc/menu-data.php'; //shared data between designs
 require_once RESTAURANT_MENU_DIR . '/inc/helper.php'; 
 require_once RESTAURANT_MENU_DIR . '/inc/admin-columns.php'; 
+require_once RESTAURANT_MENU_DIR . '/inc/admin-quick-edit.php'; 
+require_once RESTAURANT_MENU_DIR . '/inc/admin-bulk-edit.php'; 
