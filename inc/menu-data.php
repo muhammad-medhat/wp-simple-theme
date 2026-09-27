@@ -36,11 +36,12 @@ function rm_get_menu_item_data( $post = null ) {
      * =========================================================
      */
 
-     $name_ar = get_field('name_ar',$item_id);
-     $name_en = get_field('name_en',$item_id);
+     $name_ar        = get_field('name_ar',$item_id);
+     $name_en        = get_field('name_en',$item_id);
      $description_ar = get_field('desc_ar',$item_id);
      $description_en = get_field('desc_en',$item_id);
-     $price = get_field('price',$item_id);
+     $price          = get_field('price',$item_id);
+     $badges         = get_field('badges',$item_id);
 
 
     /*
@@ -176,22 +177,23 @@ function rm_get_menu_item_data( $post = null ) {
 
         'item_id' => $item_id,
 
-        'name_ar' => $name_ar,
-        'name_en' => $name_en,
+        'name_ar'        => $name_ar,
+        'name_en'        => $name_en,
 
         'description_ar' => $description_ar,
         'description_en' => $description_en,
 
-        'price' => $price,
-
-        'price_md' => $price_md,
-        'price_lg' => $price_lg,
-
+        'price'          => $price,
+        'badges'          => $badges,
+        
+        'price_md'       => $price_md,
+        'price_lg'       => $price_lg,
+        
         'has_pizza_prices' => $has_pizza_prices,
-
+        
         'image' => $image,
-
-        'has_variation' => $has_variation,
-        'variations' => $variations,
-    );
+        
+        'has_variation'         => $has_variation,
+        'variations'        => $variations,
+        );
 }

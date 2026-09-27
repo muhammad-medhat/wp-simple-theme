@@ -51,3 +51,256 @@ section.menu-category {
   flex-direction: row;
   align-items: center;
 }
+/****************badges *************************************/
+/* =========================================================
+   ITEM BADGES
+   ========================================================= */
+.item {
+  position: relative;
+}
+.item-badges {
+  /***************************************/
+  position: absolute;
+  top: -10px;
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: end;
+  /* border: solid 1px;
+  min-width: 60%; */
+}
+
+.item__badge {
+  /* display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px; */
+
+  /* padding: 0;
+
+  border: 1px solid transparent; */
+  border-radius: 50%;
+
+  /* font-size: 0.8rem; */
+  /* line-height: 1; */
+
+  cursor: default;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.item__badge:hover {
+  transform: translateY(-1px);
+}
+
+.item__badge i {
+  display: block;
+
+  margin: 0;
+
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/*
+ * Only show the correct language.
+ */
+.item__badge-ar,
+.item__badge-en {
+  display: none;
+}
+
+html[lang="ar"] .item__badge-ar {
+  display: inline-flex;
+}
+
+html[lang="en"] .item__badge-en {
+  display: inline-flex;
+}
+
+/*
+ * Accessibility / keyboard focus
+ */
+.item__badge:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+/* prettier-ignore */
+html{
+  html[lang="ar"] .item__badges { right: -2px}
+  html[lang="en"] .item__badges { left: -2px;}
+}
+/*******************************************************/
+/*******************************************************/
+/*******************************************************/
+/* =========================================================
+   PRODUCT BADGES
+   ========================================================= */
+
+.item {
+  position: relative;
+}
+
+.item-badges {
+  position: absolute;
+
+  /*
+     * Keep the badges above the card content.
+     */
+  top: -20px;
+
+  /*
+     * Use logical positioning so RTL/LTR
+     * can be controlled properly.
+     */
+  inset-inline-start: -4px;
+
+  z-index: 5;
+  max-width: 70%;
+  /* pointer-events: none; */
+}
+
+.item__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  border: 2px solid #fff;
+  border-radius: 50%;
+
+  background: #fff;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+  font-size: 0.8rem;
+  line-height: 1;
+
+  cursor: default;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.item__badge:hover {
+  transform: translateY(-2px);
+  /* border: solid red; */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.item__badge i {
+  display: block;
+
+  margin: 0;
+
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
+
+.item__badge-ar,
+.item__badge-en {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+html[lang="ar"] .item__badge-ar {
+  display: inline-flex;
+}
+
+html[lang="en"] .item__badge-en {
+  display: inline-flex;
+}
+
+/* =========================================================
+   BADGE COLORS
+   ========================================================= */
+
+.item__badge--popular {
+  color: #d97706;
+  background: #fff7ed;
+}
+
+.item__badge--recommended {
+  color: #b7791f;
+  background: #fffbeb;
+}
+
+.item__badge--new {
+  color: #15803d;
+  background: #f0fdf4;
+}
+
+.item__badge--spicy {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.item__badge--vegetarian {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.item__badge:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+/******************************/
+/* 1. Prepare the badge container */
+[data-tooltip] {
+  position: relative;
+  cursor: pointer; /* Tells mobile users it is interactive */
+}
+
+/* 2. Create the Tooltip Box */
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; /* Places it right above the star */
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+
+  /* Styling */
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+
+  /* Hide by default */
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* 3. Show Tooltip on Hover (Desktop) and Focus/Active (Mobile) */
+[data-tooltip]:hover::after,
+[data-tooltip]:active::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}

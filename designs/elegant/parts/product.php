@@ -16,12 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) {
         $image = $args['image' ];
         $has_pizza_prices = $args['has_pizza_prices' ];
         $has_variation = $args['has_variation'];
+        $badges = $args['badges'] ?? array();
         $variations = $args['variations'];
- 
+        
 
 ?>
 
-<article class="elegant-item <?php echo $has_pizza_prices ? 'elegant-item--sizes' : ''; ?>">
+<article class="elegant-item item <?php echo $has_pizza_prices ? 'elegant-item--sizes' : ''; ?>">
+
+    <?php if(isset($badges)&&!empty($badges)): ?>
+    <!-- Product  BADGE -->
+    <?php get_template_part('designs/'.RM_DESIGN.'/parts/product_badges', null, ['badges'=> $badges]) ?>
+    <?php endif; ?>
     <!-- Product Image -->
     <?php if ( $image ) : ?>
     <div class="elegant-item__image">

@@ -128,6 +128,7 @@ $categories = get_terms(
 
                                     'variations' =>
                                         $item_data['variations'] ?? array(),
+                                    'badges' => $item_data['badges'] ?? array(),
 
 
                                 )

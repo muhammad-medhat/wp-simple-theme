@@ -18,6 +18,14 @@ define('RM_DESIGN', 'elegant');
          ========================================= -->
     <?php get_template_part( 'designs/'.RM_DESIGN."/parts/header");?>
 
+    <?php /* cancel it temporary
+    <!-- =========================================
+        Search Form
+        ========================================= -->
+*/?>
+    <?php //get_template_part( 'designs/'.RM_DESIGN."/parts/search");?>
+
+
     <!-- =========================================
     CATEGORY NAVIGATION
     ========================================= -->

@@ -517,7 +517,8 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT HEADING
 ========================================================= */
-.elegant-item__heading {
+.elegant-item__heading,
+.elegant-item__footer {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -527,6 +528,7 @@ p.restaurant-description-en {
   min-width: 0;
   margin: 0;
   line-height: 1.2;
+  display: flex;
 }
 /* =========================================================
    PRODUCT PRICE
@@ -686,14 +688,14 @@ html[lang="en"] .menu-design--elegant .restaurant-description-en {
   font-family: var(--elegant-font-ar);
 }
 .menu-design--elegant .menu-name-ar {
-  font-family: var(--elegant-font-ar-secondary);
+  /* font-family: var(--elegant-font-ar-secondary); */
 }
 .menu-design--elegant .category-name-en,
 .menu-design--elegant .restaurant-name-en1 {
   font-family: var(--elegant-font-en);
 }
 .menu-design--elegant .menu-name-en {
-  font-family: var(--elegant-font-en-secondary);
+  /* font-family: var(--elegant-font-en-secondary); */
 }
 .menu-design--elegant .menu-name-ar {
   color: var(--elegant-text);

@@ -323,7 +323,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   );
   arTitle.innerText = textWithArabicNumbers;
-  //first letter uppercase
+  /* =========================================================
+   first letter uppercase
+   ========================================================= */
+
   //doesn't work
   const descElement = document.querySelector(".restaurant-description-en");
   // debugger;

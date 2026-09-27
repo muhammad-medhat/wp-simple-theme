@@ -73,7 +73,7 @@ function restaurant_menu_assets() {
         'restaurant-menu-style',
         get_stylesheet_uri(),
         array( 'bootstrap' ),
-        wp_get_theme()->get( 'Version' )
+        wp_get_theme()->get( 'Version' ).'--'.rand()
     );
 
     /*
