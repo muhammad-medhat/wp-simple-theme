@@ -28,7 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     <!-- Product  BADGE -->
     <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
     <?php endif; ?>
-    <!-- Product Image -->
     <?php if ( $image ) : ?>
     <div class="elegant-item__image">
         <img src="<?php echo esc_url( $image ); ?>"

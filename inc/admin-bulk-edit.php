@@ -46,26 +46,20 @@ function rm_bulk_edit_badges_field( $column_name, $post_type ) {
 
     <div class="rm-bulk-badge-actions">
 
-        <label>
+        <!-- <label>
             <input type="radio" name="rm_bulk_badge_action" value="none" checked>
 
             <span>
-                <?php esc_html_e(
-                        'Do not change',
-                        'restaurant-menu'
-                    ); ?>
+                <?php esc_html_e( 'Do not change', 'restaurant-menu' ); ?>
             </span>
-        </label>
+        </label> -->
 
 
         <label>
-            <input type="radio" name="rm_bulk_badge_action" value="add">
+            <input type="radio" name="rm_bulk_badge_action" value="add" checked>
 
             <span>
-                <?php esc_html_e(
-                        'Add',
-                        'restaurant-menu'
-                    ); ?>
+                <?php esc_html_e( 'Add', 'restaurant-menu' ); ?>
             </span>
         </label>
 
@@ -74,10 +68,7 @@ function rm_bulk_edit_badges_field( $column_name, $post_type ) {
             <input type="radio" name="rm_bulk_badge_action" value="remove">
 
             <span>
-                <?php esc_html_e(
-                        'Remove',
-                        'restaurant-menu'
-                    ); ?>
+                <?php esc_html_e( 'Remove', 'restaurant-menu' ); ?>
             </span>
         </label>
 
@@ -86,10 +77,7 @@ function rm_bulk_edit_badges_field( $column_name, $post_type ) {
             <input type="radio" name="rm_bulk_badge_action" value="replace">
 
             <span>
-                <?php esc_html_e(
-                        'Replace',
-                        'restaurant-menu'
-                    ); ?>
+                <?php esc_html_e( 'Replace', 'restaurant-menu' ); ?>
             </span>
         </label>
 
@@ -133,12 +121,7 @@ function rm_bulk_edit_badges_field( $column_name, $post_type ) {
 <?php
 }
 
-add_action(
-    'bulk_edit_custom_box',
-    'rm_bulk_edit_badges_field',
-    10,
-    2
-);
+add_action( 'bulk_edit_custom_box', 'rm_bulk_edit_badges_field', 10, 2); 
 
 
 /**
@@ -179,11 +162,7 @@ function rm_save_bulk_edit_badges( $post_id ) {
     /*
      * Get action.
      */
-    $action = sanitize_key(
-        wp_unslash(
-            $_REQUEST['rm_bulk_badge_action']
-        )
-    );
+    $action = sanitize_key(wp_unslash($_REQUEST['rm_bulk_badge_action']));
 
     /*
      * Do nothing.
@@ -204,24 +183,14 @@ function rm_save_bulk_edit_badges( $post_id ) {
     /*
      * Clean selected values.
      */
-    $selected_badges = array_map(
-        'sanitize_key',
-        wp_unslash(
-            $selected_badges
-        )
-    );
+    $selected_badges = array_map( 'sanitize_key', wp_unslash( $selected_badges ) );
 
     /*
      * Get valid badges.
      */
     $badge_labels = rm_get_badge_labels();
 
-    $selected_badges = array_values(
-        array_intersect(
-            $selected_badges,
-            array_keys( $badge_labels )
-        )
-    );
+    $selected_badges = array_values( array_intersect( $selected_badges, array_keys( $badge_labels ) ) );
 
     /*
      * If Add / Remove / Replace was selected
@@ -248,12 +217,7 @@ function rm_save_bulk_edit_badges( $post_id ) {
     /*
      * Clean current badges too.
      */
-    $current_badges = array_values(
-        array_intersect(
-            $current_badges,
-            array_keys( $badge_labels )
-        )
-    );
+    $current_badges = array_values( array_intersect( $current_badges, array_keys( $badge_labels ) ) );
 
 
     /*
@@ -264,12 +228,7 @@ function rm_save_bulk_edit_badges( $post_id ) {
      */
     if ( 'add' === $action ) {
 
-        $new_badges = array_unique(
-            array_merge(
-                $current_badges,
-                $selected_badges
-            )
-        );
+        $new_badges = array_unique( array_merge( $current_badges, $selected_badges ) );
 
     }
 
@@ -281,12 +240,7 @@ function rm_save_bulk_edit_badges( $post_id ) {
      */
     elseif ( 'remove' === $action ) {
 
-        $new_badges = array_values(
-            array_diff(
-                $current_badges,
-                $selected_badges
-            )
-        );
+        $new_badges = array_values( array_diff( $current_badges, $selected_badges ) );
 
     }
 
@@ -308,19 +262,11 @@ function rm_save_bulk_edit_badges( $post_id ) {
      */
     if ( isset( $new_badges ) ) {
 
-        update_field(
-            'badges',
-            $new_badges,
-            $post_id
-        );
+        update_field( 'badges', $new_badges, $post_id ); 
     }
 }
 
-add_action(
-    'save_post_rm_menu_item',
-    'rm_save_bulk_edit_badges',
-    20
-);
+add_action( 'save_post_rm_menu_item', 'rm_save_bulk_edit_badges', 20);
 
 
 /**
@@ -589,10 +535,7 @@ function rm_bulk_edit_badges_css() {
 <?php
 }
 
-add_action(
-    'admin_footer-edit.php',
-    'rm_bulk_edit_badges_css'
-);
+add_action( 'admin_footer-edit.php', 'rm_bulk_edit_badges_css' );
 
 
 /**
@@ -694,8 +637,4 @@ jQuery(function($) {
 <?php
 }
 
-add_action(
-    'admin_footer-edit.php',
-    'rm_bulk_edit_badges_js'
-);
- 
+add_action( 'admin_footer-edit.php', 'rm_bulk_edit_badges_js' ); 

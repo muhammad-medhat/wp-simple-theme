@@ -41,7 +41,9 @@ function rm_get_menu_item_data( $post = null ) {
      $description_ar = get_field('desc_ar',$item_id);
      $description_en = get_field('desc_en',$item_id);
      $price          = get_field('price',$item_id);
-     $badges         = get_field('badges',$item_id);
+     $badges_enabled = (bool)get_theme_mod('rm_enable_badges', true);
+     if($badges_enabled)
+       $badges = get_field('badges',$item_id);
 
 
     /*
@@ -184,7 +186,7 @@ function rm_get_menu_item_data( $post = null ) {
         'description_en' => $description_en,
 
         'price'          => $price,
-        'badges'          => $badges,
+        'badges'          => $badges??[],
         
         'price_md'       => $price_md,
         'price_lg'       => $price_lg,
