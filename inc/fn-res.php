@@ -1,13 +1,13 @@
 <?php 
 
 
-function rm_replace_c21_icon( $value ) {
+function rm_replace_c21_icon( $value, $img="gold" ) {
 
     if ( ! is_string( $value ) || strpos( $value, '<c21>' ) === false ) {
         return $value;
     }
 
-    $logo_url = RESTAURANT_MENU_DIR_URI . '/assets/img/text-logo-sm.png';
+    $logo_url = RESTAURANT_MENU_DIR_URI . "/assets/img/c21-$img.png";
 
     $logo = sprintf(
         '<img src="%s" class="rm-menu-inline-logo" alt="Club21">',

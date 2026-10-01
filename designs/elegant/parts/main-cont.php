@@ -15,7 +15,7 @@ $categories = rm_get_ordered_menu_categories();
 
 ?>
 
-<main class="elegant-menu__content">
+<main class="menu__content">
     <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
     <?php foreach ( $categories as $category ) : ?>
     <?php
@@ -42,10 +42,10 @@ $categories = rm_get_ordered_menu_categories();
                 'order'   => 'ASC',
             )
         );
-        $compact_class = $is_compact ? 'elegant-category--compact' : '';
+        $compact_class = $is_compact ? 'category--compact' : '';
         ?>
     <section id="<?php echo esc_attr( 'menu-category-' . $category->term_id ); ?>"
-        class="menu-category elegant-category <?php echo esc_attr( $compact_class ); ?>">
+        class="menu-category category <?php echo esc_attr( $compact_class ); ?>">
         <!-- =================================
             CATEGORY HEADER
             ================================= -->
@@ -54,7 +54,7 @@ $categories = rm_get_ordered_menu_categories();
         <!-- =================================
             CATEGORY ITEMS
             ================================= -->
-        <div class="elegant-category__items">
+        <div class="category__items">
 
             <?php if ( $items->have_posts() ) : ?>
 

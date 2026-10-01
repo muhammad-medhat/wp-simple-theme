@@ -28,26 +28,26 @@ $lang_mode = get_theme_mod(
 $has_logo = has_custom_logo();
 ?>
 
-<header class="dark-header">
+<header class="header">
 
-    <div class="dark-header__inner">
+    <div class="header__inner">
 
         <?php if ( $has_logo ) : ?>
 
-        <div class="dark-header__logo">
+        <div class="header__logo">
             <?php the_custom_logo(); ?>
         </div>
 
         <?php else : ?>
 
-        <div class="dark-header__logo-placeholder">
+        <div class="header__logo-placeholder">
             <span>✦</span>
         </div>
 
         <?php endif; ?>
 
 
-        <div class="dark-header__ornament">
+        <div class="header__ornament">
             <span>◆</span>
             <i></i>
             <span>◆</span>
@@ -56,7 +56,7 @@ $has_logo = has_custom_logo();
 
         <?php if ( $restaurant_name_ar || $restaurant_name_en ) : ?>
 
-        <h1 class="dark-header__name">
+        <h1 class="header__name">
 
             <?php if ( 'bi' === $lang_mode ) : ?>
 
@@ -89,7 +89,7 @@ $has_logo = has_custom_logo();
 
         <?php if ( $restaurant_description_ar || $restaurant_description_en ) : ?>
 
-        <div class="dark-header__description">
+        <div class="header__description">
 
             <?php if ( 'bi' === $lang_mode ) : ?>
 

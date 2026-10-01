@@ -13,20 +13,20 @@ $categories = get_terms(
 
 <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
 
-<nav class="dark-category-navigation">
+<nav class="category-navigation">
 
-    <div class="dark-category-navigation__inner">
+    <div class="category-navigation__inner">
 
         <?php if ( has_custom_logo() ) : ?>
 
-        <div id="nav-logo" class="dark-category-navigation__logo">
+        <div id="nav-logo" class="category-navigation__logo">
             <?php the_custom_logo(); ?>
         </div>
 
         <?php endif; ?>
 
 
-        <div class="dark-category-navigation__scroll">
+        <div class="category-navigation__scroll">
 
             <?php foreach ( $categories as $index => $category ) : ?>
 

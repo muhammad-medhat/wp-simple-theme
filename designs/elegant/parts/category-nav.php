@@ -11,15 +11,15 @@ $categories = get_terms(
    )
 );?>
 <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-<nav class="elegant-category-navigation">
-    <div class="elegant-category-navigation__inner">
+<nav class="category-navigation">
+    <div class="category-navigation__inner">
 
         <?php if ( has_custom_logo() ) : ?>
-        <div id="nav-logo" class="elegant-category-navigation__logo">
+        <div id="nav-logo" class="category-navigation__logo">
             <?php the_custom_logo();?>
         </div>
         <?php endif; ?>
-        <div class="elegant-category-navigation__scroll">
+        <div class="category-navigation__scroll">
             <?php foreach ( $categories as $index => $category ) : ?>
             <?php
                     $category_name_ar = get_field('name_ar', RM_MENU_CATEGORY_TAX . '_' . $category->term_id );
