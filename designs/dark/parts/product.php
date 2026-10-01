@@ -22,13 +22,14 @@ $has_variation    = $args['has_variation'];
 $variations       = $args['variations'];
 
 $badges = $args['badges'] ?? array();
+$img="white1";
 
 
 
 
 ?>
 
-<article class="dark-item <?php echo $has_pizza_prices ? 'dark-item--sizes' : ''; ?>">
+<article class="item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?>">
     <?php if(isset($badges)&&!empty($badges)): ?>
     <!-- Product  BADGE -->
     <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
@@ -36,7 +37,7 @@ $badges = $args['badges'] ?? array();
 
     <?php if ( $image ) : ?>
 
-    <div class="dark-item__image">
+    <div class="item__image">
 
         <img src="<?php echo esc_url( $image ); ?>"
             alt="<?php echo esc_attr( $name_en ?: $name_ar ?: get_the_title() ); ?>" loading="lazy">
@@ -46,17 +47,17 @@ $badges = $args['badges'] ?? array();
     <?php endif; ?>
 
 
-    <div class="dark-item__content">
+    <div class="item__content">
 
-        <div class="dark-item__heading">
+        <div class="item__heading">
 
-            <h3 class="dark-item__name">
+            <h3 class="item__name">
 
                 <span class="menu-name-ar">
                     <?php
                     echo wp_kses_post(
                         rm_replace_c21_icon(
-                            $name_ar ?: get_the_title()
+                            $name_ar ?: get_the_title(), $img
                         )
                     );
                     ?>
@@ -66,7 +67,7 @@ $badges = $args['badges'] ?? array();
                     <?php
                     echo wp_kses_post(
                         rm_replace_c21_icon(
-                            $name_en ?: get_the_title()
+                            $name_en ?: get_the_title(), $img
                         )
                     );
                     ?>
@@ -82,7 +83,7 @@ $badges = $args['badges'] ?? array();
                 ! $has_variation
             ) : ?>
 
-            <span class="dark-item__price">
+            <span class="item__price">
                 <?php echo esc_html( $price ); ?>
             </span>
 
@@ -93,14 +94,14 @@ $badges = $args['badges'] ?? array();
 
         <?php if ( $description_ar || $description_en ) : ?>
 
-        <div class="dark-item__description">
+        <div class="item__description">
 
             <?php if ( $description_ar ) : ?>
 
             <p class="menu-description-ar">
                 <?php
                         echo wp_kses_post(
-                            rm_replace_c21_icon( $description_ar )
+                            rm_replace_c21_icon( $description_ar, $img)
                         );
                         ?>
             </p>
@@ -113,7 +114,7 @@ $badges = $args['badges'] ?? array();
             <p class="menu-description-en">
                 <?php
                         echo wp_kses_post(
-                            rm_replace_c21_icon( $description_en )
+                            rm_replace_c21_icon( $description_en, $img )
                         );
                         ?>
             </p>
@@ -127,7 +128,7 @@ $badges = $args['badges'] ?? array();
 
         <?php if ( $has_variation ) : ?>
 
-        <div class="dark-item__variations">
+        <div class="item__variations">
 
             <?php foreach ( $variations as $variation ) : ?>
 
@@ -150,7 +151,7 @@ $badges = $args['badges'] ?? array();
 
                     ?>
 
-            <div class="dark-item__variation">
+            <div class="item__variation">
 
                 <span class="variation-description">
 
@@ -160,7 +161,7 @@ $badges = $args['badges'] ?? array();
                         <?php
                                     echo wp_kses_post(
                                         rm_replace_c21_icon(
-                                            $variation['desc_ar']
+                                            $variation['desc_ar'], $img
                                         )
                                     );
                                     ?>
@@ -175,7 +176,7 @@ $badges = $args['badges'] ?? array();
                         <?php
                                     echo wp_kses_post(
                                         rm_replace_c21_icon(
-                                            $variation['desc_en']
+                                            $variation['desc_en'], $img
                                         )
                                     );
                                     ?>
@@ -192,7 +193,7 @@ $badges = $args['badges'] ?? array();
                             $variation['price'] !== ''
                         ) : ?>
 
-                <span class="dark-item__variation-price">
+                <span class="item__variation-price">
                     <?php
                                 echo esc_html(
                                     $variation['price']
@@ -213,13 +214,13 @@ $badges = $args['badges'] ?? array();
 
         <?php if ( $has_pizza_prices ) : ?>
 
-        <div class="dark-item__sizes">
+        <div class="item__sizes">
 
             <?php if ( $price_md !== '' && $price_md !== null ) : ?>
 
-            <div class="dark-item__size">
+            <div class="item__size">
 
-                <span class="dark-item__size-name">
+                <span class="item__size-name">
 
                     <span class="size-name-ar">
                         <?php
@@ -240,7 +241,7 @@ $badges = $args['badges'] ?? array();
                 </span>
 
 
-                <span class="dark-item__size-price">
+                <span class="item__size-price">
                     <?php echo esc_html( $price_md ); ?>
                 </span>
 
@@ -251,9 +252,9 @@ $badges = $args['badges'] ?? array();
 
             <?php if ( $price_lg !== '' && $price_lg !== null ) : ?>
 
-            <div class="dark-item__size">
+            <div class="item__size">
 
-                <span class="dark-item__size-name">
+                <span class="item__size-name">
 
                     <span class="size-name-ar">
                         <?php
@@ -274,7 +275,7 @@ $badges = $args['badges'] ?? array();
                 </span>
 
 
-                <span class="dark-item__size-price">
+                <span class="item__size-price">
                     <?php echo esc_html( $price_lg ); ?>
                 </span>
 

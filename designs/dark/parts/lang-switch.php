@@ -1,4 +1,4 @@
-<div class="dark-language-switcher" id="language-switcher" role="group"
+<div class="language-switcher" id="language-switcher" role="group"
     aria-label="<?php esc_attr_e( 'Language', 'restaurant-menu' ); ?>">
 
     <button type="button" class="language-switcher__option active" data-language="ar"

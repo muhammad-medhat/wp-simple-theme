@@ -22,22 +22,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<article class="elegant-item item <?php echo $has_pizza_prices ? 'elegant-item--sizes' : ''; ?>">
+<article class="item item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?>">
 
     <?php if(isset($badges)&&!empty($badges)): ?>
     <!-- Product  BADGE -->
     <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
     <?php endif; ?>
     <?php if ( $image ) : ?>
-    <div class="elegant-item__image">
+    <div class="item__image">
         <img src="<?php echo esc_url( $image ); ?>"
             alt="<?php echo esc_attr( $name_en ?: $name_ar ?: get_the_title() ); ?>" loading="lazy">
     </div>
     <?php endif; ?>
     <!-- Product Content -->
-    <div class="elegant-item__content">
-        <div class="elegant-item__heading">
-            <h3 class="elegant-item__name">
+    <div class="item__content">
+        <div class="item__heading">
+            <h3 class="item__name">
                 <span class="menu-name-ar">
                     <?php echo wp_kses_post( rm_replace_c21_icon($name_ar) ?: get_the_title() );?>
                 </span>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             ================================= -->
 
             <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null&&!$has_variation ) : ?>
-            <span class="elegant-item__price">
+            <span class="item__price">
                 <?php echo esc_html( $price ); ?>
             </span>
             <?php endif; ?>
@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         PRODUCT DESCRIPTION
                         ================================= -->
         <?php if ($description_ar || $description_en) : ?>
-        <div class="elegant-item__description">
+        <div class="item__description">
             <?php if ( $description_ar ) : ?>
             <p class="menu-description-ar">
                 <?php echo wp_kses_post( rm_replace_c21_icon($description_ar));?>
@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             ================================= -->
         <?php if ( $has_variation ) : ?>
 
-        <div class="elegant-item__variations">
+        <div class="item__variations">
 
             <?php foreach ( $variations as $variation ) : ?>
 
@@ -138,11 +138,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <?php if ($has_pizza_prices) : ?>
 
-        <div class="elegant-item__sizes">
+        <div class="item__sizes">
             <!-- Medium -->
             <?php if ($price_md !== '' && $price_md !== null) : ?>
-            <div class="elegant-item__size">
-                <span class="elegant-item__size-name">
+            <div class="item__size">
+                <span class="item__size-name">
                     <span class="size-name-ar">
                         <?php echo esc_html($md_ar ?: 'وسط'); ?>
                     </span>
@@ -151,16 +151,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </span>
                 </span>
 
-                <span class="elegant-item__size-price">
+                <span class="item__size-price">
                     <?php echo esc_html($price_md);?>
                 </span>
             </div>
-            <!-- elegant-item__size->
+            <!-- item__size->
                             <?php endif; ?>
                             <!-- Large -->
             <?php if ($price_lg !== '' && $price_lg !== null) : ?>
-            <div class="elegant-item__size">
-                <span class="elegant-item__size-name">
+            <div class="item__size">
+                <span class="item__size-name">
                     <span class="size-name-ar">
                         <?php echo esc_html($lg_ar ?: 'كبير'); ?>
                     </span>
@@ -168,7 +168,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <?php echo esc_html( $lg_en ?: 'Large'    ); ?>
                     </span>
                 </span>
-                <span class="elegant-item__size-price">
+                <span class="item__size-price">
                     <?php echo esc_html($price_lg);?>
                 </span>
             </div>

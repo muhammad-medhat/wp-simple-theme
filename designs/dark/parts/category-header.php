@@ -24,11 +24,11 @@ $category_desc_en = get_field(
 
 ?>
 
-<header class="dark-category__header">
+<header class="category__header">
 
-    <div class="dark-category__line"></div>
+    <div class="category__line"></div>
 
-    <h2 class="dark-category__title">
+    <h2 class="category__title">
 
         <span class="category-name-ar">
             <?php
@@ -51,7 +51,7 @@ $category_desc_en = get_field(
 
     <?php if ( $category_desc_ar || $category_desc_en ) : ?>
 
-    <div class="dark-category__description">
+    <div class="category__description">
 
         <?php if ( $category_desc_ar ) : ?>
 
@@ -75,7 +75,7 @@ $category_desc_en = get_field(
     <?php endif; ?>
 
 
-    <div class="dark-category__ornament">
+    <div class="category__ornament">
         <span>◆</span>
         <i></i>
         <span>◆</span>

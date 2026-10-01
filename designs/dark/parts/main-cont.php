@@ -17,7 +17,7 @@ $categories = rm_get_ordered_menu_categories();
 
 ?>
 
-<main class="dark-menu__content">
+<main class="menu__content">
 
     <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
 
@@ -52,13 +52,13 @@ $categories = rm_get_ordered_menu_categories();
 
 
             $compact_class = $is_compact
-                ? 'dark-category--compact'
+                ? 'category--compact'
                 : '';
 
             ?>
 
     <section id="<?php echo esc_attr( 'menu-category-' . $category->term_id ); ?>"
-        class="menu-category dark-category <?php echo esc_attr( $compact_class ); ?>">
+        class="menu-category category <?php echo esc_attr( $compact_class ); ?>">
 
         <?php
                 get_template_part(
@@ -71,7 +71,7 @@ $categories = rm_get_ordered_menu_categories();
                 ?>
 
 
-        <div class="dark-category__items">
+        <div class="category__items">
 
 
             <?php if ( $items->have_posts() ) : ?>
@@ -157,7 +157,7 @@ $categories = rm_get_ordered_menu_categories();
         </a>
 
 
-        <div class="dark-category__footer">
+        <div class="category__footer">
             <span>◆</span>
             <i></i>
             <span>◆</span>

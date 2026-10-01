@@ -475,7 +475,7 @@ html[dir="rtl"] .menu-design--modern .language-switcher__indicator {
    PRODUCT CARD
 ========================================================= */
 
-.menu-design--modern .menu-item-card {
+.menu-design--modern .item {
   display: flex;
 
   gap: 14px;
@@ -703,7 +703,7 @@ html[dir="rtl"] .menu-design--modern .language-switcher__indicator {
 .menu-design--modern .rm-menu-inline-logo {
   display: inline-block;
 
-  width: 42px;
+  /* width: 42px; */
   height: auto;
 
   max-height: 24px;
@@ -815,7 +815,7 @@ html[dir="rtl"] .menu-design--modern .menu-item-card__top {
   gap: 7px;
 }
 
-.menu-design--modern .menu-category--compact .menu-item-card {
+.menu-design--modern .menu-category--compact .item {
   padding: 8px 10px;
 
   border-radius: var(--modern-radius-sm);
@@ -954,7 +954,7 @@ html[dir="rtl"] .menu-design--modern .menu-item-card__top {
     gap: 16px;
   }
 
-  .menu-design--modern .menu-item-card {
+  .menu-design--modern .item {
     padding: 14px;
   }
 
@@ -1053,7 +1053,7 @@ html[dir="rtl"] .menu-design--modern .menu-item-card__top {
     gap: 9px;
   }
 
-  .menu-design--modern .menu-item-card {
+  .menu-design--modern .item {
     gap: 10px;
 
     padding: 10px;

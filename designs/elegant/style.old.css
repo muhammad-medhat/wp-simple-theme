@@ -88,14 +88,14 @@
 /* =========================================================
    HEADER
 ========================================================= */
-.header {
+.elegant-header {
   position: relative;
   padding: 2rem 1rem 1.5rem;
   text-align: center;
   /* background: linear-gradient(180deg, #f8f4ec 0%, #fbf9f5 70%, #f5efe6 100%); */
   border-bottom: 1px solid var(--elegant-border);
 }
-.header::after {
+.elegant-header::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -105,7 +105,7 @@
   transform: translateX(-50%);
   background: var(--elegant-gold);
 }
-.header__inner {
+.elegant-header__inner {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
@@ -115,13 +115,13 @@
 /* ---------------------------------------------------------
    Logo
 --------------------------------------------------------- */
-.header__logo img {
+.elegant-header__logo img {
   width: auto;
   max-width: 120px;
   max-height: 95px;
   object-fit: contain;
 }
-.header__logo-placeholder {
+.elegant-header__logo-placeholder {
   width: 78px;
   height: 78px;
   display: flex;
@@ -136,7 +136,7 @@
 /* ---------------------------------------------------------
    Header ornament
 --------------------------------------------------------- */
-.header__ornament {
+.elegant-header__ornament {
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -148,21 +148,21 @@
 /* ---------------------------------------------------------
    Restaurant name
 --------------------------------------------------------- */
-.header__name {
+.elegant-header__name {
   margin: 0.2rem 0 0.4rem;
   line-height: 1.1;
 }
-.header__name .restaurant-name-ar,
-.header__name .restaurant-name-en {
+.elegant-header__name .restaurant-name-ar,
+.elegant-header__name .restaurant-name-en {
   display: block;
 }
-.header__name .restaurant-name-ar {
+.elegant-header__name .restaurant-name-ar {
   color: var(--elegant-gold-dark);
   /* font-family: var(--elegant-font-ar); */
   font-family: var(--font-res-title-ar);
   font-size: var(--elegant-title);
 }
-.header__name .restaurant-name-en {
+.elegant-header__name .restaurant-name-en {
   color: var(--elegant-text);
   /* font-family: var(--elegant-font-en); */
   font-family: var(--font-res-title-en);
@@ -171,12 +171,12 @@
 /* ---------------------------------------------------------
    Header description
 --------------------------------------------------------- */
-.header__description {
+.elegant-header__description {
   max-width: 650px;
   margin: 0 auto 0.9rem;
   text-transform: lowercase;
 }
-.header__description p {
+.elegant-header__description p {
   margin: 0.15rem 0;
   color: var(--elegant-muted);
   line-height: 1.6;
@@ -195,13 +195,13 @@ p.restaurant-description-en {
     text-transform: uppercase;
   }
 }
-/* .header__description p::first-letter {
+/* .elegant-header__description p::first-letter {
   text-transform: uppercase;
 } */
 /* =========================================================
    ELEGANT LANGUAGE SWITCHER
    ========================================================= */
-.language-switcher {
+.elegant-language-switcher {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
@@ -217,7 +217,7 @@ p.restaurant-description-en {
 /* ---------------------------------------------------------
    OPTIONS
    --------------------------------------------------------- */
-.language-switcher .language-switcher__option {
+.elegant-language-switcher .language-switcher__option {
   position: relative;
   min-width: 72px;
   padding: 0.45rem 0.75rem;
@@ -230,22 +230,22 @@ p.restaurant-description-en {
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1;
-  /* transition: 
+  transition:
     color 0.25s ease,
     background 0.25s ease,
     box-shadow 0.25s ease,
-    transform 0.2s ease;*/
+    transform 0.2s ease;
 }
 /* ---------------------------------------------------------
    HOVER
    --------------------------------------------------------- */
-.language-switcher .language-switcher__option:hover {
+.elegant-language-switcher .language-switcher__option:hover {
   color: var(--elegant-gold-dark);
 }
 /* ---------------------------------------------------------
    ACTIVE
    --------------------------------------------------------- */
-.language-switcher .language-switcher__option.active {
+.elegant-language-switcher .language-switcher__option.active {
   background: var(--elegant-gold);
   color: #fff;
   font-weight: 700;
@@ -254,20 +254,20 @@ p.restaurant-description-en {
 /* ---------------------------------------------------------
    ACTIVE HOVER
    --------------------------------------------------------- */
-.language-switcher .language-switcher__option.active:hover {
+.elegant-language-switcher .language-switcher__option.active:hover {
   background: var(--elegant-gold-dark);
   color: #fff;
 }
 /* ---------------------------------------------------------
    SEPARATOR
    --------------------------------------------------------- */
-.language-switcher .language-switcher__separator {
+.elegant-language-switcher .elegant-language-switcher__separator {
   display: none;
 }
 /* ---------------------------------------------------------
    KEYBOARD FOCUS
    --------------------------------------------------------- */
-.language-switcher .language-switcher__option:focus-visible {
+.elegant-language-switcher .language-switcher__option:focus-visible {
   outline: 2px solid var(--elegant-gold-light);
   outline-offset: 2px;
 }
@@ -275,10 +275,10 @@ p.restaurant-description-en {
    MOBILE
    --------------------------------------------------------- */
 @media (max-width: 480px) {
-  .language-switcher {
+  .elegant-language-switcher {
     padding: 0.2rem;
   }
-  .language-switcher .language-switcher__option {
+  .elegant-language-switcher .language-switcher__option {
     min-width: 64px;
     padding: 0.4rem 0.6rem;
     font-size: 0.74rem;
@@ -287,7 +287,7 @@ p.restaurant-description-en {
 /* =========================================================
    STICKY CATEGORY NAVIGATION
 ========================================================= */
-.category-navigation {
+.elegant-category-navigation {
   position: sticky;
   top: 0;
   z-index: 50;
@@ -297,7 +297,7 @@ p.restaurant-description-en {
   box-shadow: 0 4px 15px rgba(77, 61, 43, 0.05);
   backdrop-filter: blur(12px);
 }
-.category-navigation__inner {
+.elegant-category-navigation__inner {
   max-width: 1000px;
   min-height: 58px;
   margin: 0 auto;
@@ -307,15 +307,15 @@ p.restaurant-description-en {
 /* ---------------------------------------------------------
    Small sticky logo
 --------------------------------------------------------- */
-.category-navigation__logo {
+.elegant-category-navigation__logo {
   display: none;
   flex-shrink: 0;
   padding-left: 0.75rem;
 }
-.category-navigation__logo.is-visible {
+.elegant-category-navigation__logo.is-visible {
   display: block;
 }
-.category-navigation__logo img {
+.elegant-category-navigation__logo img {
   width: auto;
   max-width: 55px;
   max-height: 42px;
@@ -324,7 +324,7 @@ p.restaurant-description-en {
 /* ---------------------------------------------------------
    Category scroll
 --------------------------------------------------------- */
-.category-navigation__scroll {
+.elegant-category-navigation__scroll {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -333,13 +333,13 @@ p.restaurant-description-en {
   scrollbar-width: none;
   padding: 0.45rem 0.75rem;
 }
-.category-navigation__scroll::-webkit-scrollbar {
+.elegant-category-navigation__scroll::-webkit-scrollbar {
   display: none;
 }
 /* ---------------------------------------------------------
    Category links
 --------------------------------------------------------- */
-.category-navigation .category-link {
+.elegant-category-navigation .category-link {
   position: relative;
   flex: 0 0 auto;
   padding: 0.65rem 0.8rem;
@@ -349,7 +349,7 @@ p.restaurant-description-en {
     color 0.2s ease,
     background 0.2s ease;
 }
-.category-navigation .category-link::after {
+.elegant-category-navigation .category-link::after {
   content: "";
   position: absolute;
   left: 15%;
@@ -360,63 +360,63 @@ p.restaurant-description-en {
   background: var(--elegant-gold);
   transition: transform 0.2s ease;
 }
-.category-navigation .category-link.active {
+.elegant-category-navigation .category-link.active {
   color: var(--elegant-gold-dark);
 }
-.category-navigation .category-link.active::after {
+.elegant-category-navigation .category-link.active::after {
   transform: scaleX(1);
 }
-.category-navigation .category-link:hover {
+.elegant-category-navigation .category-link:hover {
   color: var(--elegant-gold);
 }
 /* =========================================================
    CATEGORY NAVIGATION LANGUAGE
 ========================================================= */
-.category-navigation .category-name-ar,
-.category-navigation .category-name-en {
+.elegant-category-navigation .category-name-ar,
+.elegant-category-navigation .category-name-en {
   display: none;
 }
-.category-navigation .category-name-ar {
+.elegant-category-navigation .category-name-ar {
   font-family: var(--elegant-font-ar-secondary);
 }
-.category-navigation .category-name-en {
+.elegant-category-navigation .category-name-en {
   font-family: var(--elegant-font-en-secondary);
 }
 /* =========================================================
    MAIN CONTENT
 ========================================================= */
-.menu__content {
+.elegant-menu__content {
   width: min(100% - 1.5rem, 1000px);
   margin: 0 auto;
 }
 /* =========================================================
    CATEGORY
 ========================================================= */
-.category {
+.elegant-category {
   padding: 2rem 0 1.2rem;
   scroll-margin-top: 70px;
 }
 /* =========================================================
    CATEGORY HEADER
 ========================================================= */
-.category__header {
+.elegant-category__header {
   margin-bottom: 1.4rem;
   text-align: center;
 }
-.category__title {
+.elegant-category__title {
   margin: 0;
   line-height: 1.2;
 }
-.category__title .category-name-ar,
-.category__title .category-name-en {
+.elegant-category__title .category-name-ar,
+.elegant-category__title .category-name-en {
   display: block;
 }
-.category__title .category-name-ar {
+.elegant-category__title .category-name-ar {
   color: var(--elegant-gold-dark);
   font-family: var(--elegant-font-ar);
   font-size: var(--elegant-category-title);
 }
-.category__title .category-name-en {
+.elegant-category__title .category-name-en {
   margin-top: 0.1rem;
   color: var(--elegant-text);
   font-family: var(--elegant-font-en-secondary);
@@ -427,10 +427,10 @@ p.restaurant-description-en {
 /* =========================================================
    CATEGORY DESCRIPTION
 ========================================================= */
-.category__description {
+.elegant-category__description {
   margin-top: 0.55rem;
 }
-.category__description p {
+.elegant-category__description p {
   margin: 0.15rem 0;
   color: var(--elegant-muted);
   line-height: 1.5;
@@ -439,7 +439,7 @@ p.restaurant-description-en {
 /* =========================================================
    CATEGORY ORNAMENT
 ========================================================= */
-.category__ornament {
+.elegant-category__ornament {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -448,21 +448,21 @@ p.restaurant-description-en {
   color: var(--elegant-gold);
   font-size: 0.6rem;
 }
-.category__ornament::before,
-.category__ornament::after {
+.elegant-category__ornament::before,
+.elegant-category__ornament::after {
   content: "";
   width: 35px;
   height: 1px;
   display: block;
   background: var(--elegant-border);
 }
-.category__ornament span {
+.elegant-category__ornament span {
   display: block;
 }
 /* =========================================================
    PRODUCT LIST
 ========================================================= */
-.category__items {
+.elegant-category__items {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -470,7 +470,7 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT CARD
 ========================================================= */
-.item {
+.elegant-item {
   display: flex;
   gap: 1rem;
   padding: 1rem;
@@ -488,7 +488,7 @@ p.restaurant-description-en {
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
-.item:hover {
+.elegant-item:hover {
   transform: translateY(-2px);
   border-color: var(--elegant-border);
   box-shadow: var(--elegant-shadow-hover);
@@ -496,11 +496,11 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT IMAGE
 ========================================================= */
-.item__image {
+.elegant-item__image {
   width: 100px;
   flex: 0 0 100px;
 }
-.item__image img {
+.elegant-item__image img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -510,21 +510,21 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT CONTENT
 ========================================================= */
-.item__content {
+.elegant-item__content {
   min-width: 0;
   flex: 1;
 }
 /* =========================================================
    PRODUCT HEADING
 ========================================================= */
-.item__heading,
-.item__footer {
+.elegant-item__heading,
+.elegant-item__footer {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
 }
-.item__name {
+.elegant-item__name {
   min-width: 0;
   margin: 0;
   line-height: 1.2;
@@ -533,7 +533,7 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT PRICE
 ========================================================= */
-.item__price {
+.elegant-item__price {
   color: var(--elegant-gold-dark);
   font-family: var(--elegant-font-en-secondary);
   font-size: var(--elegant-item-price);
@@ -543,10 +543,10 @@ p.restaurant-description-en {
 /* =========================================================
    PRODUCT DESCRIPTION
 ========================================================= */
-.item__description {
+.elegant-item__description {
   margin-top: 0.35rem;
 }
-.item__description p {
+.elegant-item__description p {
   margin: 0.1rem 0;
   color: var(--elegant-muted);
   line-height: 1.5;
@@ -555,7 +555,7 @@ p.restaurant-description-en {
 /* =========================================================
    VARIATIONS
 ========================================================= */
-.item__variations {
+.elegant-item__variations {
   margin-top: 0.7rem;
   padding-top: 0.6rem;
   border-top: 1px dashed rgba(138, 106, 66, 0.25);
@@ -575,7 +575,7 @@ p.restaurant-description-en {
   color: var(--elegant-text-soft);
   font-size: 0.9rem;
 }
-.item__variations .variation-price {
+.elegant-item__variations .variation-price {
   color: var(--elegant-gold-dark);
   font-family: var(--elegant-font-en-secondary);
   font-size: 0.9rem;
@@ -585,27 +585,27 @@ p.restaurant-description-en {
 /* =========================================================
    PIZZA SIZES
 ========================================================= */
-.item__sizes {
+.elegant-item__sizes {
   display: flex;
   flex-direction: column;
   margin-top: 0.75rem;
   border-top: 1px dashed rgba(138, 106, 66, 0.25);
 }
-.item__size {
+.elegant-item__size {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.55rem 0;
   border-bottom: 1px solid rgba(138, 106, 66, 0.1);
 }
-.item__size:last-child {
+.elegant-item__size:last-child {
   border-bottom: 0;
 }
-.item__size-name {
+.elegant-item__size-name {
   display: flex;
   flex-direction: column;
 }
-.item__size-price {
+.elegant-item__size-price {
   color: var(--elegant-gold-dark);
   font-family: var(--elegant-font-en-secondary);
   font-size: 0.95rem;
@@ -625,7 +625,7 @@ p.restaurant-description-en {
 ========================================================= */
 .menu-design--elegant .rm-menu-inline-logo {
   display: inline-block;
-  /* width: 42px; */
+  width: 42px;
   height: auto;
   max-height: 24px;
   object-fit: contain;
@@ -714,46 +714,46 @@ html[dir="rtl"] .menu-design--elegant {
 html[dir="ltr"] .menu-design--elegant {
   direction: ltr;
 }
-html[dir="rtl"] .menu-design--elegant .item {
+html[dir="rtl"] .menu-design--elegant .elegant-item {
   border-left: 1px solid var(--elegant-border-soft);
   border-right: 2px solid rgba(138, 106, 66, 0.45);
 }
-html[dir="rtl"] .menu-design--elegant .item__heading {
+html[dir="rtl"] .menu-design--elegant .elegant-item__heading {
   text-align: right;
 }
 /* =========================================================
    COMPACT CATEGORIES
 ========================================================= */
-.category--compact .category__items {
+.elegant-category--compact .elegant-category__items {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.6rem;
 }
-.category--compact .item {
+.elegant-category--compact .elegant-item {
   display: block;
   padding: 0.75rem;
 }
-.category--compact .item__image {
+.elegant-category--compact .elegant-item__image {
   width: 100%;
   margin-bottom: 0.6rem;
 }
-.category--compact .item__image img {
+.elegant-category--compact .elegant-item__image img {
   aspect-ratio: 4 / 3;
 }
-.category--compact .item__heading {
+.elegant-category--compact .elegant-item__heading {
   display: block;
 }
-.category--compact .item__price {
+.elegant-category--compact .elegant-item__price {
   display: block;
   margin-top: 0.3rem;
 }
-.category--compact .item__description {
+.elegant-category--compact .elegant-item__description {
   margin-top: 0.25rem;
 }
 /* =========================================================
    CATEGORY FOOTER
 ========================================================= */
-.category > .text-center {
+.elegant-category > .text-center {
   margin-top: 1.5rem;
   color: var(--elegant-gold);
   font-size: 0.55rem;
@@ -762,7 +762,7 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
 /* =========================================================
    MOVE TO TOP
 ========================================================= */
-.category .move-top {
+.elegant-category .move-top {
   display: inline-block;
   /* width: fit-content; */
   margin: 1rem;
@@ -774,7 +774,7 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
     opacity 0.2s ease,
     transform 0.2s ease;
 }
-.category .move-top:hover {
+.elegant-category .move-top:hover {
   opacity: 1;
   transform: translateY(-2px);
 }
@@ -793,23 +793,23 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
   /* -----------------------------------------------------
        Header
     ----------------------------------------------------- */
-  .header {
+  .elegant-header {
     padding-top: 2.8rem;
   }
   /* -----------------------------------------------------
        Products
     ----------------------------------------------------- */
-  .item {
+  .elegant-item {
     min-height: 150px;
   }
-  .item__image {
+  .elegant-item__image {
     width: 150px;
     flex-basis: 150px;
   }
   /* -----------------------------------------------------
        Main product grid
     ----------------------------------------------------- */
-  .category__items {
+  .elegant-category__items {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
@@ -817,7 +817,7 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
   /* -----------------------------------------------------
        Compact categories
     ----------------------------------------------------- */
-  .category--compact .category__items {
+  .elegant-category--compact .elegant-category__items {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
@@ -825,14 +825,14 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
    LARGE DESKTOP
 ========================================================= */
 @media (min-width: 1100px) {
-  .menu__content {
+  .elegant-menu__content {
     width: min(100% - 2rem, 1100px);
   }
-  .item__image {
+  .elegant-item__image {
     width: 160px;
     flex-basis: 160px;
   }
-  .category--compact .category__items {
+  .elegant-category--compact .elegant-category__items {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
@@ -840,27 +840,27 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
    MOBILE REFINEMENTS
 ========================================================= */
 @media (max-width: 575px) {
-  .header {
+  .elegant-header {
     padding-top: 1.5rem;
   }
-  .item {
+  .elegant-item {
     padding: 0.8rem;
     gap: 0.75rem;
   }
-  .item__image {
+  .elegant-item__image {
     width: 82px;
     flex-basis: 82px;
   }
-  .item__heading {
+  .elegant-item__heading {
     gap: 0.5rem;
   }
-  .item__price {
+  .elegant-item__price {
     font-size: 0.9rem;
   }
-  .category {
+  .elegant-category {
     padding-top: 1.6rem;
   }
-  .category__header {
+  .elegant-category__header {
     margin-bottom: 1rem;
   }
 }
@@ -868,18 +868,18 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
    VERY SMALL SCREENS
 ========================================================= */
 @media (max-width: 380px) {
-  .item {
+  .elegant-item {
     gap: 0.6rem;
     padding: 0.7rem;
   }
-  .item__image {
+  .elegant-item__image {
     width: 72px;
     flex-basis: 72px;
   }
-  .category--compact .category__items {
+  .elegant-category--compact .elegant-category__items {
     gap: 0.45rem;
   }
-  .category--compact .item {
+  .elegant-category--compact .elegant-item {
     padding: 0.6rem;
   }
 }
