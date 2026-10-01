@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 $category = $args['category'];
 
 $category_name_ar = get_field(

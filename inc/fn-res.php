@@ -1,6 +1,8 @@
 <?php 
 
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 function rm_replace_c21_icon( $value, $img="gold" ) {
 
     if ( ! is_string( $value ) || strpos( $value, '<c21>' ) === false ) {

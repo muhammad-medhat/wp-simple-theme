@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 $restaurant_name_ar = get_theme_mod(
     'rm_restaurant_name_ar',
     get_bloginfo( 'name' )

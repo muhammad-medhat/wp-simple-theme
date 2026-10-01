@@ -1,3 +1,8 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+?>
 <div class="language-switcher" id="language-switcher" role="group"
     aria-label="<?php esc_attr_e( 'Language', 'restaurant-menu' ); ?>">
 

@@ -1,5 +1,7 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 $categories = get_terms(
     array(
         'taxonomy'   => RM_MENU_CATEGORY_TAX,
