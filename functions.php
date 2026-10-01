@@ -9,6 +9,7 @@ define('RESTAURANT_MENU_DIR_URI', get_template_directory_uri());
  * plugin constants
  ** RM_MENU_ITEM_CPT
  ** RM_MENU_CATEGORY_TAX
+ *****RM_MENU_SLUG
  */
 /**
  * Theme setup

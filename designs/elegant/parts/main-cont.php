@@ -11,14 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * =========================================================
  */
 
-$categories = get_terms(
-    array(
-        'taxonomy'   => RM_MENU_CATEGORY_TAX,
-        'hide_empty' => true,
-        'orderby'    => 'term_order',
-        'order'      => 'ASC',
-    )
-);
+$categories = rm_get_ordered_menu_categories();
 
 ?>
 

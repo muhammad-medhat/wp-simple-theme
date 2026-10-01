@@ -30,12 +30,16 @@ $has_variation = ! empty(
 
 $variations = $args['variations'] ?? array();
 
+$badges = $args['badges'] ?? array();
 
 
 ?>
 
 <article class="menu-item-card <?php echo $has_pizza_prices ? 'menu-item-card--sizes' : ''; ?>">
-
+    <?php if(isset($badges)&&!empty($badges)): ?>
+    <!-- Product  BADGE -->
+    <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
+    <?php endif; ?>
     <?php if ( $image ) : ?>
 
     <div class="menu-item-card__image">

@@ -199,3 +199,69 @@ function rm_get_menu_item_data( $post = null ) {
         'variations'        => $variations,
         );
 }
+
+function rm_get_ordered_menu_categories() {
+
+    $categories = get_terms(
+        array(
+            'taxonomy'   => RM_MENU_CATEGORY_TAX,
+            'hide_empty' => true,
+        )
+    );
+
+    if ( is_wp_error( $categories ) ) {
+        return array();
+    }
+
+    $saved_order = get_option(
+        'rm_category_order',
+        array()
+    );
+
+    if ( ! is_array( $saved_order ) ) {
+        return $categories;
+    }
+
+    $saved_order = array_map(
+        'absint',
+        $saved_order
+    );
+
+    $ordered_categories = array();
+
+    /*
+     * Categories with a saved position.
+     */
+    foreach ( $saved_order as $term_id ) {
+
+        foreach ( $categories as $key => $category ) {
+
+            if (
+                (int) $category->term_id ===
+                (int) $term_id
+            ) {
+
+                $ordered_categories[] = $category;
+
+                unset(
+                    $categories[ $key ]
+                );
+
+                break;
+            }
+        }
+    }
+
+    /*
+     * New categories that don't have
+     * a saved position yet.
+     *
+     * They go to the end.
+     */
+    foreach ( $categories as $category ) {
+
+        $ordered_categories[] = $category;
+    }
+
+    return $ordered_categories;
+}

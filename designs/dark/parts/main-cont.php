@@ -1,15 +1,19 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 
-$categories = get_terms(
-    array(
-        'taxonomy'   => RM_MENU_CATEGORY_TAX,
-        'hide_empty' => true,
-        'orderby'    => 'term_order',
-        'order'      => 'ASC',
-    )
-);
+/*
+ * =========================================================
+ * CATEGORIES
+ * =========================================================
+ */
+
+
+$categories = rm_get_ordered_menu_categories();
+
 
 ?>
 
@@ -119,6 +123,8 @@ $categories = get_terms(
                                     'image' =>            $item_data['image'] ?? '',
                                     'has_variation' =>    $item_data['has_variation'] ?? false,
                                     'variations' =>       $item_data['variations'] ?? array(),
+                                    'badges' => $item_data['badges'] ?? array(),
+
                                 )
                             );
 

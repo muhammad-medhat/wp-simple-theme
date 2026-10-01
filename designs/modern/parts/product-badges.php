@@ -11,6 +11,7 @@ $badges = $args['badges'] ?? array();
 $labels = array();
 
 
+
 $badge_labels = rm_get_badge_labels();
 if ( is_array( $badges ) ) {
 
