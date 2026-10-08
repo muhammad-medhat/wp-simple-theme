@@ -1,0 +1,400 @@
+/*
+ * =========================================================
+ * CLUB21 BILINGUAL MENU
+ * =========================================================
+ */
+
+.bilingual-menu {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+  color: #202020;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.bilingual-header {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+}
+
+.bilingual-header__logo img {
+  display: block;
+  width: min(190px, 55vw);
+  height: auto;
+  margin: 0 auto 1rem;
+}
+
+.bilingual-header__names {
+  margin-top: 0.5rem;
+}
+
+.bilingual-header__name-en,
+.bilingual-header__name-ar {
+  margin: 0;
+  font-weight: 500;
+}
+
+.bilingual-header__name-en {
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bilingual-header__name-ar {
+  margin-top: 0.15rem;
+  font-size: 1.25rem;
+  direction: rtl;
+}
+
+.bilingual-header__description {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  color: #777;
+}
+
+.bilingual-header__description p {
+  margin: 0.2rem 0;
+}
+
+.bilingual-header__description-en {
+  font-size: 0.9rem;
+}
+
+.bilingual-header__description-ar {
+  direction: rtl;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.bilingual-category-header {
+  scroll-margin-top: 1rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.bilingual-category-header__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  padding-bottom: 0.65rem;
+
+  border-bottom: 1px solid #c9b58a;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.bilingual-category-header__en {
+  text-transform: uppercase;
+}
+
+.bilingual-category-header__ar {
+  direction: rtl;
+}
+
+.bilingual-category-header__separator {
+  color: #b49a68;
+}
+
+.bilingual-category-header__description {
+  text-align: center;
+  color: #777;
+  margin-top: 0.65rem;
+}
+
+.bilingual-category-header__description p {
+  margin: 0.15rem 0;
+}
+
+.bilingual-category-header__description-ar {
+  direction: rtl;
+}
+
+/* =========================================================
+   ITEM
+   ========================================================= */
+
+.bilingual-item {
+  position: relative;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.bilingual-item:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   ITEM NAME
+   ========================================================= */
+
+.bilingual-item__main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.bilingual-item__names {
+  min-width: 0;
+  flex: 1;
+}
+
+.bilingual-item__name-en,
+.bilingual-item__name-ar {
+  display: inline;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.bilingual-item__name-en {
+  margin-right: 0.35rem;
+}
+
+.bilingual-item__name-ar {
+  direction: rtl;
+}
+
+.bilingual-item__name-en::after {
+  content: "";
+}
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.bilingual-item__price {
+  flex: 0 0 auto;
+
+  font-weight: 700;
+  white-space: nowrap;
+
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.bilingual-item__description {
+  margin-top: 0.35rem;
+  color: #777;
+  padding-right: 4rem;
+}
+
+.bilingual-item__description p {
+  margin: 0.15rem 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.bilingual-item__description-ar {
+  direction: rtl;
+}
+
+/* =========================================================
+   VARIATIONS
+   ========================================================= */
+
+.bilingual-item__variations {
+  margin-top: 0.65rem;
+}
+
+.bilingual-variation {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.25rem 0;
+
+  color: #555;
+}
+
+.bilingual-variation__name {
+  flex: 1;
+}
+
+.bilingual-variation__en,
+.bilingual-variation__ar {
+  display: inline;
+  font-size: 0.85rem;
+}
+
+.bilingual-variation__en {
+  margin-right: 0.3rem;
+}
+
+.bilingual-variation__ar {
+  direction: rtl;
+}
+
+.bilingual-variation__price {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PIZZA SIZES
+   ========================================================= */
+
+.bilingual-item__sizes {
+  margin-top: 0.7rem;
+  margin-left: auto;
+
+  width: min(100%, 360px);
+}
+
+.bilingual-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.25rem 0;
+
+  border-bottom: 1px dotted #ddd;
+}
+
+.bilingual-size:last-child {
+  border-bottom: 0;
+}
+
+.bilingual-size__name {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+
+  color: #555;
+  font-size: 0.85rem;
+}
+
+.bilingual-size__separator {
+  color: #aaa;
+}
+
+.bilingual-size__price {
+  font-weight: 700;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.bilingual-item__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+
+  justify-content: flex-end;
+
+  flex: 0 0 auto;
+}
+
+.bilingual-item__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  padding: 0.2rem 0.45rem;
+
+  border: 1px solid #ddd;
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+.bilingual-item__badge i {
+  font-size: 0.7rem;
+}
+
+.bilingual-item__badge-divider {
+  color: #aaa;
+}
+
+/* =========================================================
+   INLINE LOGO
+   ========================================================= */
+
+.bilingual-menu .rm-menu-inline-logo {
+  display: inline-block;
+  width: 42px;
+  height: auto;
+  max-height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .bilingual-menu {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .bilingual-header {
+    padding-top: 1.5rem;
+  }
+
+  .bilingual-header__logo img {
+    width: min(165px, 52vw);
+  }
+
+  .bilingual-category-header {
+    margin-top: 2.25rem;
+  }
+
+  .bilingual-category-header__title {
+    font-size: 1.05rem;
+  }
+
+  .bilingual-item__main {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .bilingual-item__names {
+    flex-basis: 100%;
+  }
+
+  .bilingual-item__price {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+  }
+
+  html[dir="rtl"] .bilingual-item__price {
+    right: auto;
+    left: 0;
+  }
+
+  .bilingual-item__description {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .bilingual-item__badges {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .bilingual-item__sizes {
+    width: 100%;
+  }
+}

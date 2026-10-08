@@ -45,19 +45,22 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php echo wp_kses_post(rm_replace_c21_icon($name_en )?: get_the_title() ); ?>
                 </span>
             </h3>
+
             <!-- =================================
                             NORMAL PRODUCT PRICE
                             ================================= -->
-
             <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null&&!$has_variation ) : ?>
+            <span class="menu-item__dots"></span>
             <span class="item__price">
                 <?php echo esc_html( $price ); ?>
             </span>
             <?php endif; ?>
+
         </div>
+
         <!-- =================================
-                        PRODUCT DESCRIPTION
-                        ================================= -->
+        PRODUCT DESCRIPTION
+        ================================= -->
         <?php if ($description_ar || $description_en) : ?>
         <div class="item__description">
             <?php if ( $description_ar ) : ?>
@@ -72,6 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php endif; ?>
         </div>
         <?php endif; ?>
+
         <!-- =================================
             variations
             ================================= -->

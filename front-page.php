@@ -20,7 +20,7 @@ $design = get_theme_mod(
 $allowed_designs = array(
     'modern',
     'elegant',
-    'dark',
+    'dark','biling'
 );
 
 

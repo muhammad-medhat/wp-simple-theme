@@ -46,28 +46,52 @@ function md_show_featured_image_column($column_name, $post_id)
 function md_price_column( $columns ) {
     $columns['price_column'] = 'Price'; 
     return $columns;
-}
-add_filter( 'manage_'.RM_MENU_ITEM_CPT.'_posts_columns', 'md_price_column' );
-
-
-// 2. Populate the rows of the custom column with the custom field data
-function md_populate_price_column( $column, $post_id ) {
-    // Check if we are currently filling our specific column
-    if ( $column === 'price_column' ) {
-        // Retrieve the custom field value for this specific post
-        $price_value = get_post_meta( $post_id, 'price', true );
-        
-        // If the field isn't empty, display it. Otherwise, show a dash.
-        if ( ! empty( $price_value ) ) {
-            echo esc_html( $price_value );
+    }
+    add_filter( 'manage_'.RM_MENU_ITEM_CPT.'_posts_columns', 'md_price_column' );
+    
+    
+    // 2. Populate the rows of the custom column with the custom field data
+    function md_populate_price_column( $column, $post_id ) {
+        // Check if we are currently filling our specific column
+        if ( $column === 'price_column' ) {
+            // Retrieve the custom field value for this specific post
+            $price_value = get_post_meta( $post_id, 'price', true );
+            
+            // If the field isn't empty, display it. Otherwise, show a dash.
+            if ( ! empty( $price_value ) ) {
+                echo esc_html( $price_value );
             } else {
-                // echo '—';
+                //if has variation{}
+                //else
                 $price_md = get_post_meta( $post_id, 'price_md', true );
                 $price_lg = get_post_meta( $post_id, 'price_lg', true );
                 echo '-'.esc_html( $price_md );
                 echo '<br>';
                 echo '-'.esc_html( $price_lg );
-        }
+                }
     }
 }
 add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_price_column', 10, 2 );
+
+
+/************ atabic name clumn *********************************** */
+function md_arabic_name_column( $columns ) {
+    $columns['arabic_name_column'] = 'Arabic Name'; 
+    return $columns;
+    }
+    add_filter( 'manage_'.RM_MENU_ITEM_CPT.'_posts_columns', 'md_arabic_name_column' );
+    function md_populate_arabic_name_column( $column, $post_id ) {
+        // Check if we are currently filling our specific column
+        if ( $column === 'arabic_name_column' ) {
+            // Retrieve the custom field value for this specific post
+            $arabic_name_value = get_post_meta( $post_id, 'name_ar', true );
+            
+            // If the field isn't empty, display it. Otherwise, show a dash.
+            if ( ! empty( $arabic_name_value ) ) {
+                echo esc_html( $arabic_name_value );
+            } else {
+                echo '—';
+                }
+    }
+}
+add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_arabic_name_column', 10, 2 );

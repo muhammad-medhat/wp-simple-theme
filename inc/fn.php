@@ -51,7 +51,7 @@ function rm_menu_load_design_assets() {
         'rm-menu-design-' . $design,        
         RESTAURANT_MENU_DIR_URI ."/designs/$design/style.css",
         array( 'restaurant-menu-custom' ),
-        wp_get_theme()->get( 'Version' )
+        wp_get_theme()->get( 'Version' ) ."--" . rand()
     );
 }
 

@@ -47,13 +47,93 @@ $categories = rm_get_ordered_menu_categories();
     <section id="<?php echo esc_attr( 'menu-category-' . $category->term_id ); ?>"
         class="menu-category category <?php echo esc_attr( $compact_class ); ?>">
         <!-- =================================
-            CATEGORY HEADER
-            ================================= -->
+    CATEGORY HEADER
+    ================================= -->
         <?php get_template_part( 'designs/'.RM_DESIGN."/parts/category-header",'', array('category' => $category) );?>
 
+        <?php if ( $is_compact ) : ?>
+
         <!-- =================================
-            CATEGORY ITEMS
-            ================================= -->
+         COMPACT CATEGORY ITEMS
+         ================================= -->
+        <div class="compact-menu-list">
+
+            <?php if ( $items->have_posts() ) : ?>
+
+            <?php while ( $items->have_posts() ) : ?>
+
+            <?php
+                $items->the_post();
+
+                $item_id = get_the_ID();
+
+                $name_ar = get_field( 'name_ar', $item_id );
+                $name_en = get_field( 'name_en', $item_id );
+                $price   = get_field( 'price', $item_id );
+                ?>
+
+            <div class="compact-menu-item">
+
+                <div class="item__name">
+
+                    <?php if ( $name_en ) : ?>
+
+                    <span class="menu-name-en">
+                        <?php
+                                echo wp_kses_post(
+                                    rm_replace_c21_icon( $name_en )
+                                );
+                                ?>
+                    </span>
+
+                    <?php endif; ?>
+
+                    <?php if ( $name_ar ) : ?>
+
+                    <span class="menu-name-ar">
+                        <?php echo wp_kses_post(  rm_replace_c21_icon( $name_ar )  );  ?>
+                    </span>
+
+                    <?php endif; ?>
+
+                </div>
+
+                <?php if ( $price !== '' && $price !== null ) : ?>
+
+                <span class="compact-menu-item__dots"></span>
+
+                <span class="compact-menu-item__price">
+                    <?php echo esc_html( $price ); ?>
+                </span>
+
+                <?php endif; ?>
+
+            </div>
+
+            <?php endwhile; ?>
+
+            <?php wp_reset_postdata(); ?>
+
+            <?php else : ?>
+
+            <div class="menu-empty">
+                <?php
+                esc_html_e(
+                    'No items available in this category.',
+                    'restaurant-menu'
+                );
+                ?>
+            </div>
+
+            <?php endif; ?>
+
+        </div>
+
+        <?php else : ?>
+
+        <!-- =================================
+         NORMAL CATEGORY ITEMS
+         ================================= -->
         <div class="category__items">
 
             <?php if ( $items->have_posts() ) : ?>
@@ -61,10 +141,77 @@ $categories = rm_get_ordered_menu_categories();
             <?php while ( $items->have_posts() ) : ?>
 
             <?php
+                $items->the_post();
 
-                            $items->the_post();
+                $item_id = get_the_ID();
 
-                            $item_id = get_the_ID();
+                $item_data = rm_get_menu_item_data( $item_id );
+
+                get_template_part(
+                    'designs/' . RM_DESIGN . '/parts/product',
+                    '',
+                    array(
+                        'item_id' =>
+                            $item_data['item_id'] ?? $item_id,
+
+                        'name_ar' =>
+                            $item_data['name_ar'] ?? '',
+
+                        'name_en' =>
+                            $item_data['name_en'] ?? '',
+
+                        'description_ar' =>
+                            $item_data['description_ar'] ?? '',
+
+                        'description_en' =>
+                            $item_data['description_en'] ?? '',
+
+                        'price' =>
+                            $item_data['price'] ?? '',
+
+                        'price_md' =>
+                            $item_data['price_md'] ?? '',
+
+                        'price_lg' =>
+                            $item_data['price_lg'] ?? '',
+
+                        'has_pizza_prices' =>
+                            $item_data['has_pizza_prices'] ?? false,
+
+                        'image' =>
+                            $item_data['image'] ?? '',
+
+                        'has_variation' =>
+                            $item_data['has_variation'] ?? false,
+
+                        'variations' =>
+                            $item_data['variations'] ?? array(),
+
+                        'badges' =>
+                            $item_data['badges'] ?? array(),
+                    )
+                );
+                ?>
+
+            <?php endwhile; ?>
+
+            <?php //wp_reset_postdata(); ?>
+
+            <?php else : ?>
+            <!-- =================================
+                CATEGORY ITEMS
+                ================================= -->
+            <div class="category__items">
+
+                <?php if ( $items->have_posts() ) : ?>
+
+                <?php while ( $items->have_posts() ) : ?>
+
+                <?php
+
+                    $items->the_post();
+
+                    $item_id = get_the_ID();
 
 
                             /*
@@ -75,9 +222,7 @@ $categories = rm_get_ordered_menu_categories();
                              * All ACF item data is now retrieved here.
                              */
 
-                            $item_data = rm_get_menu_item_data(
-                                $item_id
-                            );
+                            $item_data = rm_get_menu_item_data($item_id);
 
 
                             /*
@@ -129,25 +274,34 @@ $categories = rm_get_ordered_menu_categories();
 
                             ?>
 
-            <?php endwhile; ?>
+                <?php endwhile; ?>
 
-            <?php wp_reset_postdata(); ?>
+                <?php wp_reset_postdata(); ?>
 
-            <?php else : ?>
+                <?php else : ?>
 
-            <div class="menu-empty">
+                <div class="menu-empty">
 
-                <?php
+                    <?php
                             esc_html_e(
                                 'No items available in this category.',
                                 'restaurant-menu'
                             );
                             ?>
 
+                </div>
+
+                <?php endif; ?>
             </div>
 
+
+
             <?php endif; ?>
+
         </div>
+
+        <?php endif; ?>
+
         <a href="#top" class="move-top p-2 m-2"><i class="fa-regular fa-circle-up"></i></a>
         <!-- <span class="text-center d-block">──────── ୨୧ ୨୧ ────────</span> -->
 
