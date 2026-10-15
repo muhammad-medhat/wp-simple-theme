@@ -1,6 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Caveat:wght@400..700&family=Arimo:ital,wght@0,400..700;1,400..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"); */
 /* @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Handlee&family=Patrick+Hand&family=Roboto:ital,wght@0,100..900;1,100..900&family=Aref+Ruqaa:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Patrick+Hand&family=Roboto:ital,wght@0,100..900;1,100..900&family=Aref+Ruqaa:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Playpen+Sans:wght@100..800&family=Patrick+Hand&family=Roboto:ital,wght@0,100..900;1,100..900&family=Aref+Ruqaa:wght@400;700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 /* =========================================================
    ELEGANT DESIGN
 ========================================================= */
@@ -27,13 +27,15 @@
     ----------------------------------------------------- */
   --font-res-title-ar: "Aref Ruqaa", Rubik, sans-serif;
   /* --elegant-font-ar: "Aref Ruqaa", Cairo, Rubik, sans-serif; */
-  --elegant-font-ar: Rubik, Roboto, sans-serif;
+  /* --elegant-font-ar: Rubik, Roboto, sans-serif; */
+  --elegant-font-ar: Almarai, Roboto, sans-serif;
   --font-res-desc-en: "Playpen Sans", cursive;
   /* --elegant-font-ar-secondary: Cairo, Rubik, "Aref Ruqaa", sans-serif; */
   --elegant-font-ar-secondary: Roboto, Rubik sans-serif;
-  --font-res-title-en: "Patrick Hand", cursive;
+  --font-res-title-en: "Playpen sans", cursive;
   /* --elegant-font-en: Caveat, cursive; */
-  --elegant-font-en: Rubik, Roboto, sans-serif;
+  /* --elegant-font-en: Rubik, Roboto, sans-serif; */
+  --elegant-font-en: Cairo, Roboto, sans-serif;
   /* --elegant-font-en-secondary: "Arimo", sans-serif; */
   --elegant-font-en-secondary: Roboto, Rubik sans-serif;
   /* -----------------------------------------------------
@@ -188,7 +190,7 @@
     }
     */
 p.restaurant-description-en {
-  display: block; /* 👈 This makes sure the browser respects ::first-letter */
+  display: block;
   text-transform: lowercase;
   /*border: solid red; */
   &::first-letter {
@@ -406,6 +408,7 @@ p.restaurant-description-en {
 .category__title {
   margin: 0;
   line-height: 1.2;
+  /* color: red; */
 }
 .category__title .category-name-ar,
 .category__title .category-name-en {
@@ -429,6 +432,8 @@ p.restaurant-description-en {
 ========================================================= */
 .category__description {
   margin-top: 0.55rem;
+  max-width: 80%;
+  margin: auto;
 }
 .category__description p {
   margin: 0.15rem 0;
@@ -530,51 +535,56 @@ p.restaurant-description-en {
   width: 100%;
 }
 .item__name {
-  /* min-width: 0;
-  margin: 0;
-  line-height: 1.2;
-  display: flex; */
-  /************************************/
-  display: flex;
-  flex: 0 1 auto;
-  align-items: baseline;
-  flex-wrap: wrap;
   gap: 0.25rem 0.45rem;
   min-width: 0;
   margin: 0;
-  line-height: 1.3;
+  line-height: 0.8;
+  text-align-last: end;
+  font-weight: 600;
 }
 /* =========================================================
    PRODUCT PRICE
 ========================================================= */
 .item__price {
   white-space: nowrap;
-  transform: translateY(1.2rem);
+  /* transform: translateY(1.2rem); */
   /*******************************/
   flex: 0 0 auto;
-  display: inline-block;
-
+  display: flex;
+  gap: 0.15rem;
   font-family: var(--elegant-font-en-secondary);
   font-size: clamp(1rem, 1.2vw + 0.45rem, 1.3rem);
   font-weight: 700;
-  line-height: 1.2;
+  /* line-height: 1.2; */
 
   color: var(--elegant-gold-dark);
   letter-spacing: 0.015em;
+  border-bottom: solid;
 
   font-variant-numeric: lining-nums tabular-nums;
   text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.08);
+}
+
+.item__price::after {
+  display: none;
+  content: "egp";
+  text-transform: uppercase;
+  vertical-align: super;
+  font-size: xx-small;
+  /* font-variant-position: super; */
 }
 /* =========================================================
    PRODUCT DESCRIPTION
 ========================================================= */
 .item__description {
   margin-top: 0.35rem;
+  line-height: 1.05;
+  /* text-align-last: end; */
 }
 .item__description p {
   margin: 0.1rem 0;
   color: var(--elegant-muted);
-  line-height: 1.5;
+  line-height: 0.5;
   font-size: var(--elegant-item-description);
 }
 /* =========================================================
@@ -648,6 +658,8 @@ p.restaurant-description-en {
 /* =========================================================
    INLINE C21 LOGO
 ========================================================= */
+.category-navigation .rm-menu-inline-logo {
+}
 .menu-design--elegant .rm-menu-inline-logo {
   display: inline-block;
   /* width: 42px; */
@@ -668,6 +680,7 @@ p.restaurant-description-en {
 .menu-design--elegant .variation-desc-ar,
 .menu-design--elegant .size-name-ar,
 .menu-design--elegant .category-name-ar,
+.menu-design--elegant .category-description-ar,
 .menu-design--elegant .restaurant-name-ar,
 .menu-design--elegant .restaurant-description-ar {
   display: inline;
@@ -680,6 +693,7 @@ p.restaurant-description-en {
 .menu-design--elegant .variation-desc-en,
 .menu-design--elegant .size-name-en,
 .menu-design--elegant .category-name-en,
+.menu-design--elegant .category-description-en,
 .menu-design--elegant .restaurant-name-en,
 .menu-design--elegant .restaurant-description-en {
   display: none;
@@ -692,6 +706,7 @@ html[lang="en"] .menu-design--elegant .menu-description-ar,
 html[lang="en"] .menu-design--elegant .variation-desc-ar,
 html[lang="en"] .menu-design--elegant .size-name-ar,
 html[lang="en"] .menu-design--elegant .category-name-ar,
+html[lang="en"] .menu-design--elegant .category-description-ar,
 html[lang="en"] .menu-design--elegant .restaurant-name-ar,
 html[lang="en"] .menu-design--elegant .restaurant-description-ar {
   display: none;
@@ -701,23 +716,34 @@ html[lang="en"] .menu-design--elegant .menu-description-en,
 html[lang="en"] .menu-design--elegant .variation-desc-en,
 html[lang="en"] .menu-design--elegant .size-name-en,
 html[lang="en"] .menu-design--elegant .category-name-en,
+html[lang="en"] .menu-design--elegant .category-description-en,
 html[lang="en"] .menu-design--elegant .restaurant-name-en,
 html[lang="en"] .menu-design--elegant .restaurant-description-en {
   display: inline;
 }
+html[lang="en"] .menu-design--elegant .item__price::after {
+  display: inline;
+}
+html[lang="ar"] .menu-design--elegant .item__price {
+  flex-direction: row-reverse;
+}
+html[lang="ar"] .menu-design--elegant .item__price::after {
+  display: inline;
+}
+
 /* =========================================================
    FONTS
 ========================================================= */
 .menu-design--elegant .category-name-ar,
-.menu-design--elegant .restaurant-name-ar1 {
-  font-family: var(--elegant-font-ar);
-}
 .menu-design--elegant .menu-name-ar {
-  /* font-family: var(--elegant-font-ar-secondary); */
+  /* category nav, and category title */
+  font-family: var(--elegant-font-ar);
+  /* color: red; */
 }
 .menu-design--elegant .category-name-en,
 .menu-design--elegant .restaurant-name-en1 {
-  font-family: var(--elegant-font-en);
+  font-family: "Playpen Sans", cursive;
+  /* font-family: var(--elegant-font-en); */
 }
 .menu-design--elegant .menu-name-en {
   /* font-family: var(--elegant-font-en-secondary); */
@@ -835,10 +861,11 @@ html[dir="rtl"] .menu-design--elegant .item__heading {
 .category--compact .compact-menu-item__dots,
 .menu-item__dots {
   flex: 1 1 auto;
-
   min-width: 20px;
-
   height: 1px;
+  /* border: dotted 0.5px; */
+  /* height: 1px;
+  letter-spacing: .5rem; */
 }
 .menu-item__dots {
   /* border: solid red; */
@@ -1030,4 +1057,14 @@ html[dir="rtl"] .category--compact .compact-menu-item__price {
   .category--compact .item {
     padding: 0.6rem;
   }
+}
+/* ---------------------------------------------------- */
+.elegant-menu .category-navigation a i {
+  margin-inline-end: 0.4em;
+  font-size: 0.95em;
+}
+
+.elegant-menu .category__header i {
+  margin-inline-end: 0.5em;
+  font-size: 0.9em;
 }

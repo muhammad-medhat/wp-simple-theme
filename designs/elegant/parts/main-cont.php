@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 $categories = rm_get_ordered_menu_categories();
+$rm_category_icon = rm_get_category_icon_options();
 
 ?>
 
@@ -49,7 +50,10 @@ $categories = rm_get_ordered_menu_categories();
         <!-- =================================
     CATEGORY HEADER
     ================================= -->
-        <?php get_template_part( 'designs/'.RM_DESIGN."/parts/category-header",'', array('category' => $category) );?>
+        <?php get_template_part( 'designs/'.RM_DESIGN."/parts/category-header",'', 
+                array(
+                    'category' => $category, 
+                    'rm_category_icon' => $rm_category_icon) );?>
 
         <?php if ( $is_compact ) : ?>
 

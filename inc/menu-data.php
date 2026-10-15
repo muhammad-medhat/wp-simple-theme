@@ -42,8 +42,15 @@ function rm_get_menu_item_data( $post = null ) {
      $description_en = get_field('desc_en',$item_id);
      $price          = get_field('price',$item_id);
      $badges_enabled = (bool)get_theme_mod('rm_enable_badges', true);
-     if($badges_enabled)
-       $badges = get_field('badges',$item_id);
+     $icons_enabled = (bool)get_theme_mod('rm_enable_icons', true);
+     $variations = array();
+     $rm_category_icon=array();
+     if($badges_enabled){
+         $badges = get_field('badges',$item_id);
+     }
+    // if($icons_enabled){
+    //  $rm_category_icon = rm_get_category_icon_options();
+    // }
 
 
     /*
@@ -102,7 +109,6 @@ function rm_get_menu_item_data( $post = null ) {
 
      $has_variation = get_field('has_variation',$item_id);
 
-    $variations = array();
 
     if ( $has_variation ) {
 
@@ -186,7 +192,6 @@ function rm_get_menu_item_data( $post = null ) {
         'description_en' => $description_en,
 
         'price'          => $price,
-        'badges'          => $badges??[],
         
         'price_md'       => $price_md,
         'price_lg'       => $price_lg,
@@ -196,7 +201,9 @@ function rm_get_menu_item_data( $post = null ) {
         'image' => $image,
         
         'has_variation'         => $has_variation,
+        'badges'          => $badges??[],
         'variations'        => $variations,
+        'rm_category_icon'=>$rm_category_icon?$rm_category_icon:[]
         );
 }
 

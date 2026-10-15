@@ -230,5 +230,29 @@ function rm_menu_customize_register( $wp_customize ) {
             'type'    => 'checkbox',
         )
     );
+    /*
+    * =========================================================
+    * CATEGORY ICONS
+    * =========================================================
+    */
+    
+        $wp_customize->add_setting(
+            'rm_enable_category_icons',
+            array(
+                'default'           => true,
+                'sanitize_callback' => function ( $value ) {
+                    return (bool) $value;
+                },
+            )
+        );
+        
+        $wp_customize->add_control(
+            'rm_enable_category_icons',
+            array(
+                'label'   => __( 'Enable Category_icons', 'restaurant-menu' ),
+                'section' => RM_SETTINGS_SECTION,
+                'type'    => 'checkbox',
+            )
+        );
 }
-    add_action( 'customize_register', 'rm_menu_customize_register');
+add_action( 'customize_register', 'rm_menu_customize_register');

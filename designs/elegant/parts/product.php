@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 $variation['price'] !== ''
             ) : ?>
 
-                <span class="variation-price">
+                <span class="item__price">
                     <?php echo esc_html( $variation['price'] ); ?>
                 </span>
 
@@ -139,46 +139,5 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- =================================
             PIZZA SIZE PRICES
             ================================= -->
-
-        <?php if ($has_pizza_prices) : ?>
-
-        <div class="item__sizes">
-            <!-- Medium -->
-            <?php if ($price_md !== '' && $price_md !== null) : ?>
-            <div class="item__size">
-                <span class="item__size-name">
-                    <span class="size-name-ar">
-                        <?php echo esc_html($md_ar ?: 'وسط'); ?>
-                    </span>
-                    <span class="size-name-en">
-                        <?php echo esc_html( $md_en ?: 'Medium'    ); ?>
-                    </span>
-                </span>
-
-                <span class="item__size-price">
-                    <?php echo esc_html($price_md);?>
-                </span>
-            </div>
-            <!-- item__size->
-                            <?php endif; ?>
-                            <!-- Large -->
-            <?php if ($price_lg !== '' && $price_lg !== null) : ?>
-            <div class="item__size">
-                <span class="item__size-name">
-                    <span class="size-name-ar">
-                        <?php echo esc_html($lg_ar ?: 'كبير'); ?>
-                    </span>
-                    <span class="size-name-en">
-                        <?php echo esc_html( $lg_en ?: 'Large'    ); ?>
-                    </span>
-                </span>
-                <span class="item__size-price">
-                    <?php echo esc_html($price_lg);?>
-                </span>
-            </div>
-
-            <?php endif; ?>
-        </div>
-        <?php endif; ?>
 
 </article>
