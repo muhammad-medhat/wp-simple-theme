@@ -462,3 +462,46 @@ add_action(
     'admin_enqueue_scripts',
     'rm_admin_badges_edit_assets'
 );
+
+###############################################################################
+###############################################################################
+###############################################################################
+// product image
+// function rm_item_image_column( $columns ) {
+//     $new_columns = array();
+
+//     foreach ( $columns as $key => $label ) {
+//         $new_columns[ $key ] = $label;
+
+//         // Place the icon after the category name.
+//         if ( 'cb' === $key ) {
+//             $new_columns['image'] = 'Image';
+//         }
+//     }
+//     return $new_columns;
+// }
+
+
+// add_filter( 'manage_edit-' . RM_MENU_ITEM_CPT . '_columns', 'rm_item_image_column');
+// function rm_get_item_img_column( $content, $column_name, $term_id ) {
+//     if ( 'image' !== $column_name ) {
+//         return $content;
+//     }
+
+//     $img_key = get_field( 'item_image',$term_id);
+
+
+//     if (
+//         ! isset( $icons[ $img_key ] ) ||
+//         empty( $icons[ $img_key ]['file'] )
+//     ) {
+//         return '<span style="color:#999;">—</span>';
+//     }
+
+//     return sprintf(
+//         '<img src="%s" alt="" width="36" height="36" style="display:block;object-fit:contain;" />',
+//         esc_url( $img_key )
+//     );
+// }
+
+// add_filter('manage_' . RM_MENU_ITEM_CPT . '_custom_column', 'rm_get_item_img_column', 10, 3);

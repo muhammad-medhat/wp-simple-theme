@@ -107,6 +107,13 @@ function restaurant_menu_assets() {
         wp_get_theme()->get( 'Version' ),
         true
     );
+    wp_enqueue_script(
+        'restaurant-menu-lang',
+        RESTAURANT_MENU_DIR_URI . '/assets/js/lang-switcher.js',
+        array( 'bootstrap' ),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'restaurant_menu_assets' );
 
@@ -114,7 +121,6 @@ add_action( 'wp_enqueue_scripts', 'restaurant_menu_assets' );
 
 require_once RESTAURANT_MENU_DIR . '/inc/fn-customizer.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn-md.php';
-require_once RESTAURANT_MENU_DIR . '/inc/fn-res.php';
 require_once RESTAURANT_MENU_DIR . '/inc/fn.php';
 require_once RESTAURANT_MENU_DIR . '/inc/menu-data.php'; //shared data between designs
 require_once RESTAURANT_MENU_DIR . '/inc/helper.php'; 

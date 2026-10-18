@@ -45,3 +45,22 @@ function rm_get_badge_labels() {
 
     );
 }
+/**
+ * replace <c21> text with  img
+ */
+
+function rm_replace_c21_icon( $value, $img="gold" ) {
+
+    if ( ! is_string( $value ) || strpos( $value, '<c21>' ) === false ) {
+        return $value;
+    }
+// if($img=="white"){echo"<h2>WWWWWWWWWWWWWWWWWWWWWWWW</h2>";}
+    $logo_url = RESTAURANT_MENU_DIR_URI . "/assets/img/c21-$img.png";
+
+    $logo = sprintf(
+        '<img src="%s" class="rm-menu-inline-logo" alt="Club21">',
+        esc_url( $logo_url )
+    );
+
+    return str_replace( '<c21>', $logo, $value );
+}

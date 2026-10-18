@@ -51,6 +51,7 @@ function rm_menu_customize_register( $wp_customize ) {
                 'elegant' => __( 'Elegant', 'restaurant-menu' ),
                 'dark' => __( 'Dark', 'restaurant-menu' ),
                 'biling' => __( 'Bilingual', 'restaurant-menu' ),
+                'professional' => __( 'Professional', 'restaurant-menu' ),
             ),
         ));
         //Settings to add on the title_tagline section - (Site Identity) Section

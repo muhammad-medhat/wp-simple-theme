@@ -10,7 +10,7 @@ function rm_menu_sanitize_design( $value ) {
     $allowed_designs = array(
         'modern',
         'elegant',
-        'dark',
+        'dark','professional'
     );
 
     if ( ! in_array( $value, $allowed_designs, true ) ) {
@@ -29,16 +29,13 @@ function rm_menu_load_design_assets() {
         return;
     }
 
-    $design = get_theme_mod(
-        'rm_menu_design',
-        'modern'
-    );
+    $design = get_theme_mod('rm_menu_design','modern');
 
 
     $allowed_designs = array(
         'modern',
         'elegant',
-        'dark',
+        'dark','professional'
     );
 
 
