@@ -76,16 +76,35 @@ function restaurant_menu_assets() {
         array( 'bootstrap' ),
         wp_get_theme()->get( 'Version' ).'--'.rand()
     );
+    $demo = (bool)get_theme_mod('rm_demo', false);
+    if ( $demo ) {
+        wp_enqueue_style(
+            'restaurant-menu-demo',
+            RESTAURANT_MENU_DIR_URI . '/assets/css/demo.css',
+            array( 'bootstrap' ),
+            wp_get_theme()->get( 'Version' ).'-'.rand(),
+        );
+    }
 
     /*
-     * Common menu CSS
+     * design menu CSS
      */
     wp_enqueue_style(
         'restaurant-menu-custom',
         RESTAURANT_MENU_DIR_URI . '/assets/css/menu.css',
         array( 'bootstrap' ),
-        wp_get_theme()->get( 'Version' )
+        wp_get_theme()->get( 'Version' ).'-'.rand(),
     );
+    /*
+     * mobile-language
+     */
+    wp_enqueue_style(
+        'restaurant-mobile-lang',
+        RESTAURANT_MENU_DIR_URI . '/assets/css/mobile-lang.css',
+        array( 'bootstrap' ),
+        wp_get_theme()->get( 'Version' ).'-'.rand(),
+    );
+
     /*
      * Bootstrap JavaScript
      */
@@ -104,14 +123,14 @@ function restaurant_menu_assets() {
         'restaurant-menu-js',
         RESTAURANT_MENU_DIR_URI . '/assets/js/menu.js',
         array( 'bootstrap' ),
-        wp_get_theme()->get( 'Version' ),
+        wp_get_theme()->get( 'Version' ).'-'.rand(),
         true
     );
     wp_enqueue_script(
         'restaurant-menu-lang',
         RESTAURANT_MENU_DIR_URI . '/assets/js/lang-switcher.js',
         array( 'bootstrap' ),
-        wp_get_theme()->get( 'Version' ),
+        wp_get_theme()->get( 'Version' ).'-'.rand(),
         true
     );
 }
