@@ -255,5 +255,24 @@ function rm_menu_customize_register( $wp_customize ) {
                 'type'    => 'checkbox',
             )
         );
+        // enable Demo
+        $wp_customize->add_setting(
+            'rm_demo',
+            array(
+                'default'           => false,
+                'sanitize_callback' => function ( $value ) {
+                    return (bool) $value;
+                },
+            )
+        );
+        
+        $wp_customize->add_control(
+            'rm_demo',
+            array(
+                'label'   => __( 'Enable Demo', 'restaurant-menu' ),
+                'section' => RM_SETTINGS_SECTION,
+                'type'    => 'checkbox',
+            )
+        );
 }
 add_action( 'customize_register', 'rm_menu_customize_register');

@@ -23,8 +23,8 @@
   --elegant-shadow: 0 10px 30px rgba(77, 61, 43, 0.08);
   --elegant-shadow-hover: 0 15px 35px rgba(77, 61, 43, 0.13);
   /* -----------------------------------------------------
-       Fonts
-    ----------------------------------------------------- */
+  Fonts
+  ----------------------------------------------------- */
   --font-res-title-ar: "Aref Ruqaa", Rubik, sans-serif;
   /* --elegant-font-ar: "Aref Ruqaa", Cairo, Rubik, sans-serif; */
   /* --elegant-font-ar: Rubik, Roboto, sans-serif; */
@@ -39,8 +39,8 @@
   /* --elegant-font-en-secondary: "Arimo", sans-serif; */
   --elegant-font-en-secondary: Roboto, Rubik sans-serif;
   /* -----------------------------------------------------
-       Typography
-    ----------------------------------------------------- */
+  Typography
+  ----------------------------------------------------- */
   --elegant-title: clamp(1.8rem, 4vw, 2.8rem);
   --elegant-description: clamp(0.9rem, 1.8vw, 1.15rem);
   --elegant-category-title: clamp(1.4rem, 3vw, 2rem);
@@ -51,10 +51,15 @@
   --fs-lg: clamp(1rem, 1rem + 1.5vw, 2.5rem);
   --fs-md: clamp(0.5rem, 1.5vw+1vw, 1.5rem);
   /* -----------------------------------------------------
-       Layout
-    ----------------------------------------------------- */
+  Layout
+  ----------------------------------------------------- */
   --elegant-radius: 8px;
   --elegant-radius-small: 5px;
+  --elegant-line-hight-lg: 1.2;
+  --elegant-line-hight-sm: 0.5;
+  /*********************************************************************/
+  --professional-green: #173b2d;
+  --professional-radius: 16px;
   position: relative;
   min-height: 100vh;
   color: var(--elegant-text);
@@ -292,7 +297,7 @@ p.restaurant-description-en {
 .category-navigation {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 4;
   /* background: rgba(251, 249, 245, 0.94); */
   background-color: rgb(251 249 245/ 80%);
   border-bottom: 1px solid var(--elegant-border);
@@ -398,9 +403,6 @@ p.restaurant-description-en {
   padding: 2rem 0 1.2rem;
   scroll-margin-top: 70px;
 }
-/* =========================================================
-   CATEGORY HEADER
-========================================================= */
 .category__header {
   margin-bottom: 1.4rem;
   text-align: center;
@@ -426,6 +428,50 @@ p.restaurant-description-en {
   font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+/* =========================================================
+   CATEGORY BANNER
+========================================================= */
+.menu-design--elegant .category-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(160px, 28vw, 300px);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border-radius: var(--professional-radius);
+  background-color: var(--professional-green);
+  background-image:
+    linear-gradient(90deg, rgba(13, 34, 25, 0.78), rgba(13, 34, 25, 0.35)),
+    var(--category-image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 24px rgba(30, 43, 31, 0.12);
+  color: #fff;
+  img.rm-menu-inline-logo {
+    /* border: solid #fff;
+    filter: contrast(2); */
+  }
+}
+.category-banner__overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+  color: #fffdf4;
+}
+.category-banner__title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  color: #fff3cf;
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 /* =========================================================
    CATEGORY DESCRIPTION
@@ -497,6 +543,19 @@ p.restaurant-description-en {
   transform: translateY(-2px);
   border-color: var(--elegant-border);
   box-shadow: var(--elegant-shadow-hover);
+}
+.item.has-variation {
+  flex-direction: column;
+  .item__image {
+    /* border: solid 0.5px; */
+
+    min-width: 100%;
+    img {
+      height: 200px; /* Set whatever height you want the image to lock into */
+      object-fit: cover; /* Crops the image perfectly so it doesn't look stretched or squished */
+      display: block;
+    }
+  }
 }
 /* =========================================================
    PRODUCT IMAGE
@@ -584,7 +643,7 @@ p.restaurant-description-en {
 .item__description p {
   margin: 0.1rem 0;
   color: var(--elegant-muted);
-  line-height: 0.5;
+  /* line-height: 0.5; */
   font-size: var(--elegant-item-description);
 }
 /* =========================================================
@@ -604,11 +663,14 @@ p.restaurant-description-en {
 }
 .variation-description {
   min-width: 0;
+  display: flex;
 }
-.variation-desc-ar,
-.variation-desc-en {
+span.variation-desc-ar,
+span.variation-desc-en {
   color: var(--elegant-text-soft);
+  /* font-size: var(--fs-md); */
   font-size: 0.9rem;
+  line-height: var(--elegant-line-hight-lg);
 }
 .item__variations .variation-price {
   color: var(--elegant-gold-dark);
@@ -720,6 +782,7 @@ html[lang="en"] .menu-design--elegant .category-description-en,
 html[lang="en"] .menu-design--elegant .restaurant-name-en,
 html[lang="en"] .menu-design--elegant .restaurant-description-en {
   display: inline;
+  /* display: inline-block; */
 }
 html[lang="en"] .menu-design--elegant .item__price::after {
   display: inline;
@@ -1068,3 +1131,7 @@ html[dir="rtl"] .category--compact .compact-menu-item__price {
   margin-inline-end: 0.5em;
   font-size: 0.9em;
 }
+/* ================================================================================= */
+/* ================================================================================= */
+/* =================================================================================\ */
+/* =================================================================================\ */

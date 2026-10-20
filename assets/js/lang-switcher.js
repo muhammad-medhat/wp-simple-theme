@@ -126,21 +126,15 @@ document.addEventListener("DOMContentLoaded", function () {
   setLanguage(defaultLanguage, false);
 
   // ..................................................................................
-  const mobileSwitcher = document.getElementById(
-    "professional-mobile-language",
-  );
+  const mobileSwitcher = document.getElementById("mobile-language");
   if (!mobileSwitcher) {
     return;
   }
 
-  const toggle = mobileSwitcher.querySelector(
-    ".professional-mobile-language__toggle",
-  );
+  const toggle = mobileSwitcher.querySelector(".mobile-language__toggle");
   // debugger;
 
-  const options = mobileSwitcher.querySelector(
-    ".professional-mobile-language__options",
-  );
+  const options = mobileSwitcher.querySelector(".mobile-language__options");
 
   let hideTimer;
 
@@ -166,21 +160,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Reappear when the user interacts with a menu item.
   document.addEventListener("click", function (event) {
-    if (
-      event.target.closest(
-        ".professional-product, .item, .professional-category-banner",
-      )
-    ) {
+    if (event.target.closest(".product, .item, .category-banner")) {
       showSwitcher();
     }
 
     // Also support keyboard navigation.
     document.addEventListener("focusin", function (event) {
-      if (
-        event.target.closest(
-          ".professional-product, .item, .professional-category-banner",
-        )
-      ) {
+      if (event.target.closest(".product, .item, .category-banner")) {
         showSwitcher();
       }
     });

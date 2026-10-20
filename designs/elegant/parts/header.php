@@ -65,3 +65,18 @@ $has_logo = has_custom_logo();?>
 
     </div>
 </header>
+
+
+<!-- hidden language switcher -->
+<div class="mobile-language" id="mobile-language">
+    <button type="button" class="mobile-language__toggle" aria-expanded="false" aria-controls="mobile-language-options"
+        aria-label="Change menu language">
+        ع / EN
+    </button>
+
+    <div class="mobile-language__options" id="mobile-language-options" hidden>
+        <button type="button" class="language-switcher__option" data-language="ar">عربي</button>
+
+        <button type="button" class="language-switcher__option" data-language="en">English</button>
+    </div>
+</div>

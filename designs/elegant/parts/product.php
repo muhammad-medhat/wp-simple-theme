@@ -22,7 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<article class="item item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?>">
+<article class="item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?> 
+    <?php echo $has_variation && !empty($variations) ? 'has-variation' : ''; ?>">
+
 
     <?php if(isset($badges)&&!empty($badges)): ?>
     <!-- Product  BADGE -->
