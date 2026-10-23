@@ -10,7 +10,7 @@ function rm_menu_sanitize_design( $value ) {
     $allowed_designs = array(
         'modern',
         'elegant',
-        'dark','professional'
+        'dark','professional', 'classic'
     );
 
     if ( ! in_array( $value, $allowed_designs, true ) ) {
@@ -32,16 +32,16 @@ function rm_menu_load_design_assets() {
     $design = get_theme_mod('rm_menu_design','modern');
 
 
-    $allowed_designs = array(
-        'modern',
-        'elegant',
-        'dark','professional'
-    );
+    // $allowed_designs = array(
+    //     'modern',
+    //     'elegant',
+    //     'dark','professional'
+    // );
 
 
-    if ( ! in_array( $design, $allowed_designs, true ) ) {
-        $design = 'modern';
-    }
+    // if ( ! in_array( $design, $allowed_designs, true ) ) {
+    //     $design = 'modern';
+    // }
 
 
     wp_enqueue_style(

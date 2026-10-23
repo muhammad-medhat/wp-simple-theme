@@ -45,6 +45,7 @@ function rm_get_menu_item_data( $post = null ) {
      $icons_enabled = (bool)get_theme_mod('rm_enable_icons', true);
      $variations = array();
      $rm_category_icon=array();
+     $item_compact = (bool)get_field('item_compact', $item_id);
      if($badges_enabled){
          $badges = get_field('badges',$item_id);
      }
@@ -203,7 +204,8 @@ function rm_get_menu_item_data( $post = null ) {
         'has_variation'         => $has_variation,
         'badges'          => $badges??[],
         'variations'        => $variations,
-        'rm_category_icon'=>$rm_category_icon?$rm_category_icon:[]
+        'rm_category_icon'=>$rm_category_icon?$rm_category_icon:[],
+        'item_compact' => $item_compact,
         );
 }
 

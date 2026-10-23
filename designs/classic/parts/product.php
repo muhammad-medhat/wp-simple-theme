@@ -4,22 +4,22 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+$item_data = $args['item_data'] ?? array();
+$compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true ? 'item--compact' : '';
 
-        $item_id = $args['item_id' ];
-        $name_ar = $args['name_ar' ];
-        $name_en = $args['name_en' ];
-        $description_ar = $args['description_ar' ];
-        $description_en = $args['description_en' ];
-        $price = $args['price' ];
-        $price_md = $args['price_md' ];
-        $price_lg = $args['price_lg' ];
-        $image = $args['image' ];
-        $has_pizza_prices = $args['has_pizza_prices' ];
-        $has_variation = $args['has_variation'];
-        $badges = $args['badges'] ?? array();
-        $variations = $args['variations'];
-        
-
+    $item_id = $args['item_id' ];
+    $name_ar = $args['name_ar' ];
+    $name_en = $args['name_en' ];
+    $description_ar = $args['description_ar' ];
+    $description_en = $args['description_en' ];
+    $price = $args['price' ];
+    $price_md = $args['price_md' ];
+    $price_lg = $args['price_lg' ];
+    $image = $args['image' ];
+    $has_pizza_prices = $args['has_pizza_prices' ];
+    $has_variation = $args['has_variation'];
+    $badges = $args['badges'] ?? array();
+    $variations = $args['variations'];
 ?>
 
 <article class="item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?> 
@@ -30,12 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <!-- Product  BADGE -->
     <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
     <?php endif; ?>
-    <?php if ( $image ) : ?>
-    <div class="item__image">
-        <img src="<?php echo esc_url( $image ); ?>"
-            alt="<?php echo esc_attr( $name_en ?: $name_ar ?: get_the_title() ); ?>" loading="lazy">
-    </div>
-    <?php endif; ?>
+
     <!-- Product Content -->
     <div class="item__content">
         <div class="item__heading">
@@ -48,9 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </span>
             </h3>
 
-            <!-- =================================
-                            NORMAL PRODUCT PRICE
-                            ================================= -->
+            <!-- NORMAL PRODUCT PRICE -->
             <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null&&!$has_variation ) : ?>
             <span class="menu-item__dots"></span>
             <span class="item__price">
@@ -60,9 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         </div>
 
-        <!-- =================================
-        PRODUCT DESCRIPTION
-        ================================= -->
+        <!-- PRODUCT DESCRIPTION -->
         <?php if ($description_ar || $description_en) : ?>
         <div class="item__description">
             <?php if ( $description_ar ) : ?>
@@ -78,12 +69,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         <?php endif; ?>
 
-        <!-- =================================
-            variations
-            ================================= -->
+        <!-- variations -->
         <?php if ( $has_variation ) : ?>
 
-        <div class="item__variations">
+        <div class="item__variations <?php echo $compact_class; ?>">
 
             <?php foreach ( $variations as $variation ) : ?>
 
@@ -102,24 +91,26 @@ if ( ! defined( 'ABSPATH' ) ) {
                 }
             ?>
 
-            <div class="menu-item-variation">
+            <div class="menu-item-variation ">
 
-                <span class="variation-description">
+                <span class="variation-description ">
 
                     <?php if ( ! empty( $variation['desc_ar'] ) ) : ?>
-                    <span class="variation-desc-ar">
+                    <span class="menu-description-ar">
                         <?php echo wp_kses_post( rm_replace_c21_icon( $variation['desc_ar']) ); ?>
                     </span>
                     <?php endif; ?>
 
                     <?php if ( ! empty( $variation['desc_en'] ) ) : ?>
-                    <span class="variation-desc-en">
+                    <span class="menu-description-en">
                         <?php echo wp_kses_post( rm_replace_c21_icon( $variation['desc_en']) ); ?>
                     </span>
                     <?php endif; ?>
 
                 </span>
-
+                <?php if(isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true) : ?>
+                <span class="menu-item__dots"></span>
+                <?php endif; ?>
                 <?php if (
                 isset( $variation['price'] ) &&
                 $variation['price'] !== ''
@@ -138,8 +129,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         <!-- End Variation Logic-->
         <?php endif; ?>
-        <!-- =================================
+        <!-- 
             PIZZA SIZE PRICES
-            ================================= -->
+             -->
 
 </article>

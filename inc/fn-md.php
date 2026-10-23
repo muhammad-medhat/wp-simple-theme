@@ -74,24 +74,32 @@ function md_price_column( $columns ) {
 add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_price_column', 10, 2 );
 
 
-/************ atabic name clumn *********************************** */
-function md_arabic_name_column( $columns ) {
-    $columns['arabic_name_column'] = 'Arabic Name'; 
+/************ show acf names column *********************************** */
+function md_names_column( $columns ) {
+    $columns['ar_name_column'] = 'Arabic Name'; 
+    $columns['en_name_column'] = 'English Name'; 
     return $columns;
     }
-    add_filter( 'manage_'.RM_MENU_ITEM_CPT.'_posts_columns', 'md_arabic_name_column' );
-    function md_populate_arabic_name_column( $column, $post_id ) {
+    add_filter( 'manage_'.RM_MENU_ITEM_CPT.'_posts_columns', 'md_names_column' );
+    function md_populate_names_column( $column, $post_id ) {
         // Check if we are currently filling our specific column
-        if ( $column === 'arabic_name_column' ) {
-            // Retrieve the custom field value for this specific post
-            $arabic_name_value = get_post_meta( $post_id, 'name_ar', true );
-            
-            // If the field isn't empty, display it. Otherwise, show a dash.
-            if ( ! empty( $arabic_name_value ) ) {
-                echo esc_html( $arabic_name_value );
-            } else {
-                echo '—';
+        switch ($column) {
+            case 'ar_name_column':
+                $arabic_name_value = get_post_meta( $post_id, 'name_ar', true );
+                if ( ! empty( $arabic_name_value ) ) {
+                    echo esc_html( $arabic_name_value );
+                } else {
+                    echo '—';
                 }
-    }
+                break;
+            case 'en_name_column':
+                $english_name_value = get_post_meta( $post_id, 'name_en', true );
+                if ( ! empty( $english_name_value ) ) {
+                    echo esc_html( $english_name_value );
+                } else {
+                    echo '—';
+                }
+                break;
+        }
 }
-add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_arabic_name_column', 10, 2 );
+add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_names_column', 10, 2 );

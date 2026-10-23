@@ -2,6 +2,8 @@
 
 .category-name-ar,
 .category-name-en,
+.category-description-ar,
+.category-description-en,
 .menu-name-ar,
 .menu-name-en,
 .menu-description-ar,
@@ -14,6 +16,7 @@
 /* Arabic */
 
 body[data-menu-language="ar"] .category-name-ar,
+body[data-menu-language="ar"] .category-description-ar,
 body[data-menu-language="ar"] .menu-name-ar,
 body[data-menu-language="ar"] .menu-description-ar,
 body[data-menu-language="ar"] .variation-desc-ar {
@@ -23,6 +26,7 @@ body[data-menu-language="ar"] .variation-desc-ar {
 /* English */
 
 body[data-menu-language="en"] .category-name-en,
+body[data-menu-language="en"] .category-description-en,
 body[data-menu-language="en"] .menu-name-en,
 body[data-menu-language="en"] .menu-description-en,
 body[data-menu-language="en"] .variation-desc-en {
@@ -30,16 +34,22 @@ body[data-menu-language="en"] .variation-desc-en {
 }
 /*******************************/
 .restaurant-name-en,
-.restaurant-description-en {
+.restaurant-description-en,
+.menu-name-en {
   display: none;
 }
 
 html[lang="en"] .restaurant-name-ar,
-html[lang="en"] .restaurant-description-ar {
+html[lang="en"] .restaurant-description-ar,
+html[lang="en"] .menu-name-ar {
   display: none;
 }
 
 html[lang="en"] .restaurant-name-en,
+html[lang="en"] .restaurant-description-en,
+html[lang="en"] .menu-name-en {
+  display: inline;
+}
 html[lang="en"] .restaurant-description-en {
   display: inline;
 }

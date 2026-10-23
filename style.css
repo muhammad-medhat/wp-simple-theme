@@ -12,6 +12,8 @@ Text Domain: restaurant-menu
   --font-hand: "Playpen Sans", cursive;
   --font-lg: clamp(1rem, 1rem + 1.5vw, 2.5rem);
   --font-md: clamp(0.75rem, 0.75rem + 1.5vw, 2rem);
+  --color-green: #173b2d;
+  --color-gold: #b89554;
 }
 /*
  * Bootstrap handles the main responsive framework.
@@ -42,6 +44,15 @@ section.menu-category {
     font-size: var(--font-lg);
     /* border: solid red; */
   }
+}
+.rm-menu-inline-logo {
+  display: inline-block;
+  /* width: 42px; */
+  height: auto;
+  max-height: 24px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0 3px;
 }
 #language-switcher {
   direction: rtl;

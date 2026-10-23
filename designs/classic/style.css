@@ -1,0 +1,913 @@
+/* =========================================================
+   CLUB21 CLASSIC MENU
+   File: designs/classic/style.css
+   ========================================================= */
+
+/* 1. DESIGN VARIABLES AND GLOBAL LAYOUT
+   --------------------------------------------------------- */
+/* @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lora:wght@400;500;600;700&family=Cairo:wght@200..1000&display=swap");
+
+.menu-design--classic {
+  --classic-cream: #fff5e9;
+  --classic-cream-dark: #f5e6d5;
+  --classic-brown: #4b2b19;
+  --classic-brown-light: #69432d;
+  --classic-gold: #c7822b;
+  --classic-gold-light: #efc982;
+  --classic-text: #4b2b19;
+  --classic-muted: #92735d;
+  --classic-dotted: #c9a782;
+  --classic-border: #e6d2bd;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 24px 40px;
+  background: var(--classic-cream);
+  color: var(--classic-text);
+  font-family: inherit;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  font-family: "Lora", "Noto Naskh Arabic", serif;
+}
+
+.menu-design--classic *,
+.menu-design--classic *::before,
+.menu-design--classic *::after {
+  box-sizing: border-box;
+}
+/* ******************************************** */
+
+.menu-design--classic .menu-name-ar,
+.menu-design--classic .menu-description-ar,
+/* .menu-design--classic .has-variation .menu-description-ar, */
+.menu-design--classic .category-name-ar,
+.menu-design--classic .category-description-ar,
+.menu-design--classic .restaurant-description-ar, body * {
+  font-family: cairo, serif;
+}
+
+.menu-design--classic .menu-name-en,
+.menu-design--classic .menu-description-en,
+.menu-design--classic .category-name-en,
+.menu-design--classic .category-description-en,
+.menu-design--classic .restaurant-name-en,
+.menu-design--classic .restaurant-description-en {
+  font-family: "Lora", serif;
+}
+
+.menu-design--classic .item__name {
+  font-weight: 700;
+}
+
+.menu-design--classic .item__description,
+.menu-item-variation .variation-description {
+  font-weight: 400;
+}
+/* ******************************************** */
+.menu-design--classic img {
+  max-width: 100%;
+}
+
+.menu-design--classic a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu-design--classic p {
+  margin-top: 0;
+}
+
+.menu-design--classic button {
+  font: inherit;
+}
+
+/* 2. RESTAURANT HEADER
+   ---------------------------------------------------------
+   Supports the classic header class names.
+   --------------------------------------------------------- */
+#top.header .header__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fallbacks for common existing header markup */
+
+.menu-design--classic .restaurant-header,
+.menu-design--classic .menu-header {
+  text-align: center;
+}
+
+.menu-design--classic .restaurant-header img,
+.menu-design--classic .menu-header img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.menu-design--classic .restaurant-name-ar,
+.menu-design--classic .restaurant-name-en {
+  color: var(--classic-brown);
+}
+
+.menu-design--classic .restaurant-description-ar,
+.menu-design--classic .restaurant-description-en {
+  color: var(--classic-muted);
+}
+.restaurant-name-ar {
+  font-family: "Aref Ruqaa", sans-serif;
+}
+
+/* 3. LANGUAGE SWITCHER
+   --------------------------------------------------------- */
+
+.menu-design--classic .language-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px auto;
+}
+
+.language-switcher__option {
+  padding: 7px 14px;
+  border: 1px solid var(--classic-gold);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--classic-brown);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.menu-design--classic .language-switcher__option:hover,
+.menu-design--classic .language-switcher__option.active {
+  background: var(--classic-brown);
+  color: var(--classic-cream);
+}
+
+/* =========================================
+   4. MOBILE-FIRST MENU LAYOUT
+   Mobile: 1 column
+   Tablet and desktop: 2 columns
+   ========================================= */
+
+.menu-design--classic .menu__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.menu-design--classic .menu-category {
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 28px;
+  scroll-margin-top: 85px;
+}
+
+.menu-design--classic .category__items {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Prevent long names and descriptions from causing overflow */
+.menu-design--classic .item,
+.menu-design--classic .item__content,
+.menu-design--classic .item__heading {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Mobile-first outer spacing */
+.menu-design--classic {
+  padding: 16px 12px 28px;
+}
+
+/* Category heading */
+.menu-design--classic .classic-category__heading {
+  min-height: 42px;
+  padding: 8px 12px;
+  margin-bottom: 9px;
+}
+
+/* Category image */
+.menu-design--classic .classic-category__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 12px;
+}
+
+.menu-design--classic .classic-category__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product spacing and typography */
+.menu-design--classic .item {
+  margin-bottom: 13px;
+}
+
+.menu-design--classic .item__name {
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.menu-design--classic .item__price {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.menu-design--classic .item__description,
+.menu-design--classic .variation-description {
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   TABLET AND DESKTOP: 2 COLUMNS
+   ========================================= */
+
+@media (min-width: 768px) {
+  .menu-design--classic {
+    padding: 24px 20px 36px;
+  }
+
+  .menu-design--classic .menu__content {
+    /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+    column-gap: 28px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .menu-design--classic .menu-category {
+    margin-bottom: 30px;
+  }
+
+  .menu-design--classic .classic-category__heading {
+    padding: 9px 14px;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 0.95rem;
+  }
+
+  .menu-design--classic .item__description,
+  .menu-design--classic .variation-description {
+    font-size: 0.78rem;
+  }
+}
+
+/* Wider desktop screens */
+@media (min-width: 1200px) {
+  .menu-design--classic {
+    padding: 30px 28px 44px;
+  }
+
+  .menu-design--classic .menu__content {
+    column-gap: 40px;
+  }
+
+  .menu-design--classic .menu-category {
+    margin-bottom: 36px;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 1rem;
+  }
+
+  .menu-design--classic .item__description,
+  .menu-design--classic .variation-description {
+    font-size: 0.82rem;
+  }
+}
+
+/* 5. CATEGORY HEADING BAR
+   --------------------------------------------------------- */
+.menu-design--classic .classic-category__heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 16px;
+  margin: 0 0 10px;
+  overflow: hidden;
+  border-radius: 9px;
+  background: var(--classic-brown);
+  color: var(--classic-cream);
+}
+html[lang="ar"] .classic-category__heading {
+  border-right: 9px solid var(--classic-gold);
+}
+html[lang="en"] .classic-category__heading {
+  border-left: 9px solid var(--classic-gold);
+}
+.menu-design--classic .classic-category__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: inherit;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.menu-design--classic .classic-category__icon {
+  flex: 0 0 auto;
+  color: var(--classic-gold-light);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.menu-design--classic .classic-category__heading img {
+  object-fit: contain;
+}
+
+/* 6. CATEGORY PHOTOS
+   --------------------------------------------------------- */
+
+.menu-design--classic .classic-category__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0 0 14px;
+  overflow: hidden;
+  border-radius: 9px;
+  background: var(--classic-cream-dark);
+}
+
+.menu-design--classic .classic-category__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Use this class when an individual photo needs a different crop. */
+
+.menu-design--classic .classic-category__image--top img {
+  object-position: center top;
+}
+
+.menu-design--classic .classic-category__image--bottom img {
+  object-position: center bottom;
+}
+
+/* 7. CATEGORY DESCRIPTIONS
+   --------------------------------------------------------- */
+
+.menu-design--classic .classic-category__description {
+  margin: 8px 0 14px;
+  color: var(--classic-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.menu-design--classic .classic-category__description p {
+  margin: 0 0 4px;
+}
+
+.menu-design--classic .classic-category__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* 8. PRODUCT LIST
+   ---------------------------------------------------------
+   Compatible with the existing item classes:
+   .item, .item__content, .item__heading, .item__name,
+   .item__price, .menu-item__dots, .item__description
+   --------------------------------------------------------- */
+
+.menu-design--classic .item {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 15px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--classic-text);
+}
+
+.menu-design--classic .item__content {
+  width: 100%;
+  min-width: 0;
+}
+
+.menu-design--classic .item__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.menu-design--classic .item__name {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: var(--classic-brown);
+  font-size: 0.98rem;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+.menu-design--classic .item__price {
+  flex: 0 0 auto;
+  color: var(--classic-gold);
+  font-size: 0.94rem;
+  font-weight: 800;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+/* Dotted line between the item name and price */
+
+.menu-design--classic .menu-item__dots {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 12px;
+  height: 0.75em;
+  align-self: baseline;
+  border-bottom: 2px dotted var(--classic-dotted);
+  margin: 0.3rem;
+}
+.menu-item-variation {
+  /* border: solid red; */
+  display: flex;
+  align-items: baseline;
+}
+
+/* Prevent inherited product-image styles from showing item photos. */
+
+.menu-design--classic .item__image {
+  display: none;
+}
+
+/* 9. ITEM DESCRIPTIONS
+   --------------------------------------------------------- */
+
+.menu-design--classic .item__description {
+  margin: 2px 0 0;
+  color: var(--classic-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.menu-design--classic .item__description p,
+.menu-design--classic .variation-description span {
+  margin: 0 0 3px;
+}
+
+.menu-design--classic .item__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* 10. ITEM VARIATIONS
+   --------------------------------------------------------- */
+
+.menu-design--classic .item__variations {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.menu-design--classic .item__variation {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+  color: var(--classic-text);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.menu-design--classic .item__variation-name,
+.menu-design--classic .item__variation-description {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.menu-design--classic .item__variation-price {
+  flex: 0 0 auto;
+  color: var(--classic-gold);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.menu-design--classic .item__variation .menu-item__dots {
+  flex: 1 1 auto;
+}
+
+/* 11. PRODUCT BADGES
+   --------------------------------------------------------- */
+
+.menu-design--classic .product-badges,
+.menu-design--classic .item__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin: 0 0 5px;
+}
+
+.menu-design--classic .product-badge,
+.menu-design--classic .item__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border: 1px solid var(--classic-gold);
+  border-radius: 4px;
+  background: var(--classic-cream-dark);
+  color: var(--classic-brown);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* 12. LANGUAGE VISIBILITY
+   ---------------------------------------------------------
+   Matches the existing .menu-name-ar/en and description
+   language classes.
+   --------------------------------------------------------- */
+
+.menu-design--classic .menu-name-ar,
+.menu-design--classic .menu-description-ar,
+.menu-design--classic .category-name-ar,
+.menu-design--classic .category-description-ar,
+.menu-design--classic .restaurant-name-ar,
+.menu-design--classic .restaurant-description-ar {
+  display: none;
+}
+
+html[lang="ar"] .menu-design--classic .menu-name-ar,
+html[lang="ar"] .menu-design--classic .menu-description-ar,
+html[lang="ar"] .menu-design--classic .category-name-ar,
+html[lang="ar"] .menu-design--classic .category-description-ar,
+html[lang="ar"] .menu-design--classic .restaurant-name-ar,
+html[lang="ar"] .menu-design--classic .restaurant-description-ar {
+  display: inline;
+}
+
+html[lang="en"] .menu-design--classic .menu-name-en,
+html[lang="en"] .menu-design--classic .menu-description-en,
+html[lang="en"] .menu-design--classic .category-name-en,
+html[lang="en"] .menu-design--classic .category-description-en,
+html[lang="en"] .menu-design--classic .restaurant-name-en,
+html[lang="en"] .menu-design--classic .restaurant-description-en {
+  display: inline;
+}
+
+/* 13. RTL AND LTR ALIGNMENT
+   --------------------------------------------------------- */
+
+/* 14. CATEGORY NAVIGATION
+   --------------------------------------------------------- */
+
+.menu-design--classic .category-nav,
+.menu-design--classic .category-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background-color: rgb(251 249 245/ 80%);
+  border-bottom: 1px solid var(--classic-gold);
+  box-shadow: 0 4px 15px rgba(77, 61, 43, 0.05);
+  backdrop-filter: blur(12px);
+}
+.category-navigation__inner {
+  max-width: 1000px;
+  min-height: 58px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.menu-design--classic .category-nav a,
+.menu-design--classic .category-navigation a {
+  padding: 7px 12px;
+  border: 1px solid var(--classic-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--classic-brown);
+  font-size: 0.85rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.menu-design--classic .category-nav a:hover,
+.menu-design--classic .category-navigation a:hover {
+  border-color: var(--classic-brown);
+  background: var(--classic-brown);
+  color: var(--classic-cream);
+}
+/* ---------------------------------------------------------
+   Small sticky logo
+--------------------------------------------------------- */
+.category-navigation__logo {
+  display: none;
+  flex-shrink: 0;
+  padding-left: 0.75rem;
+}
+.category-navigation__logo.is-visible {
+  display: block;
+}
+.category-navigation__logo img {
+  width: auto;
+  max-width: 55px;
+  max-height: 42px;
+  object-fit: contain;
+}
+/* a.category-link.active {
+  border: solid red;
+} */
+
+a.category-link.active img {
+  filter: url("http://c213.local/wp-content/themes/res/assets/img/c21-white.png");
+}
+/* ---------------------------------------------------------
+   Category scroll
+--------------------------------------------------------- */
+.category-navigation__scroll {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.45rem 0.75rem;
+}
+.category-navigation__scroll::-webkit-scrollbar {
+  display: none;
+}
+/* ---------------------------------------------------------
+   Category links
+--------------------------------------------------------- */
+.category-navigation .category-link {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0.65rem 0.8rem;
+  color: var(--classic-muted);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+.category-navigation .category-link::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 3px;
+  height: 2px;
+  transform: scaleX(0);
+  background: var(--classic-gold);
+  transition: transform 0.2s ease;
+}
+.category-navigation .category-link.active {
+  color: var(--classic-gold-dark);
+}
+.category-navigation .category-link.active::after {
+  transform: scaleX(1);
+}
+.category-navigation .category-link:hover {
+  color: var(--classic-gold);
+}
+/* 15. COMPACT CATEGORIES
+   --------------------------------------------------------- */
+
+.menu-design--classic .classic-category--compact {
+  margin-bottom: 22px;
+}
+
+.menu-design--classic .classic-category--compact .classic-category__image {
+  aspect-ratio: 4 / 3;
+}
+
+/* 16. TABLETS
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .menu-design--classic {
+    padding: 24px 18px 32px;
+  }
+
+  .menu-design--classic .classic-menu__columns {
+    gap: 24px;
+  }
+
+  .menu-design--classic .classic-category__title {
+    font-size: 1rem;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 0.92rem;
+  }
+}
+
+/* 17. MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  .menu-design--classic {
+    padding: 18px 14px 28px;
+  }
+
+  .menu-design--classic .classic-header {
+    margin-bottom: 20px;
+  }
+
+  .menu-design--classic .classic-header__logo,
+  .menu-design--classic .classic-header .custom-logo {
+    max-width: 240px;
+    max-height: 120px;
+  }
+
+  .menu-design--classic .classic-header__divider {
+    margin: 20px auto;
+  }
+
+  .menu-design--classic .classic-menu__columns {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .menu-design--classic .classic-menu__column {
+    width: 100%;
+  }
+
+  .menu-design--classic .classic-category {
+    margin-bottom: 25px;
+  }
+
+  .menu-design--classic .classic-category__heading {
+    min-height: 42px;
+    padding: 8px 12px;
+    margin-bottom: 9px;
+  }
+
+  .menu-design--classic .classic-category__image {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 12px;
+  }
+
+  .menu-design--classic .item {
+    margin-bottom: 13px;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 0.95rem;
+  }
+
+  .menu-design--classic .item__price {
+    font-size: 0.9rem;
+  }
+
+  .menu-design--classic .item__description,
+  .menu-design--classic .variation-description {
+    font-size: 0.76rem;
+  }
+}
+
+/* 18. REDUCED MOTION
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-design--classic *,
+  .menu-design--classic *::before,
+  .menu-design--classic *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+/* ****************************************************************** */
+/* ****************************************************************** */
+/* ****************************************************************** */
+
+/* =========================================
+   MOBILE-FIRST MENU LAYOUT FIX
+   Mobile: 1 column
+   Tablet and desktop: 2 columns
+========================================= */
+
+/* Default layout: mobile */
+.menu-design--classic .menu__content {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.menu-design--classic .menu-category {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 28px;
+  scroll-margin-top: 85px;
+}
+
+.menu-design--classic .category__items {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.menu-design--classic .item,
+.menu-design--classic .item__content,
+.menu-design--classic .item__heading {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.menu-design--classic {
+  padding: 16px 12px 28px;
+}
+
+.menu-design--classic .item__name {
+  overflow-wrap: anywhere;
+  font-size: 0.95rem;
+}
+
+.menu-design--classic .item__price {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.menu-design--classic .item__description,
+.menu-design--classic .variation-description {
+  overflow-wrap: anywhere;
+  font-size: 0.76rem;
+}
+
+/* Tablet and desktop: 2 columns */
+@media (min-width: 768px) {
+  .menu-design--classic {
+    padding: 24px 20px 36px;
+  }
+
+  .menu-design--classic .menu__content {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    column-gap: 28px;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .menu-design--classic .menu-category {
+    margin-bottom: 30px;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 0.95rem;
+  }
+
+  .menu-design--classic .item__description,
+  .menu-design--classic .variation-description {
+    font-size: 0.78rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .menu-design--classic {
+    padding: 30px 28px 44px;
+  }
+
+  .menu-design--classic .menu__content {
+    column-gap: 40px;
+  }
+
+  .menu-design--classic .menu-category {
+    margin-bottom: 36px;
+  }
+
+  .menu-design--classic .item__name {
+    font-size: 1rem;
+  }
+
+  .menu-design--classic .item__description,
+  .menu-design--classic .variation-description {
+    font-size: 0.82rem;
+  }
+}

@@ -1,30 +1,22 @@
 <?php
 /**
- * Elegant Restaurant Menu Design
+ * classic Restaurant Menu Design
  *
  * @package Restaurant_Menu
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-define('RM_DESIGN', 'elegant');
+define('RM_DESIGN', 'classic');
 
 /****************************************************** */
 
 ?>
-<div class="menu-design--elegant elegant-menu" id="top">
+<div class="menu-design--classic classic-menu">
     <!-- =========================================
          RESTAURANT HEADER
          ========================================= -->
     <?php get_template_part( 'designs/'.RM_DESIGN."/parts/header");?>
-
-    <?php /* cancel it temporary
-    <!-- =========================================
-        Search Form
-        ========================================= -->
-*/?>
-    <?php //get_template_part( 'designs/'.RM_DESIGN."/parts/search");?>
-
 
     <!-- =========================================
     CATEGORY NAVIGATION

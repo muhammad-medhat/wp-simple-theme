@@ -15,7 +15,8 @@ $lang_mode = get_theme_mod('rm_menu_language_mode', 'bi');
  * Restaurant logo.
  */
 $has_logo = has_custom_logo();?>
-<header class="header" name="#header">
+<!-- <header class="header" id="top"> -->
+<header class="header" name="#header" id="top">
     <div class="header__inner">
         <?php if ( $has_logo ) : ?>
         <div class="header__logo">

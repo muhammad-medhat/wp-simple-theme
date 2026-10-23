@@ -17,16 +17,16 @@ $design = get_theme_mod(
 /*
  * Only allow registered designs.
  */
-$allowed_designs = array(
-    'modern',
-    'elegant',
-    'dark','biling', 'professional'
-);
+// $allowed_designs = array(
+//     'modern',
+//     'elegant',
+//     'dark','biling', 'professional', 'classic'
+// );
 
 
-if ( ! in_array( $design, $allowed_designs, true ) ) {
-    $design = 'modern';
-}
+// if ( ! in_array( $design, $allowed_designs, true ) ) {
+//     $design = 'modern';
+// }
 
 ?>
 
