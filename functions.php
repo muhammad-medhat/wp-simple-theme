@@ -133,6 +133,13 @@ function restaurant_menu_assets() {
         wp_get_theme()->get( 'Version' ).'-'.rand(),
         true
     );
+    wp_enqueue_script(
+        'restaurant-masonry',
+        RESTAURANT_MENU_DIR_URI . '/assets/js/masonry.js',
+        array( 'bootstrap' ),
+        wp_get_theme()->get( 'Version' ).'-'.rand(),
+        true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'restaurant_menu_assets' );
 

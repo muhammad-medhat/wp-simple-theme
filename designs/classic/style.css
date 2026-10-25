@@ -20,6 +20,38 @@
   --classic-dotted: #c9a782;
   --classic-border: #e6d2bd;
 
+  /* .......................................................... */
+
+  /* Responsive typography system */
+  .menu-design--classic {
+    /* General text */
+    --fs-xs: clamp(0.7rem, 0.67rem + 0.12vw, 0.78rem);
+    --fs-sm: clamp(0.76rem, 0.72rem + 0.18vw, 0.85rem);
+    --fs-md: clamp(0.9rem, 0.9rem + 0.22vw, 1.2rem);
+    --fs-base: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
+    --fs-lg: clamp(1.05rem, 0.98rem + 0.35vw, 1.2rem);
+    --fs-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.65rem);
+    --fs-2xl: clamp(1.55rem, 2rem + 1.3vw, 2.5rem);
+
+    /* Menu-specific typography */
+    --fs-restaurant-name: var(--fs-2xl);
+    --fs-restaurant-description: var(--fs-md);
+    --fs-category-title: var(--fs-lg);
+    --fs-item-name: var(--fs-base);
+    --fs-item-price: var(--fs-md);
+    --fs-item-description: var(--fs-sm);
+
+    /*     
+    --fs-variation-name: var(--fs-sm);
+    --fs-variation-price: var(--fs-sm);
+    --fs-badge: var(--fs-xs);
+    --fs-navigation: var(--fs-sm);
+    --fs-category-description: var(--fs-sm);
+    --fs-icon: var(--fs-lg); */
+  }
+
+  /* .......................................................... */
+
   box-sizing: border-box;
   width: 100%;
   min-height: 100vh;
@@ -27,7 +59,7 @@
   background: var(--classic-cream);
   color: var(--classic-text);
   font-family: inherit;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   scroll-behavior: smooth;
   font-family: "Lora", "Noto Naskh Arabic", serif;
 }
@@ -38,6 +70,18 @@
   box-sizing: border-box;
 }
 /* ******************************************** */
+/* prettier-ignore */
+.menu-design--classic {
+  .header__name { font-size: var(--fs-restaurant-name); }
+  .header__description {font-size: var(--fs-restaurant-description);}
+  .classic-category__title { font-weight: 800;font-size: var(--fs-category-title); }
+  .item__description{font-weight: 700;}
+  .variation-description{font-weight: 500;}
+  .item__description,
+  .variation-description {
+    font-size: var(--fs-item-description);
+  }
+}
 
 .menu-design--classic .menu-name-ar,
 .menu-design--classic .menu-description-ar,
@@ -45,7 +89,7 @@
 .menu-design--classic .category-name-ar,
 .menu-design--classic .category-description-ar,
 .menu-design--classic .restaurant-description-ar, body * {
-  font-family: cairo, serif;
+  font-family: "Cairo", sans-serif;
 }
 
 .menu-design--classic .menu-name-en,
@@ -54,17 +98,13 @@
 .menu-design--classic .category-description-en,
 .menu-design--classic .restaurant-name-en,
 .menu-design--classic .restaurant-description-en {
-  font-family: "Lora", serif;
+  font-family: "Lora", sans-serif;
 }
 
 .menu-design--classic .item__name {
   font-weight: 700;
 }
 
-.menu-design--classic .item__description,
-.menu-item-variation .variation-description {
-  font-weight: 400;
-}
 /* ******************************************** */
 .menu-design--classic img {
   max-width: 100%;
@@ -228,12 +268,6 @@
   white-space: nowrap;
 }
 
-.menu-design--classic .item__description,
-.menu-design--classic .variation-description {
-  font-size: 0.76rem;
-  overflow-wrap: anywhere;
-}
-
 /* =========================================
    TABLET AND DESKTOP: 2 COLUMNS
    ========================================= */
@@ -318,8 +352,8 @@ html[lang="en"] .classic-category__heading {
   min-width: 0;
   margin: 0;
   color: inherit;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  font-weight: 800;
+  /* font-size: clamp(1rem, 1.4vw, 1.15rem); */
+  /* font-weight: 800; */
   line-height: 1.45;
 }
 
@@ -373,6 +407,7 @@ html[lang="en"] .classic-category__heading {
   color: var(--classic-muted);
   font-size: 0.85rem;
   line-height: 1.6;
+  text-align: start;
 }
 
 .menu-design--classic .classic-category__description p {
@@ -452,6 +487,7 @@ html[lang="en"] .classic-category__heading {
   /* border: solid red; */
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
 }
 
 /* Prevent inherited product-image styles from showing item photos. */
@@ -466,7 +502,7 @@ html[lang="en"] .classic-category__heading {
 .menu-design--classic .item__description {
   margin: 2px 0 0;
   color: var(--classic-muted);
-  font-size: 0.78rem;
+  /* font-size: 0.78rem; */
   line-height: 1.55;
 }
 
@@ -714,9 +750,9 @@ a.category-link.active img {
     gap: 24px;
   }
 
-  .menu-design--classic .classic-category__title {
+  /* .menu-design--classic .classic-category__title {
     font-size: 1rem;
-  }
+  } */
 
   .menu-design--classic .item__name {
     font-size: 0.92rem;
@@ -779,11 +815,6 @@ a.category-link.active img {
 
   .menu-design--classic .item__price {
     font-size: 0.9rem;
-  }
-
-  .menu-design--classic .item__description,
-  .menu-design--classic .variation-description {
-    font-size: 0.76rem;
   }
 }
 
@@ -850,15 +881,9 @@ a.category-link.active img {
 }
 
 .menu-design--classic .item__price {
-  flex-shrink: 0;
+  /* flex-shrink: 0;
   white-space: nowrap;
-  font-size: 0.9rem;
-}
-
-.menu-design--classic .item__description,
-.menu-design--classic .variation-description {
-  overflow-wrap: anywhere;
-  font-size: 0.76rem;
+  font-size: 0.9rem; */
 }
 
 /* Tablet and desktop: 2 columns */
@@ -910,4 +935,45 @@ a.category-link.active img {
   .menu-design--classic .variation-description {
     font-size: 0.82rem;
   }
+}
+/* --------------------------------------------------------------------- */
+/* ------------------------- masonry ----------------------------------- */
+/* --------------------------------------------------------------------- */
+
+/* Frontend masonry layout */
+.menu-design--classic .menu__content {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+.menu-design--classic .menu-column {
+  min-width: 0;
+}
+
+.menu-design--classic .menu-column > .menu-category {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .menu-design--classic .menu__content.menu-is-masonry {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    column-gap: 28px;
+    row-gap: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .menu-design--classic .menu__content.menu-is-masonry {
+    column-gap: 40px;
+  }
+}
+.dashicons {
+  vertical-align: middle;
+  margin-inline-end: 6px;
 }

@@ -28,7 +28,8 @@ function rm_get_menu_item_data( $post = null ) {
     }
 
     $item_id = $post->ID;
-
+    $acf_cpt_term_id=RM_MENU_ITEM_CPT.'_'.$item_id;
+    $acf_tax_term_id=RM_MENU_CATEGORY_TAX.'_'.$item_id;
 
     /*
      * =========================================================
@@ -36,10 +37,18 @@ function rm_get_menu_item_data( $post = null ) {
      * =========================================================
      */
 
+    $disable_desc    = (get_field('disable_desc',   $acf_cpt_term_id))?get_field('disable_desc',$acf_cpt_term_id):get_field('disable_desc',$acf_tax_term_id);
+    $disable_desc_ar = (get_field('disable_desc_ar',$acf_cpt_term_id))?get_field('disable_desc_ar',$acf_cpt_term_id):get_field('disable_desc_ar',$acf_tax_term_id );
+    $disable_desc_en = (get_field('disable_desc_en',$acf_cpt_term_id))?get_field('disable_desc_en',$acf_cpt_term_id):get_field('disable_desc_en',$acf_tax_term_id) ;
+        // echo'<pre>';
+        // var_dump($acf_cpt_term_id);
+        // var_dump($acf_tax_term_id);
+        // echo'</pre>';
+        // die;
      $name_ar        = get_field('name_ar',$item_id);
      $name_en        = get_field('name_en',$item_id);
-     $description_ar = get_field('desc_ar',$item_id);
-     $description_en = get_field('desc_en',$item_id);
+     $description_ar = !$disable_desc ? (!$disable_desc_ar ? (get_field('desc_ar', $item_id) ?: '') : '') : '';
+     $description_en = !$disable_desc ? (!$disable_desc_en ? (get_field('desc_en', $item_id) ?: '') : '') : '';
      $price          = get_field('price',$item_id);
      $badges_enabled = (bool)get_theme_mod('rm_enable_badges', true);
      $icons_enabled = (bool)get_theme_mod('rm_enable_icons', true);
@@ -49,10 +58,6 @@ function rm_get_menu_item_data( $post = null ) {
      if($badges_enabled){
          $badges = get_field('badges',$item_id);
      }
-    // if($icons_enabled){
-    //  $rm_category_icon = rm_get_category_icon_options();
-    // }
-
 
     /*
      * =========================================================

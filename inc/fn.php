@@ -32,16 +32,6 @@ function rm_menu_load_design_assets() {
     $design = get_theme_mod('rm_menu_design','modern');
 
 
-    // $allowed_designs = array(
-    //     'modern',
-    //     'elegant',
-    //     'dark','professional'
-    // );
-
-
-    // if ( ! in_array( $design, $allowed_designs, true ) ) {
-    //     $design = 'modern';
-    // }
 
 
     wp_enqueue_style(
@@ -57,3 +47,13 @@ add_action(
     'rm_menu_load_design_assets',
     20
 );
+//load fontaewesome in admin
+function rm_menu_load_fontawesome_admin() {
+    wp_enqueue_style(
+        'rm-menu-fontawesome',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
+        array(),
+        '6.4.2'
+    );
+}
+add_action( 'admin_enqueue_scripts', 'rm_menu_load_fontawesome_admin' );

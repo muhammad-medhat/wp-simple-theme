@@ -39,8 +39,18 @@ if ( is_array( $category_image ) ) {
 
 <header class="classic-category__heading">
     <span class="classic-category__icon" aria-hidden="true">
-        ◉
+        <?php
+        $icon_fa = get_field('fa_icon', RM_MENU_CATEGORY_TAX . '_' . $term_id);
+        if ( $icon_fa ) {            echo '<span class="fas '
+                . esc_attr( $icon_fa )
+                . '" aria-hidden="true"></span>';
+            
+        } else {
+            echo "◉";
+        }
+        ?>
     </span>
+
 
     <h2 class="classic-category__title">
         <?php if ( $name_ar ) : ?>
@@ -64,14 +74,6 @@ if ( is_array( $category_image ) ) {
         <?php endif; ?>
     </h2>
 </header>
-
-<?php if ( $image_url ) : ?>
-<div class="classic-category__image">
-    <img src="<?php echo esc_url( $image_url ); ?>"
-        alt="<?php echo esc_attr( $name_en ?: $name_ar ?: $category->name ); ?>" loading="lazy">
-</div>
-<?php endif; ?>
-
 <?php if ( $desc_ar || $desc_en ) : ?>
 <div class="classic-category__description">
     <?php if ( $desc_ar ) : ?>
@@ -93,5 +95,11 @@ if ( is_array( $category_image ) ) {
                 ?>
     </p>
     <?php endif; ?>
+</div>
+<?php endif; ?>
+<?php if ( $image_url ) : ?>
+<div class="classic-category__image">
+    <img src="<?php echo esc_url( $image_url ); ?>"
+        alt="<?php echo esc_attr( $name_en ?: $name_ar ?: $category->name ); ?>" loading="lazy">
 </div>
 <?php endif; ?>
