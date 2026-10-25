@@ -72,6 +72,7 @@
 /* ******************************************** */
 /* prettier-ignore */
 .menu-design--classic {
+  /* typography */
   .header__name { font-size: var(--fs-restaurant-name); }
   .header__description {font-size: var(--fs-restaurant-description);}
   .classic-category__title { font-weight: 800;font-size: var(--fs-category-title); }
@@ -81,6 +82,7 @@
   .variation-description {
     font-size: var(--fs-item-description);
   }
+  .item__price{font-weight: 800;font-size: var(--fs-item-price);}
 }
 
 .menu-design--classic .menu-name-ar,
@@ -260,12 +262,6 @@
 .menu-design--classic .item__name {
   font-size: 0.95rem;
   overflow-wrap: anywhere;
-}
-
-.menu-design--classic .item__price {
-  flex-shrink: 0;
-  font-size: 0.9rem;
-  white-space: nowrap;
 }
 
 /* =========================================
@@ -464,14 +460,31 @@ html[lang="en"] .classic-category__heading {
 }
 
 .menu-design--classic .item__price {
+  display: flex;
   flex: 0 0 auto;
   color: var(--classic-gold);
-  font-size: 0.94rem;
-  font-weight: 800;
   line-height: 1.6;
   white-space: nowrap;
+  text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.08);
 }
-
+/* displaying the currency after price  */
+.item__price::after {
+  display: none;
+  content: "egp";
+  text-transform: uppercase;
+  vertical-align: super;
+  font-size: xx-small;
+  /* font-variant-position: super; */
+}
+html[lang="en"] .item__price::after {
+  display: inline;
+}
+html[lang="ar"] .item__price {
+  flex-direction: row-reverse;
+}
+html[lang="ar"] .item__price::after {
+  display: inline;
+}
 /* Dotted line between the item name and price */
 
 .menu-design--classic .menu-item__dots {
@@ -812,10 +825,6 @@ a.category-link.active img {
   .menu-design--classic .item__name {
     font-size: 0.95rem;
   }
-
-  .menu-design--classic .item__price {
-    font-size: 0.9rem;
-  }
 }
 
 /* 18. REDUCED MOTION
@@ -878,12 +887,6 @@ a.category-link.active img {
 .menu-design--classic .item__name {
   overflow-wrap: anywhere;
   font-size: 0.95rem;
-}
-
-.menu-design--classic .item__price {
-  /* flex-shrink: 0;
-  white-space: nowrap;
-  font-size: 0.9rem; */
 }
 
 /* Tablet and desktop: 2 columns */
