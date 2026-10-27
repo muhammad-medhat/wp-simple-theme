@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 $categories = rm_get_ordered_menu_categories();
-$rm_category_icon = rm_get_category_icon_options();
+// $rm_category_icon = rm_get_category_icon_options();
+$rm_category_icon = "";
 
 ?>
 

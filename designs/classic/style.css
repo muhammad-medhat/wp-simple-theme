@@ -40,12 +40,12 @@
     --fs-item-name: var(--fs-base);
     --fs-item-price: var(--fs-md);
     --fs-item-description: var(--fs-sm);
+    --fs-navigation: var(--fs-md);
 
     /*     
     --fs-variation-name: var(--fs-sm);
     --fs-variation-price: var(--fs-sm);
     --fs-badge: var(--fs-xs);
-    --fs-navigation: var(--fs-sm);
     --fs-category-description: var(--fs-sm);
     --fs-icon: var(--fs-lg); */
   }
@@ -75,6 +75,7 @@
   /* typography */
   .header__name { font-size: var(--fs-restaurant-name); }
   .header__description {font-size: var(--fs-restaurant-description);}
+  a.category-link  { font-size: var(--fs-navigation); }
   .classic-category__title { font-weight: 800;font-size: var(--fs-category-title); }
   .item__description{font-weight: 700;}
   .variation-description{font-weight: 500;}
@@ -656,7 +657,7 @@ html[lang="en"] .menu-design--classic .restaurant-description-en {
   border-radius: 6px;
   background: transparent;
   color: var(--classic-brown);
-  font-size: 0.85rem;
+  /* font-size: 0.85rem; */
   transition:
     background-color 0.2s ease,
     color 0.2s ease;

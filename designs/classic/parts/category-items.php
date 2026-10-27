@@ -33,7 +33,7 @@ $items = new WP_Query(
 if ( $is_compact ) : ?>
 
 <!-- COMPACT CATEGORY ITEMS -->
-<div class="compact-menu-list">
+<div class="category__items">
 
     <?php if ( $items->have_posts() ) : ?>
 
@@ -44,28 +44,33 @@ if ( $is_compact ) : ?>
                 $price   = get_field( 'price', $item_id );
                 ?>
 
-    <div class="compact-menu-item">
-        <div class="item__name">
-            <?php if ( $name_en ) : ?>
-            <span class="menu-name-en">
-                <?php echo wp_kses_post( rm_replace_c21_icon( $name_en ) ); ?>
-            </span>
-            <?php endif; ?>
+    <article class="item">
+        <!-- product content -->
+        <div class="item__content">
+            <div class="item__heading">
+                <div class="item__name">
+                    <?php if ( $name_en ) : ?>
+                    <span class="menu-name-en">
+                        <?php echo wp_kses_post( rm_replace_c21_icon( $name_en ) ); ?>
+                    </span>
+                    <?php endif; ?>
 
-            <?php if ( $name_ar ) : ?>
-            <span class="menu-name-ar">
-                <?php echo wp_kses_post( rm_replace_c21_icon( $name_ar ) ); ?>
-            </span>
-            <?php endif; ?>
-        </div>
+                    <?php if ( $name_ar ) : ?>
+                    <span class="menu-name-ar">
+                        <?php echo wp_kses_post( rm_replace_c21_icon( $name_ar ) ); ?>
+                    </span>
+                    <?php endif; ?>
+                </div>
+                <?php if ( $price !== '' && $price !== null ) : ?>
+                <span class="menu-item__dots"></span>
+                <span class="menu-item__price">
+                    <?php echo esc_html( $price ); ?>
+                </span>
+                <?php endif; ?>
+            </div><!-- item heading -->
+        </div><!-- product content -->
 
-        <?php if ( $price !== '' && $price !== null ) : ?>
-        <span class="compact-menu-item__dots"></span>
-        <span class="compact-menu-item__price">
-            <?php echo esc_html( $price ); ?>
-        </span>
-        <?php endif; ?>
-    </div>
+    </article>
 
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>

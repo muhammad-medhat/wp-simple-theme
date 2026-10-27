@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $item_data = $args['item_data'] ?? array();
 $compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true ? 'item--compact' : '';
-
     $item_id = $args['item_id' ];
     $name_ar = $args['name_ar' ];
     $name_en = $args['name_en' ];
