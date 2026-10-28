@@ -41,17 +41,7 @@ $icons_enabled = (bool)get_theme_mod('rm_enable_category_icons', true);
                 class="category-link <?php echo 0 === $index ? 'active' : ''; ?>"
                 data-category-id="<?php echo esc_attr( $category->term_id );?>"
                 data-category-target=" <?php echo esc_attr( $category_id ); ?>">
-                <?php 
-                if (
-                    isset( $icon_options[ $category_icon ] ) &&
-                    ! empty( $icon_options[ $category_icon ]['file'] )
-                ) {
-                    $icon_url = RM_URL
-                        . 'assets/images/category-icons/'
-                        . $icon_options[ $category_icon ]['file'];
-                    ?>
-                <img class="rm-category-icon" src="<?php echo  $icon_url ; ?>" alt="" loading="lazy">
-                <?php } //endif?>
+
                 <span class="category-name-ar">
                     <?php //echo esc_html($category_name_ar ?: $category->name);?>
                     <?php echo wp_kses_post( rm_replace_c21_icon($category_name_ar) ?: $category->name );?>

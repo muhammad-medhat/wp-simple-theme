@@ -743,6 +743,10 @@ a.category-link.active img {
 }
 /* 15. COMPACT CATEGORIES
    --------------------------------------------------------- */
+section.category--compact .item__description {
+  /* border: solid red; */
+  display: none;
+}
 
 .menu-design--classic .classic-category--compact {
   margin-bottom: 22px;

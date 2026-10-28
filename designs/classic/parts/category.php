@@ -4,12 +4,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $category = $args['category'] ?? null;
-
+// var_dump($category);
 if ( ! $category ) {
     return;
 }
-$is_compact = (bool) get_field( 'is_compact', RM_MENU_CATEGORY_TAX . '_' . $category->term_id );
-$compact_class = $is_compact ? 'category--compact' : '';
 
 
 $term_id = $category->term_id;
@@ -19,7 +17,10 @@ $name_ar = get_field( 'name_ar', $term_key );
 $name_en = get_field( 'name_en', $term_key );
 $desc_ar = get_field( 'desc_ar', $term_key );
 $desc_en = get_field( 'desc_en', $term_key );
+$is_compact = (bool) get_field( 'is_compact', RM_MENU_CATEGORY_TAX . '_' . $category->term_id );
 $category_image = get_field( 'category_image', $term_key );
+
+$compact_class = $is_compact ? 'category--compact' : '';
 
 $image_url = '';
 

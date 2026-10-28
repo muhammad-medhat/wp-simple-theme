@@ -38,3 +38,7 @@ html[lang="en"] section.menu-category::before {
     -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+/* main.menu__content::before { */
+body > div.menu-design.menu-design--classic > div > main {
+  background-color: rgba(0, 0, 0, 0.3);
+}

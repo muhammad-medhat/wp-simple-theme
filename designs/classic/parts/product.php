@@ -5,25 +5,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $item_data = $args['item_data'] ?? array();
-$compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true ? 'item--compact' : '';
-    $item_id = $args['item_id' ];
-    $name_ar = $args['name_ar' ];
-    $name_en = $args['name_en' ];
-    $description_ar = $args['description_ar' ];
-    $description_en = $args['description_en' ];
-    $price = $args['price' ];
-    $price_md = $args['price_md' ];
-    $price_lg = $args['price_lg' ];
-    $image = $args['image' ];
-    $has_pizza_prices = $args['has_pizza_prices' ];
-    $has_variation = $args['has_variation'];
-    $badges = $args['badges'] ?? array();
-    $variations = $args['variations'];
+$item_id = $item_data['item_id' ];
+$name_ar = $item_data['name_ar' ];
+$name_en = $item_data['name_en' ];
+$description_ar = $item_data['description_ar' ];
+$description_en = $item_data['description_en' ];
+$price = $item_data['price' ];
+$price_md = $item_data['price_md' ];
+$price_lg = $item_data['price_lg' ];
+$image = $item_data['image' ];
+$has_pizza_prices = $item_data['has_pizza_prices' ];
+$has_variation = $item_data['has_variation'];
+$badges = $item_data['badges'] ?? array();
+$variations = $item_data['variations'];
+$item_compact=$item_data['item_compact'];
+$compact_class = isset( $item_compact ) &&(bool) $item_compact === true ? 'item--compact' : '';
+$sizes_class = $has_pizza_prices ? 'item--sizes' : '';
+$var_class = $has_variation ? 'has-variations' : '';
 ?>
+<?php if($item_compact){?>
+<!-- compact items-->
+<?php } else{ ?>
+<!-- normal items-->
+<?php }?>
 
-<article class="item <?php echo $has_pizza_prices ? 'item--sizes' : ''; ?> 
-    <?php echo $has_variation && !empty($variations) ? 'has-variation' : ''; ?>">
-
+<article class="item <?php echo "$sizes_class $compact_class $var_class"; ?>">
 
     <?php if(isset($badges)&&!empty($badges)): ?>
     <!-- Product  BADGE -->
@@ -31,7 +37,7 @@ $compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_c
     <?php endif; ?>
 
     <!-- Product Content -->
-    <div class="item__content">
+    <div class=" item__content">
         <div class="item__heading">
             <h3 class="item__name">
                 <span class="menu-name-ar">
@@ -51,7 +57,7 @@ $compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_c
             <?php endif; ?>
 
         </div>
-
+        <?php if(!$item_compact){?>
         <!-- PRODUCT DESCRIPTION -->
         <?php if ($description_ar || $description_en) : ?>
         <div class="item__description">
@@ -128,8 +134,6 @@ $compact_class = isset( $item_data['item_compact'] ) &&(bool) $item_data['item_c
         </div>
         <!-- End Variation Logic-->
         <?php endif; ?>
-        <!-- 
-            PIZZA SIZE PRICES
-             -->
-
+        <?php } ?>
+    </div>
 </article>
