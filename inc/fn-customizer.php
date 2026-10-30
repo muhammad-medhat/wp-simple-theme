@@ -275,5 +275,77 @@ function rm_menu_customize_register( $wp_customize ) {
                 'type'    => 'checkbox',
             )
         );
+        /**
+         * Social Share
+         */
+        
+            // $wp_customize->add_section('club21_social_sharing', [
+            //     'title'       => __('Social Sharing Image', 'club21'),
+            //     'priority'    => 160,
+            //     'description' => __('Choose the image displayed when sharing your menu.', 'club21'),
+            // ]);
+        
+            $wp_customize->add_setting('club21_og_image', [
+                'default'           => '',
+                'sanitize_callback' => 'absint',
+                'transport'         => 'refresh',
+            ]);
+        
+            $wp_customize->add_control(
+                new WP_Customize_Media_Control(
+                    $wp_customize,
+                    'club21_og_image_control',
+                    [
+                        'label'       => __('Open Graph Image', 'club21'),
+                        'section'     => RM_SETTINGS_SECTION,
+                        'settings'    => 'club21_og_image',
+                        'mime_type'   => 'image',
+                        'description' => __('Recommended size: 1200 × 630 pixels.', 'club21'),
+                    ]
+                )
+            );
+        }
+        
+        add_action( 'customize_register', 'rm_menu_customize_register');
+
+
+
+/**
+ * Output Open Graph and Twitter metadata.
+ */
+function club21_output_social_meta_tags() {
+
+    $image_id = get_theme_mod('club21_og_image');
+
+    if (!$image_id) {
+        return;
+    }
+
+    $image_url = wp_get_attachment_image_url($image_id, 'full');
+
+    if (!$image_url) {
+        return;
+    }
+
+    $title = wp_get_document_title();
+    $description = get_bloginfo('description');
+    $page_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI'] ?? '/'));
+
+    ?>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?php echo esc_attr($title); ?>">
+<meta property="og:description" content="<?php echo esc_attr($description); ?>">
+<meta property="og:url" content="<?php echo esc_url($page_url); ?>">
+<meta property="og:image" content="<?php echo esc_url($image_url); ?>">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?php echo esc_attr($title); ?>">
+<meta name="twitter:description" content="<?php echo esc_attr($description); ?>">
+<meta name="twitter:image" content="<?php echo esc_url($image_url); ?>">
+<?php
 }
-add_action( 'customize_register', 'rm_menu_customize_register');
+add_action('wp_head', 'club21_output_social_meta_tags', 5);
