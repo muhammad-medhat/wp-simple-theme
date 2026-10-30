@@ -384,6 +384,7 @@ html[lang="en"] .classic-category__heading {
   margin: 0;
   object-fit: cover;
   object-position: center;
+  opacity: 0.01;
 }
 
 /* Use this class when an individual photo needs a different crop. */

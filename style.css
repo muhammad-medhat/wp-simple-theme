@@ -316,3 +316,23 @@ html[lang="en"] .item__badge-en {
   transform: translateX(-50%) scale(1);
 }
 /*****************************************************/
+.classic-category__image img {
+  pointer-events: none;
+  user-select: none;
+}
+.classic-category__image {
+  position: relative;
+  display: inline-block;
+}
+.img-o {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0) !important;
+  -webkit-touch-callout: none;
+
+  -webkit-tap-highlight-color: transparent;
+}

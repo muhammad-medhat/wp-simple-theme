@@ -5,8 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  *  =================================
-    CATEGORY HEADER
-    =================================
+ *   CATEGORY HEADER
+ *  =================================
  */
 
 $category = $args['category'] ?? null;
@@ -98,8 +98,10 @@ if ( is_array( $category_image ) ) {
 </div>
 <?php endif; ?>
 <?php if ( $image_url ) : ?>
-<div class="classic-category__image">
-    <img src="<?php echo esc_url( $image_url ); ?>"
+<div class="classic-category__image"
+    style="background-image: url('<?php echo esc_url( $image_url ); ?>');background-size:cover;">
+    <div class="img-o"></div>
+    <img src="<?php echo RESTAURANT_MENU_DIR_URI?>/assets/img/c21-white.png"
         alt="<?php echo esc_attr( $name_en ?: $name_ar ?: $category->name ); ?>" loading="lazy">
 </div>
 <?php endif; ?>
