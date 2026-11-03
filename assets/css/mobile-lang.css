@@ -2,6 +2,9 @@
 .mobile-language {
   display: none;
 }
+.mobile-language button.mobile-language__toggle {
+  font-family: "Times New Roman", Times, serif;
+}
 button.language-switcher__option {
   background: var(--classic-brown);
   color: #fffdf4;

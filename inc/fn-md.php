@@ -103,3 +103,8 @@ function md_names_column( $columns ) {
         }
 }
 add_action( "manage_" .RM_MENU_ITEM_CPT ."_posts_custom_column", 'md_populate_names_column', 10, 2 );
+/** capitalize title */
+
+add_filter('document_title', function ($title) {
+    return mb_convert_case($title, MB_CASE_TITLE, 'UTF-8');
+}, 999);

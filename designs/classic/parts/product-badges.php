@@ -28,25 +28,26 @@ if ( is_array( $badges ) ) {
     }
 }
 ?>
-
-<?php if ( ! empty( $labels ) ) : ?>
+<?php if ( ! empty($labels) ) : ?>
 
 <div class="item-badges">
 
-    <?php foreach ( $labels as $label ) : ?>
+    <?php foreach ($labels as $label) : ?>
 
-    <span class="item__badge item__badge--<?php echo esc_attr( $label['key'] ); ?>">
+    <span class="item__badge item__badge--<?php
+            echo esc_attr($label['key']);
+        ?>">
 
-        <span class="item__badge-ar" data-tooltip="<?php echo esc_html( $label['ar'] ); ?>">
-            <i class="<?php echo esc_attr( $label['icon'] ); ?>" aria-hidden="true"></i>
+        <i class="<?php
+                echo esc_attr($label['icon']);
+            ?>" aria-hidden="true"></i>
 
-
+        <span class="item__badge-ar menu-name-ar">
+            <?php echo esc_html($label['ar']); ?>
         </span>
 
-        <span class="item__badge-en" data-tooltip=" <?php echo esc_html( $label['en'] ); ?>">
-            <i class="<?php echo esc_attr( $label['icon'] ); ?>" aria-hidden="true"></i>
-
-
+        <span class="item__badge-en menu-name-en">
+            <?php echo esc_html($label['en']); ?>
         </span>
 
     </span>

@@ -66,61 +66,11 @@ section.menu-category {
 /* =========================================================
    ITEM BADGES
    ========================================================= */
-.item {
-  position: relative;
-}
-.item-badges {
-  /***************************************/
-  position: absolute;
-  top: -10px;
-  display: flex;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-  justify-content: end;
-  /* border: solid 1px;
-  min-width: 60%; */
-}
-
-.item__badge {
-  /* display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 30px;
-  height: 30px; */
-
-  /* padding: 0;
-
-  border: 1px solid transparent; */
-  border-radius: 50%;
-
-  /* font-size: 0.8rem; */
-  /* line-height: 1; */
-
-  cursor: default;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.item__badge:hover {
-  transform: translateY(-1px);
-}
-
-.item__badge i {
-  display: block;
-
-  margin: 0;
-
-  font-size: 0.85rem;
-  line-height: 1;
-}
 
 /*
  * Only show the correct language.
  */
-.item__badge-ar,
+/* .item__badge-ar,
 .item__badge-en {
   display: none;
 }
@@ -131,7 +81,7 @@ html[lang="ar"] .item__badge-ar {
 
 html[lang="en"] .item__badge-en {
   display: inline-flex;
-}
+} */
 
 /*
  * Accessibility / keyboard focus
@@ -157,22 +107,6 @@ html{
 }
 
 .item-badges {
-  position: absolute;
-
-  /*
-     * Keep the badges above the card content.
-     */
-  top: -20px;
-
-  /*
-     * Use logical positioning so RTL/LTR
-     * can be controlled properly.
-     */
-  inset-inline-start: -4px;
-
-  z-index: 5;
-  max-width: 70%;
-  /* pointer-events: none; */
 }
 
 .item__badge {
@@ -335,4 +269,65 @@ html[lang="en"] .item__badge-en {
   -webkit-touch-callout: none;
 
   -webkit-tap-highlight-color: transparent;
+}
+/* .item-badges {
+  margin-inline-start: 1.7em;
+} */
+
+.item__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  width: auto;
+  height: auto;
+
+  padding: 4px 9px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  box-shadow: none;
+  cursor: default;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
+.item__badge i {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* Popular */
+.item__badge--popular {
+  background: #fff2e5;
+  color: #a85516;
+}
+
+/* Recommended */
+.item__badge--recommended {
+  background: #fff8da;
+  color: #946c11;
+}
+
+/* New */
+.item__badge--new {
+  background: #eaf6ed;
+  color: #267344;
+}
+
+/* Spicy */
+.item__badge--spicy {
+  background: #ffefeb;
+  color: #b93826;
+}
+
+/* Vegetarian */
+.item__badge--vegetarian {
+  background: #eaf6ec;
+  color: #2c773a;
 }

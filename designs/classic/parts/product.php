@@ -31,10 +31,6 @@ $var_class = $has_variation ? 'has-variations' : '';
 
 <article class="item <?php echo "$sizes_class $compact_class $var_class"; ?>">
 
-    <?php if(isset($badges)&&!empty($badges)): ?>
-    <!-- Product  BADGE -->
-    <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
-    <?php endif; ?>
 
     <!-- Product Content -->
     <div class=" item__content">
@@ -55,8 +51,12 @@ $var_class = $has_variation ? 'has-variations' : '';
                 <?php echo esc_html( $price ); ?>
             </span>
             <?php endif; ?>
-
         </div>
+        <?php if(isset($badges)&&!empty($badges)): ?>
+        <!-- Product  BADGE -->
+        <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
+        <?php endif; ?>
+
         <?php if(!$item_compact){?>
         <!-- PRODUCT DESCRIPTION -->
         <?php if ($description_ar || $description_en) : ?>

@@ -1,0 +1,112 @@
+[
+  {
+    "title": "الافطار",
+    "slug": "breakfast",
+    "icon": "icons/breakfast.svg"
+  },
+  {
+    "title": "الطاسات",
+    "slug": "skillets",
+    "icon": "icons/skillets.svg"
+  },
+  {
+    "title": "المقبلات",
+    "slug": "appetizers",
+    "icon": "icons/appetizers.svg"
+  },
+  {
+    "title": "السلطات",
+    "slug": "salads",
+    "icon": "icons/salads.svg"
+  },
+  {
+    "title": "السندوتشات",
+    "slug": "sandwiches",
+    "icon": "icons/sandwiches.svg"
+  },
+  {
+    "title": "البرجر",
+    "slug": "burgers",
+    "icon": "icons/burgers.svg"
+  },
+  {
+    "title": "الشوربة",
+    "slug": "soups",
+    "icon": "icons/soups.svg"
+  },
+  {
+    "title": "المكرونة",
+    "slug": "pasta",
+    "icon": "icons/pasta.svg"
+  },
+  {
+    "title": "البيتزا",
+    "slug": "pizza",
+    "icon": "icons/pizza.svg"
+  },
+  {
+    "title": "الأطباق الرئيسية",
+    "slug": "main-dishes",
+    "icon": "icons/main-dishes.svg"
+  },
+  {
+    "title": "اطباق الفاهيتا",
+    "slug": "fajitas",
+    "icon": "icons/fajitas.svg"
+  },
+  {
+    "title": "الإضافات",
+    "slug": "extras",
+    "icon": "icons/extras.svg"
+  },
+  {
+    "title": "الزبادي",
+    "slug": "yogurt",
+    "icon": "icons/yogurt.svg"
+  },
+  {
+    "title": "الحلويات",
+    "slug": "desserts",
+    "icon": "icons/desserts.svg"
+  },
+  {
+    "title": "المشروبات الغازية",
+    "slug": "soft-drinks",
+    "icon": "icons/soft-drinks.svg"
+  },
+  {
+    "title": "المشروبات الساخنة",
+    "slug": "hot-drinks",
+    "icon": "icons/hot-drinks.svg"
+  },
+  {
+    "title": "الكوكتيلات",
+    "slug": "cocktails",
+    "icon": "icons/cocktails.svg"
+  },
+  {
+    "title": "الميلك شيك",
+    "slug": "milkshakes",
+    "icon": "icons/milkshakes.svg"
+  },
+  {
+    "title": "سموذي",
+    "slug": "smoothies",
+    "icon": "icons/smoothies.svg"
+  },
+  {
+    "title": "المشروبات المثلجة",
+    "slug": "iced-drinks",
+    "icon": "icons/iced-drinks.svg"
+  },
+  {
+    "title": "العصائر الطبيعية",
+    "slug": "fresh-juices",
+    "icon": "icons/fresh-juices.svg"
+  },
+  {
+    "title": "قائمة الاطفال",
+    "slug": "kids-menu",
+    "icon": "icons/kids-menu.svg"
+  }
+]

@@ -40,15 +40,20 @@ if ( is_array( $category_image ) ) {
 <header class="classic-category__heading">
     <span class="classic-category__icon" aria-hidden="true">
         <?php
+        
         $icon_fa = get_field('fa_icon', RM_MENU_CATEGORY_TAX . '_' . $term_id);
-        if ( $icon_fa ) {            echo '<span class="fas '
+        $icon_svg = c21_get_category_icon($category);
+        if ( $icon_fa ) {            
+            echo '<span class="fas '
                 . esc_attr( $icon_fa )
                 . '" aria-hidden="true"></span>';
             
-        } else {
-            echo "◉";
-        }
-        ?>
+        } else { 
+            if ($icon_svg){ ?>
+        <span class="category-icon" style="-webkit-mask-image: url('<?php echo $icon_svg?>');
+                    mask-image: url('<?php echo $icon_svg?>');"></span>
+        <?php }
+        }?>
     </span>
 
 

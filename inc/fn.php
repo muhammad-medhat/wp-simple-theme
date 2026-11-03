@@ -57,3 +57,25 @@ function rm_menu_load_fontawesome_admin() {
     );
 }
 add_action( 'admin_enqueue_scripts', 'rm_menu_load_fontawesome_admin' );
+/*************************************************************** */
+/*************************************************************** */
+/*************************************************************** */
+
+function c21_get_category_icon($term) {
+    $iconsString = file_get_contents(RESTAURANT_MENU_DIR .'/assets/icons/categories.json');
+    
+    $icons = json_decode($iconsString,true);
+    // var_dump($icons);
+
+    // $filename = $icons[$term->slug] ?? null;
+    $filename = array_find($icons, fn($item) => $item['slug']===$term->slug) ?? null;
+
+
+    if (!$filename) {
+        return '';
+    }
+
+    return get_theme_file_uri(
+        'assets/icons/icons/' . $filename['slug'].'.svg'
+    );
+}
