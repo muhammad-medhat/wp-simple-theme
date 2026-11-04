@@ -519,6 +519,7 @@ html[lang="ar"] .item__price::after {
   color: var(--classic-muted);
   /* font-size: 0.78rem; */
   line-height: 1.55;
+  max-width: 88%;
 }
 
 .menu-design--classic .item__description p,

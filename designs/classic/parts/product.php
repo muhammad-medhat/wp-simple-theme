@@ -113,6 +113,8 @@ $var_class = $has_variation ? 'has-variations' : '';
                     <?php endif; ?>
 
                 </span>
+                <span class="menu-item__dots"></span>
+
                 <?php if(isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true) : ?>
                 <span class="menu-item__dots"></span>
                 <?php endif; ?>
