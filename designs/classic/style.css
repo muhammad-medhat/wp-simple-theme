@@ -540,6 +540,8 @@ html[lang="ar"] .item__price::after {
   gap: 5px;
   width: 100%;
   margin-top: 6px;
+  background: var(--classic-cream-dark);
+  padding: 0 0.7rem;
 }
 
 .menu-design--classic .item__variation {

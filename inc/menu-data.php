@@ -113,69 +113,8 @@ function rm_get_menu_item_data( $post = null ) {
 
 
     if ( $has_variation ) {
-
-        /*
-         * Variation 1
-         */
-
-         $var1_desc_ar = get_field('var1_desc_ar',$item_id);
-
-         $var1_desc_en = get_field('var1_desc_en',$item_id);
-
-         $var1_price = get_field('var1_price',$item_id);
-
-
-        /*
-         * Variation 2
-         */
-
-         $var2_desc_ar = get_field('var2_desc_ar',$item_id);
-
-         $var2_desc_en = get_field('var2_desc_en',$item_id);
-
-         $var2_price = get_field('var2_price',$item_id);
-
-
-        /*
-         * Add variation 1
-         */
-
-        if (
-            $var1_desc_ar
-            ||
-            $var1_desc_en
-            ||
-            $var1_price !== ''
-        ) {
-
-            $variations[] = array(
-                'desc_ar' => $var1_desc_ar,
-                'desc_en' => $var1_desc_en,
-                'price'   => $var1_price,
-            );
-        }
-
-
-        /*
-         * Add variation 2
-         */
-
-        if (
-            $var2_desc_ar
-            ||
-            $var2_desc_en
-            ||
-            $var2_price !== ''
-        ) {
-
-            $variations[] = array(
-                'desc_ar' => $var2_desc_ar,
-                'desc_en' => $var2_desc_en,
-                'price'   => $var2_price,
-            );
-        }
+        $variations = get_field('variations', $item_id);
     }
-
 
     /*
      * =========================================================
@@ -204,7 +143,7 @@ function rm_get_menu_item_data( $post = null ) {
         
         'has_variation'         => $has_variation,
         'badges'          => $badges??[],
-        'variations'        => $variations,
+        'variations'        => $variations??[],
         'rm_category_icon'=>$rm_category_icon?$rm_category_icon:[],
         'item_compact' => $item_compact,
         );

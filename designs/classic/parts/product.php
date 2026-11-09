@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $item_data = $args['item_data'] ?? array();
+
 $item_id = $item_data['item_id' ];
 $name_ar = $item_data['name_ar' ];
 $name_en = $item_data['name_en' ];
@@ -18,16 +19,12 @@ $has_pizza_prices = $item_data['has_pizza_prices' ];
 $has_variation = $item_data['has_variation'];
 $badges = $item_data['badges'] ?? array();
 $variations = $item_data['variations'];
-$item_compact=$item_data['item_compact'];
+$item_compact = (bool) $item_data['item_compact'];
 $compact_class = isset( $item_compact ) &&(bool) $item_compact === true ? 'item--compact' : '';
 $sizes_class = $has_pizza_prices ? 'item--sizes' : '';
 $var_class = $has_variation ? 'has-variations' : '';
 ?>
-<?php if($item_compact){?>
-<!-- compact items-->
-<?php } else{ ?>
-<!-- normal items-->
-<?php }?>
+
 
 <article class="item <?php echo "$sizes_class $compact_class $var_class"; ?>">
 
@@ -45,7 +42,7 @@ $var_class = $has_variation ? 'has-variations' : '';
             </h3>
 
             <!-- NORMAL PRODUCT PRICE -->
-            <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null&&!$has_variation ) : ?>
+            <?php if (  ! $has_pizza_prices && $price !== '' && $price !== null && !$has_variation ) : ?>
             <span class="menu-item__dots"></span>
             <span class="item__price">
                 <?php echo esc_html( $price ); ?>
@@ -115,7 +112,7 @@ $var_class = $has_variation ? 'has-variations' : '';
                 </span>
                 <span class="menu-item__dots"></span>
 
-                <?php if(isset( $item_data['item_compact'] ) &&(bool) $item_data['item_compact'] === true) : ?>
+                <?php if(isset( $item_compact ) && $item_compact === true) : ?>
                 <span class="menu-item__dots"></span>
                 <?php endif; ?>
                 <?php if (
