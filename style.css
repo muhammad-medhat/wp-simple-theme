@@ -54,6 +54,19 @@ section.menu-category {
   vertical-align: middle;
   margin: 0 3px;
 }
+.category-link .rm-menu-inline-logo {
+  max-width: 27%;
+}
+.classic-category__title .rm-menu-inline-logo {
+  max-width: 15%;
+}
+
+.item__name .rm-menu-inline-logo {
+  max-width: 36%;
+}
+.item__description .rm-menu-inline-logo {
+  max-width: 12%;
+}
 #language-switcher {
   direction: rtl;
   unicode-bidi: isolate;
