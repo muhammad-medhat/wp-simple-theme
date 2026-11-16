@@ -492,7 +492,7 @@ html[lang="ar"] .item__price::after {
 .menu-design--classic .menu-item__dots {
   display: block;
   flex: 1 1 auto;
-  min-width: 12px;
+  min-width: 2.5em;
   height: 0.75em;
   align-self: baseline;
   border-bottom: 2px dotted var(--classic-dotted);

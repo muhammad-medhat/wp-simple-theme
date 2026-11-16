@@ -57,6 +57,10 @@ function rm_menu_load_fontawesome_admin() {
     );
 }
 add_action( 'admin_enqueue_scripts', 'rm_menu_load_fontawesome_admin' );
+add_action( 'admin_enqueue_scripts', function(){
+    wp_enqueue_style( 'rm-admin', RESTAURANT_MENU_DIR_URI. '/assets/css/admin.css', [], 'v'.rand() );
+} );
+
 /*************************************************************** */
 /*************************************************************** */
 /*************************************************************** */

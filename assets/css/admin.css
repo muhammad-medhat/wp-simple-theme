@@ -1,0 +1,9 @@
+td.posts.column-posts {
+  /* border: solid red; */
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  a {
+    padding: 1rem 1.5rem;
+  }
+}
