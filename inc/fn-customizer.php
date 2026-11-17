@@ -391,8 +391,8 @@ function club21_output_social_meta_tags() {
 <meta property="og:title" content="<?php echo esc_attr($title); ?>">
 <meta property="og:description" content="<?php echo esc_attr($description); ?>">
 <meta property="og:url" content="<?php echo esc_url($page_url); ?>">
-<meta property="og:image" content="<?php echo esc_url($image_url); ?>">
-<meta property="og:image:secure_url" content="<?php echo esc_url($image_url); ?>">
+<meta property="og:image" content="<?php echo esc_url($base_url . $image_url); ?>">
+<meta property="og:image:secure_url" content="<?php echo esc_url($base_url . $image_url); ?>">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -401,7 +401,7 @@ function club21_output_social_meta_tags() {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="<?php echo esc_attr($title); ?>">
 <meta name="twitter:description" content="<?php echo esc_attr($description); ?>">
-<meta name="twitter:image" content="<?php echo esc_url($image_url); ?>">
+<meta name="twitter:image" content="<?php echo esc_url($base_url . $image_url); ?>">
 <?php
 }
 add_action('wp_head', 'club21_output_social_meta_tags', 5);
