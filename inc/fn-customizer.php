@@ -285,6 +285,18 @@ function rm_menu_customize_register( $wp_customize ) {
             //     'description' => __('Choose the image displayed when sharing your menu.', 'club21'),
             // ]);
         
+            $wp_customize->add_setting('club21_og_base_url', [
+                'default'           => '',
+                'sanitize_callback' => 'club21_sanitize_og_base_url',
+            ]);
+
+            $wp_customize->add_control('club21_og_base_url', [
+                'type'        => 'url',
+                'label'       => __('Open Graph Base URL', 'club21'),
+                'section'     => RM_SETTINGS_SECTION,
+                'description' => __('Enter the public menu base URL, including https:// and any folder path. This sets the base for the shared page URL (og:url). Leave blank to use the WordPress Site Address.', 'club21'),
+            ]);
+
             $wp_customize->add_setting('club21_og_image', [
                 'default'           => '',
                 'sanitize_callback' => 'absint',
@@ -311,6 +323,33 @@ function rm_menu_customize_register( $wp_customize ) {
 
 
 /**
+ * Accept an empty value or an absolute HTTP(S) base URL.
+ */
+function club21_sanitize_og_base_url( $value ) {
+    if ( is_string( $value ) ) {
+        $value = trim( $value );
+
+        if ( '' === $value ) {
+            return '';
+        }
+
+        $url = esc_url_raw( $value, array( 'http', 'https' ) );
+        $parts = wp_parse_url( $url );
+
+        if ( preg_match( '#^https?://#i', $value ) && ! empty( $parts['host'] ) &&
+            ! isset( $parts['user'] ) && ! isset( $parts['pass'] ) &&
+            ! isset( $parts['query'] ) && ! isset( $parts['fragment'] ) ) {
+            return untrailingslashit( $url );
+        }
+    }
+
+    return new WP_Error(
+        'invalid_og_base_url',
+        __( 'Enter a full URL starting with http:// or https://, without credentials, a query string, or a fragment.', 'club21' )
+    );
+}
+
+/**
  * Output Open Graph and Twitter metadata.
  */
 function club21_output_social_meta_tags() {
@@ -329,7 +368,22 @@ function club21_output_social_meta_tags() {
 
     $title = wp_get_document_title();
     $description = get_bloginfo('description');
-    $page_url = home_url(add_query_arg([], $_SERVER['REQUEST_URI'] ?? '/'));
+    $home_url = home_url( '/' );
+    $base_url = get_theme_mod( 'club21_og_base_url' ) ?: $home_url;
+    $home_path = untrailingslashit( (string) wp_parse_url( $home_url, PHP_URL_PATH ) );
+    $request_uri = wp_unslash( $_SERVER['REQUEST_URI'] ?? '/' );
+    $request_parts = explode( '?', $request_uri, 2 );
+    $request_path = $request_parts[0];
+
+    // The public base already includes the menu's base path.
+    if ( $home_path && ( $request_path === $home_path || strpos( $request_path, $home_path . '/' ) === 0 ) ) {
+        $request_path = substr( $request_path, strlen( $home_path ) );
+    }
+
+    $page_url = trailingslashit( $base_url ) . ltrim( $request_path, '/' );
+    if ( isset( $request_parts[1] ) ) {
+        $page_url .= '?' . $request_parts[1];
+    }
 
     ?>
 <!-- Open Graph -->
@@ -338,6 +392,8 @@ function club21_output_social_meta_tags() {
 <meta property="og:description" content="<?php echo esc_attr($description); ?>">
 <meta property="og:url" content="<?php echo esc_url($page_url); ?>">
 <meta property="og:image" content="<?php echo esc_url($image_url); ?>">
+<meta property="og:image:secure_url" content="<?php echo esc_url($image_url); ?>">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
