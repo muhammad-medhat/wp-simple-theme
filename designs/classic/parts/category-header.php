@@ -22,6 +22,7 @@ $name_en = get_field('name_en',RM_MENU_CATEGORY_TAX . '_' . $term_id);
 $desc_ar = get_field('desc_ar',RM_MENU_CATEGORY_TAX . '_' . $term_id);
 $desc_en = get_field('desc_en',RM_MENU_CATEGORY_TAX . '_' . $term_id);
 $category_image = get_field('category_image',RM_MENU_CATEGORY_TAX . '_' . $term_id);
+$show_desc = (bool) get_field('show_desc',RM_MENU_CATEGORY_TAX . '_' . $term_id);
 $image_url = '';
 
 if ( is_array( $category_image ) ) {
@@ -79,29 +80,31 @@ if ( is_array( $category_image ) ) {
         <?php endif; ?>
     </h2>
 </header>
+<?php if ( isset($show_desc) && $show_desc ) : ?>
 <?php if ( $desc_ar || $desc_en ) : ?>
 <div class="classic-category__description">
     <?php if ( $desc_ar ) : ?>
     <p class="category-description-ar">
         <?php
-                echo wp_kses_post(
-                    rm_replace_c21_icon( $desc_ar, 'brown' )
-                );
-                ?>
+                    echo wp_kses_post(
+                        rm_replace_c21_icon( $desc_ar, 'brown' )
+                    );
+                    ?>
     </p>
     <?php endif; ?>
 
     <?php if ( $desc_en ) : ?>
     <p class="category-description-en">
         <?php
-                echo wp_kses_post(
-                    rm_replace_c21_icon( $desc_en, 'brown' )
-                );
-                ?>
+                    echo wp_kses_post(
+                        rm_replace_c21_icon( $desc_en, 'brown' )
+                    );
+                    ?>
     </p>
     <?php endif; ?>
 </div>
 <?php endif; ?>
+<?php endif;//show_desc ?>
 <?php if ( $image_url ) : ?>
 <div class="classic-category__image"
     style="background-image: url('<?php echo esc_url( $image_url ); ?>');background-size:cover;">
