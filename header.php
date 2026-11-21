@@ -18,5 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 
 <body <?php body_class(); ?>>
+    <div class="print-logo">
+        <?php echo get_custom_logo(); ?>
+    </div>
 
     <?php wp_body_open(); ?>
