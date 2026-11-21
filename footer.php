@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }?>
 
-</main>
+<!-- </main> -->
 
 <?php wp_footer(); ?>
 
