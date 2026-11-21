@@ -17,7 +17,7 @@ $categories = get_terms(
 $icons_enabled = (bool)get_theme_mod('rm_enable_category_icons', true);
 ?>
 <?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-<nav class="category-navigation">
+<nav class="category-navigation hide-in-print">
     <div class="category-navigation__inner">
 
         <?php if ( has_custom_logo() ) : ?>
