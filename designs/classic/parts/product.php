@@ -19,11 +19,20 @@ $has_pizza_prices = $item_data['has_pizza_prices' ];
 $has_variation = $item_data['has_variation'];
 $badges = $item_data['badges'] ?? array();
 $variations = $item_data['variations'];
+$available = $item_data['available'] ?? true;
 $item_compact = (bool) $item_data['item_compact'];
 $compact_class = isset( $item_compact ) &&(bool) $item_compact === true ? 'item--compact' : '';
 $sizes_class = $has_pizza_prices ? 'item--sizes' : '';
 $var_class = $has_variation ? 'has-variations' : '';
+$badge_classes='';
+if(isset($badges) && !empty($badges)) {
+    $badge_classes = ' has-badges';
+    foreach($badges as $badge){
+        $badge_classes.=' badge-'.$badge;
+    }
+}
 ?>
+<?php if ( $available ) : ?>
 
 
 <article class="item <?php echo "$sizes_class $compact_class $var_class"; ?>">
@@ -32,13 +41,40 @@ $var_class = $has_variation ? 'has-variations' : '';
     <!-- Product Content -->
     <div class=" item__content">
         <div class="item__heading">
-            <h3 class="item__name">
+            <h3 class="item__name <?php echo $badge_classes; ?>"
+                <?php echo rm_item_name_badge_attributes( $badges ); ?>>
+
                 <span class="menu-name-ar">
                     <?php echo wp_kses_post( rm_replace_c21_icon($name_ar) ?: get_the_title() );?>
                 </span>
                 <span class="menu-name-en">
                     <?php echo wp_kses_post(rm_replace_c21_icon($name_en )?: get_the_title() ); ?>
                 </span>
+                <!-- badges -->
+                <?php
+    $definitions = rm_get_badge_labels();
+
+    foreach ( (array) $badges as $badge ) :
+        if ( ! isset( $definitions[ $badge ] ) ) {
+            continue;
+        }
+
+        $definition = $definitions[ $badge ];
+        $color = sanitize_hex_color( $definition['color'] ?? '' ) ?: '#c7822b';
+        ?>
+
+                <span class="menu-name-ar badge badge-pill"
+                    style="background-color: <?php echo esc_attr( $color ); ?>;">
+                    <i class="<?php echo esc_attr( $definition['icon'] ); ?>" aria-hidden="true"></i>
+                    <?php echo esc_html( $definition['ar'] ); ?>
+                </span>
+
+                <span class="menu-name-en badge badge-pill"
+                    style="background-color: <?php echo esc_attr( $color ); ?>;">
+                    <i class="<?php echo esc_attr( $definition['icon'] ); ?>" aria-hidden="true"></i>
+                    <?php echo esc_html( $definition['en'] ); ?>
+                </span> <?php endforeach; ?>
+                <!-- badges -->
             </h3>
 
             <!-- NORMAL PRODUCT PRICE -->
@@ -49,10 +85,6 @@ $var_class = $has_variation ? 'has-variations' : '';
             </span>
             <?php endif; ?>
         </div>
-        <?php if(isset($badges)&&!empty($badges)): ?>
-        <!-- Product  BADGE -->
-        <?php get_template_part('designs/'.RM_DESIGN.'/parts/product-badges', null, ['badges'=> $badges]) ?>
-        <?php endif; ?>
 
         <?php if(!$item_compact){?>
         <!-- PRODUCT DESCRIPTION -->
@@ -133,6 +165,7 @@ $var_class = $has_variation ? 'has-variations' : '';
         </div>
         <!-- End Variation Logic-->
         <?php endif; ?>
-        <?php } ?>
+        <?php } //if(!$item_compact) ?>
     </div>
 </article>
+<?php endif; ?>

@@ -46,6 +46,7 @@ function rm_get_menu_item_data( $post = null ) {
      $description_ar = get_field('desc_ar', $item_id);
      $description_en = get_field('desc_en', $item_id);
      $price          = get_field('price',$item_id);
+     $available        = get_field('available',$item_id);
      $badges_enabled = (bool)get_theme_mod('rm_enable_badges', true);
     //  $icons_enabled = (bool)get_theme_mod('rm_enable_icons', true);
      $variations = array();
@@ -146,6 +147,7 @@ function rm_get_menu_item_data( $post = null ) {
         'variations'        => $variations??[],
         'rm_category_icon'=>$rm_category_icon?$rm_category_icon:[],
         'item_compact' => $item_compact,
+        'available' => $available,
         );
 }
 
