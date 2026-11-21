@@ -1,5 +1,14 @@
 /* Shared menu functionality */
 
+.item__name .badge {
+  margin-inline-start: 0.3em;
+  font-size: xx-small;
+}
+
+/* html[lang="en"] .item__name[data-item-badges]::after {
+  content: attr(data-item-badges) / attr(data-item-badges-en);
+} */
+
 .category-name-ar,
 .category-name-en,
 .category-description-ar,
