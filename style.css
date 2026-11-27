@@ -35,7 +35,26 @@ body * {
 div#nav-logo {
   margin: 0 0.2rem;
 }
+.inline-notice {
+  font-weight: 800;
+  font-style: italic;
+  /* text-decoration: underline; */
+}
+.underline-1 {
+  text-underline-offset: 0.25rem;
+}
+/* Hidden on screen. */
+.print-logo {
+  display: none;
+}
 
+@page {
+  /* margin box at top right showing page number */
+  margin-top: 20mm;
+  @top-right {
+    content: "Page--- " counter(pageNumber);
+  }
+}
 section.menu-category {
   display: flex;
   flex-direction: column;
@@ -62,7 +81,7 @@ section.menu-category {
 }
 
 .item__name .rm-menu-inline-logo {
-  max-width: 36%;
+  /* max-width: 36%; */
 }
 .item__description .rm-menu-inline-logo {
   max-width: 12%;
@@ -162,6 +181,37 @@ html{
 
   font-size: 0.82rem;
   line-height: 1;
+}
+/* ---------------------------------------------------------------------- */
+
+.item__name .item-name-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-inline-start: 0.4em;
+  padding: 0.25em 0.6em;
+
+  color: var(--badge-color);
+  background: #fff5e6;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+
+  font-family: system-ui, sans-serif;
+  font-size: 0.65em;
+  font-weight: 600;
+  line-height: 1.5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.item__name .item-name-badge > i {
+  font-size: 0.9em;
+}
+
+.item__name .item-name-badge > span {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 /* =========================================================
