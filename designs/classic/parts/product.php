@@ -31,11 +31,11 @@ if(isset($badges) && !empty($badges)) {
         $badge_classes.=' badge-'.$badge;
     }
 }
+$available_class = $available ? '' : 'd-none del';
 ?>
-<?php if ( $available ) : ?>
 
 
-<article class="item <?php echo "$sizes_class $compact_class $var_class"; ?>">
+<article class="item <?php echo "$sizes_class $compact_class $var_class $available_class"; ?>">
 
 
     <!-- Product Content -->
@@ -168,4 +168,3 @@ if(isset($badges) && !empty($badges)) {
         <?php } //if(!$item_compact) ?>
     </div>
 </article>
-<?php endif; ?>
